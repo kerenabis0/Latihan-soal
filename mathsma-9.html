@@ -1,0 +1,2165 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MatematikaSMA — Kurikulum Merdeka</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap');
+
+:root {
+  --bg: #FFFFFF;
+  --bg2: #F7F8FA;
+  --bg3: #EEF0F4;
+  --blue: #1A56DB;
+  --blue2: #1E40AF;
+  --blue-light: #EFF6FF;
+  --blue-border: #BFDBFE;
+  --indigo: #4338CA;
+  --indigo-light: #EEF2FF;
+  --green: #059669;
+  --green-light: #ECFDF5;
+  --red: #DC2626;
+  --red-light: #FEF2F2;
+  --txt: #111827;
+  --txt2: #374151;
+  --txt3: #6B7280;
+  --txt4: #9CA3AF;
+  --border: #E5E7EB;
+  --border2: #D1D5DB;
+  --r: 10px;
+  --shadow: 0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.05);
+  --shadow-md: 0 4px 6px rgba(0,0,0,.06), 0 2px 4px rgba(0,0,0,.04);
+  --shadow-lg: 0 10px 24px rgba(0,0,0,.08);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--txt); min-height:100vh; }
+
+/* ── NAV ── */
+nav {
+  position:sticky; top:0; z-index:100;
+  background:#fff;
+  border-bottom: 1px solid var(--border);
+  padding: 0 24px;
+  display:flex; align-items:center; justify-content:space-between;
+  height: 56px;
+  box-shadow: var(--shadow);
+}
+.logo {
+  font-weight:800; font-size:17px; cursor:pointer;
+  display:flex; align-items:center; gap:8px; color:var(--txt);
+  text-decoration:none;
+}
+.logo-icon {
+  width:30px; height:30px; background:var(--blue); border-radius:7px;
+  display:flex; align-items:center; justify-content:center;
+  color:#fff; font-size:16px; font-weight:800;
+}
+.nav-tabs { display:flex; gap:2px; }
+.ntab {
+  padding:6px 14px; border-radius:7px; font-size:13px; font-weight:600;
+  cursor:pointer; border:none; background:transparent; color:var(--txt3);
+  transition:all .15s; font-family:inherit;
+}
+.ntab:hover { background:var(--bg2); color:var(--txt); }
+.ntab.on { background:var(--blue-light); color:var(--blue); }
+
+.page { display:none; } .page.on { display:block; }
+
+/* ── HOME ── */
+.hero {
+  padding: 64px 24px 48px;
+  max-width:800px; margin:0 auto; text-align:center;
+}
+.hero-tag {
+  display:inline-flex; align-items:center; gap:6px;
+  font-size:11px; font-weight:700; color:var(--blue);
+  background:var(--blue-light); border:1px solid var(--blue-border);
+  padding:4px 12px; border-radius:100px; margin-bottom:20px;
+  letter-spacing:.02em; text-transform:uppercase;
+}
+.hero h1 {
+  font-size: clamp(28px,5vw,50px); font-weight:800;
+  line-height:1.1; color:var(--txt); margin-bottom:14px;
+  letter-spacing:-.02em;
+}
+.hero h1 span { color:var(--blue); }
+.hero p {
+  font-size:16px; color:var(--txt3); max-width:480px;
+  margin:0 auto 28px; line-height:1.65;
+}
+.btn-cta {
+  display:inline-flex; align-items:center; gap:8px;
+  background:var(--blue); color:#fff;
+  font-weight:700; font-size:14px; padding:12px 24px;
+  border-radius:var(--r); cursor:pointer; border:none;
+  font-family:inherit; transition:all .2s;
+  box-shadow: 0 2px 8px rgba(26,86,219,.3);
+}
+.btn-cta:hover { background:var(--blue2); transform:translateY(-1px); box-shadow:0 4px 16px rgba(26,86,219,.35); }
+
+/* Stats bar */
+.statsbar {
+  display:flex; justify-content:center; gap:0;
+  max-width:480px; margin:0 auto 52px;
+  border:1px solid var(--border); border-radius:12px;
+  overflow:hidden; background:#fff;
+  box-shadow: var(--shadow);
+}
+.stat-item {
+  flex:1; padding:16px 20px; text-align:center;
+  border-right:1px solid var(--border);
+}
+.stat-item:last-child { border-right:none; }
+.stat-n { font-size:22px; font-weight:800; color:var(--blue); line-height:1; }
+.stat-l { font-size:11px; color:var(--txt3); margin-top:3px; font-weight:500; }
+
+/* Section header */
+.sec-hdr { max-width:900px; margin:0 auto 20px; padding:0 20px; }
+.sec-hdr h2 { font-size:18px; font-weight:800; color:var(--txt); margin-bottom:3px; }
+.sec-hdr p { font-size:12px; color:var(--txt3); }
+
+/* Home grid */
+.home-grid { max-width:900px; margin:0 auto; padding:0 20px 60px; }
+.kelas-row { margin-bottom:32px; }
+.krow-lbl {
+  font-size:10px; font-weight:700; color:var(--txt4);
+  letter-spacing:.1em; text-transform:uppercase;
+  margin-bottom:10px; display:flex; align-items:center; gap:8px;
+}
+.krow-lbl::after { content:''; flex:1; height:1px; background:var(--border); }
+.krow-cards { display:grid; gap:10px; }
+.krow-cards.one { grid-template-columns:1fr; }
+.krow-cards.two { grid-template-columns:1fr 1fr; }
+
+.mcard {
+  background:#fff; border:1px solid var(--border);
+  border-radius:12px; padding:20px; cursor:pointer;
+  transition:all .18s; position:relative; overflow:hidden;
+  box-shadow: var(--shadow);
+}
+.mcard:hover { border-color:var(--blue); box-shadow:var(--shadow-md); transform:translateY(-2px); }
+.mcard.l:hover { border-color:var(--indigo); }
+
+.mcard-accent {
+  position:absolute; left:0; top:0; bottom:0; width:4px; border-radius:0;
+}
+.mcard.u .mcard-accent { background:var(--blue); }
+.mcard.l .mcard-accent { background:var(--indigo); }
+
+.mc-inner { padding-left:8px; }
+.mc-badge {
+  display:inline-flex; align-items:center; gap:4px;
+  font-size:9px; font-weight:700; padding:2px 8px;
+  border-radius:4px; margin-bottom:8px; letter-spacing:.04em; text-transform:uppercase;
+}
+.mc-badge.u { background:var(--blue-light); color:var(--blue); }
+.mc-badge.l { background:var(--indigo-light); color:var(--indigo); }
+.mc-kelas {
+  font-size:36px; font-weight:800; color:var(--bg3);
+  font-family:'JetBrains Mono',monospace; line-height:1; margin-bottom:4px;
+}
+.mc-name { font-size:14px; font-weight:700; color:var(--txt); margin-bottom:2px; }
+.mc-sub { font-size:11px; color:var(--txt3); margin-bottom:12px; }
+.mc-pills { display:flex; flex-wrap:wrap; gap:4px; }
+.mpill {
+  font-size:9px; font-weight:600; padding:2px 7px;
+  border-radius:4px; background:var(--bg2); color:var(--txt3);
+  border:1px solid var(--border);
+}
+
+/* ── MATERI ── */
+.mhdr {
+  background:#fff; border-bottom:1px solid var(--border);
+  padding:14px 20px; box-shadow:var(--shadow);
+}
+.back {
+  display:inline-flex; align-items:center; gap:4px;
+  font-size:12px; color:var(--txt3); cursor:pointer;
+  background:none; border:none; font-family:inherit;
+  margin-bottom:8px; transition:color .12s; font-weight:500;
+}
+.back:hover { color:var(--blue); }
+.mhdr-top { display:flex; align-items:center; gap:10px; }
+.mhdr-badge {
+  font-size:9px; font-weight:700; padding:3px 9px;
+  border-radius:4px; letter-spacing:.04em; text-transform:uppercase;
+}
+.mhdr-title { font-size:16px; font-weight:800; color:var(--txt); }
+.mhdr-sub { font-size:11px; color:var(--txt3); margin-top:1px; }
+
+.mlayout { display:grid; grid-template-columns:252px 1fr; min-height:calc(100vh - 112px); }
+
+/* Sidebar */
+.sbar {
+  background:var(--bg2); border-right:1px solid var(--border);
+  overflow-y:auto;
+}
+.sbar-sem {
+  font-size:9px; font-weight:700; color:var(--txt4);
+  letter-spacing:.1em; text-transform:uppercase;
+  padding:14px 16px 4px; background:var(--bg2);
+}
+.sbar-bab {
+  font-size:10px; font-weight:600; color:var(--txt3);
+  padding:6px 16px 3px; background:#fff;
+  border-top:1px solid var(--border); border-bottom:1px solid var(--border);
+  margin-top:4px;
+}
+.titem {
+  display:flex; align-items:center; gap:8px;
+  padding:9px 16px; cursor:pointer; font-size:13px; font-weight:500;
+  color:var(--txt2); transition:all .12s;
+  border-left:3px solid transparent;
+}
+.titem:hover { background:#fff; color:var(--blue); }
+.titem.on-u { background:#fff; border-left-color:var(--blue); color:var(--blue); font-weight:700; }
+.titem.on-l { background:#fff; border-left-color:var(--indigo); color:var(--indigo); font-weight:700; }
+.tico { font-size:14px; flex-shrink:0; }
+
+/* Content area */
+.carea { padding:24px 28px; overflow-y:auto; background:var(--bg2); }
+
+.vcard {
+  background:#fff; border:1px solid var(--border);
+  border-radius:12px; overflow:hidden; margin-bottom:16px;
+  box-shadow:var(--shadow);
+}
+.vph {
+  background:linear-gradient(135deg, var(--blue2) 0%, #1e3a8a 100%);
+  aspect-ratio:16/9; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; gap:12px;
+  cursor:pointer; position:relative; overflow:hidden;
+}
+.vph-grid {
+  position:absolute; inset:0; opacity:.06;
+  background-image: linear-gradient(rgba(255,255,255,.5) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255,255,255,.5) 1px, transparent 1px);
+  background-size:32px 32px;
+}
+.vbg {
+  font-family:'JetBrains Mono',monospace; font-size:13px;
+  color:rgba(255,255,255,.15); position:absolute;
+  top:14px; left:16px; line-height:2; pointer-events:none;
+}
+.pbtn {
+  width:52px; height:52px; background:#fff; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-size:20px; color:var(--blue);
+  box-shadow:0 0 0 8px rgba(255,255,255,.15);
+  transition:transform .2s; position:relative; z-index:1;
+}
+.vph:hover .pbtn { transform:scale(1.08); }
+.vlbl { font-size:12px; color:rgba(255,255,255,.7); position:relative; z-index:1; }
+.vmeta { padding:14px 18px; }
+.vtitle { font-size:15px; font-weight:700; color:var(--txt); margin-bottom:4px; }
+.vdesc { font-size:12px; color:var(--txt3); line-height:1.65; }
+
+/* Subbab box */
+.subbab-box {
+  background:#fff; border:1px solid var(--border);
+  border-radius:10px; padding:14px 16px; margin-bottom:14px;
+  box-shadow:var(--shadow);
+}
+.subbab-title {
+  font-size:9px; font-weight:700; color:var(--txt4);
+  letter-spacing:.1em; text-transform:uppercase; margin-bottom:10px;
+}
+.subbab-list { list-style:none; display:grid; gap:6px; }
+.subbab-list li {
+  font-size:12px; color:var(--txt2); display:flex;
+  align-items:flex-start; gap:8px; line-height:1.5;
+}
+.subbab-list li::before {
+  content:''; width:6px; height:6px; border-radius:50%;
+  background:var(--blue); flex-shrink:0; margin-top:5px;
+}
+.subbab-list.l li::before { background:var(--indigo); }
+
+/* Rumus box */
+.rbox {
+  border-radius:10px; padding:14px 18px; margin-bottom:14px;
+}
+.rbox.u { background:var(--blue-light); border:1px solid var(--blue-border); }
+.rbox.l { background:var(--indigo-light); border:1px solid #C7D2FE; }
+.rlbl {
+  font-size:9px; font-weight:700; letter-spacing:.1em;
+  text-transform:uppercase; margin-bottom:8px;
+}
+.rbox.u .rlbl { color:var(--blue); }
+.rbox.l .rlbl { color:var(--indigo); }
+.rcnt { font-family:'JetBrains Mono',monospace; font-size:12px; line-height:2.1; }
+.rbox.u .rcnt { color:#1e40af; }
+.rbox.l .rcnt { color:#3730a3; }
+
+.lat-btn {
+  width:100%; font-weight:700; font-size:13px; padding:12px;
+  border-radius:var(--r); border:none; cursor:pointer;
+  font-family:inherit; transition:all .18s;
+}
+.lat-btn.u { background:var(--blue); color:#fff; }
+.lat-btn.l { background:var(--indigo); color:#fff; }
+.lat-btn:hover { opacity:.9; transform:translateY(-1px); }
+
+/* Empty state */
+.empty { text-align:center; padding:60px 20px; color:var(--txt3); }
+.empty .ei { font-size:40px; margin-bottom:12px; }
+.empty .et { font-size:15px; font-weight:700; color:var(--txt); margin-bottom:5px; }
+
+/* ── LATIHAN ── */
+.lat-wrap { max-width:700px; margin:0 auto; padding:24px 20px; }
+.lat-head { margin-bottom:18px; }
+.lat-head h2 { font-size:20px; font-weight:800; color:var(--txt); margin-bottom:3px; }
+.lat-head p { font-size:12px; color:var(--txt3); }
+
+.msw { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:14px; }
+.msw-btn {
+  padding:5px 12px; border-radius:6px; font-size:12px; font-weight:600;
+  border:1.5px solid var(--border2); background:#fff; color:var(--txt3);
+  cursor:pointer; font-family:inherit; transition:all .12s;
+}
+.msw-btn:hover { border-color:var(--blue); color:var(--blue); }
+.msw-btn.on-u { border-color:var(--blue); background:var(--blue-light); color:var(--blue); }
+.msw-btn.on-l { border-color:var(--indigo); background:var(--indigo-light); color:var(--indigo); }
+
+.tpills { display:flex; flex-wrap:wrap; gap:5px; margin-bottom:16px; }
+.tpill {
+  padding:4px 10px; border-radius:5px; font-size:11px; font-weight:600;
+  border:1.5px solid var(--border); background:#fff; color:var(--txt3);
+  cursor:pointer; font-family:inherit; transition:all .12s;
+}
+.tpill:hover { border-color:var(--blue); color:var(--blue); }
+.tpill.on-u { border-color:var(--blue); background:var(--blue-light); color:var(--blue); }
+.tpill.on-l { border-color:var(--indigo); background:var(--indigo-light); color:var(--indigo); }
+
+/* Progress */
+.pgwrap { background:var(--bg3); border-radius:100px; height:5px; margin-bottom:20px; }
+.pgfill { border-radius:100px; height:100%; transition:width .4s ease; }
+.pgfill.u { background:var(--blue); }
+.pgfill.l { background:var(--indigo); }
+
+/* Soal card */
+.sc {
+  background:#fff; border:1px solid var(--border);
+  border-radius:12px; padding:22px; margin-bottom:12px;
+  box-shadow:var(--shadow);
+}
+.snum { font-size:10px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; margin-bottom:8px; }
+.snum.u { color:var(--blue); } .snum.l { color:var(--indigo); }
+.stxt { font-size:15px; font-weight:600; line-height:1.6; margin-bottom:12px; color:var(--txt); }
+.sform {
+  font-family:'JetBrains Mono',monospace; font-size:12px;
+  background:var(--bg2); border:1px solid var(--border);
+  padding:8px 12px; border-radius:6px; margin-bottom:16px;
+  display:inline-block; color:var(--txt2);
+}
+
+.pgrid { display:grid; gap:7px; }
+.pil {
+  display:flex; align-items:center; gap:10px;
+  padding:11px 14px; background:#fff;
+  border:1.5px solid var(--border); border-radius:8px;
+  cursor:pointer; font-size:13px; text-align:left;
+  font-family:inherit; color:var(--txt2);
+  transition:all .12s; width:100%;
+}
+.pil:hover:not([disabled]) { border-color:var(--blue); background:var(--blue-light); color:var(--blue); }
+.pil.ok { border-color:var(--green); background:var(--green-light); color:#065f46; }
+.pil.ng { border-color:var(--red); background:var(--red-light); color:#7f1d1d; }
+.pk {
+  width:26px; height:26px; border-radius:5px; flex-shrink:0;
+  background:var(--bg3); color:var(--txt3);
+  display:flex; align-items:center; justify-content:center;
+  font-size:11px; font-weight:700; border:1px solid var(--border);
+}
+.pil.ok .pk { background:var(--green); color:#fff; border-color:var(--green); }
+.pil.ng .pk { background:var(--red); color:#fff; border-color:var(--red); }
+
+/* Feedback */
+.fb { display:none; margin-top:12px; padding:12px 14px; border-radius:8px; font-size:13px; line-height:1.6; }
+.fb.on { display:block; }
+.fb.ok { background:var(--green-light); border:1px solid #A7F3D0; color:#065f46; }
+.fb.ng { background:var(--red-light); border:1px solid #FECACA; color:#7f1d1d; }
+.ai-ex { margin-top:10px; padding-top:10px; border-top:1px solid rgba(0,0,0,.08); font-size:12px; line-height:1.7; color:var(--txt2); }
+.ai-lbl { font-size:9px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--blue); margin-bottom:4px; }
+
+/* Loading dots */
+.dots { display:inline-flex; gap:3px; align-items:center; }
+.dots span { width:5px; height:5px; border-radius:50%; background:var(--blue); display:inline-block; animation:bnc 1.2s infinite; }
+.dots span:nth-child(2){animation-delay:.2s}.dots span:nth-child(3){animation-delay:.4s}
+@keyframes bnc{0%,80%,100%{transform:translateY(0);opacity:.3}40%{transform:translateY(-5px);opacity:1}}
+
+/* Next btn */
+.nxtbtn {
+  width:100%; font-weight:700; font-size:14px; padding:12px;
+  border-radius:var(--r); border:none; cursor:pointer;
+  font-family:inherit; transition:all .18s;
+  margin-top:4px; display:none;
+}
+.nxtbtn.on { display:block; }
+.nxtbtn.u { background:var(--blue); color:#fff; }
+.nxtbtn.l { background:var(--indigo); color:#fff; }
+.nxtbtn:hover { opacity:.9; }
+
+/* Score card */
+.scorecard {
+  background:#fff; border:1px solid var(--border);
+  border-radius:14px; padding:36px; text-align:center;
+  display:none; box-shadow:var(--shadow-lg);
+}
+.scorecard.on { display:block; }
+.sc-num { font-size:64px; font-weight:800; line-height:1; letter-spacing:-.03em; }
+.sc-num.u { color:var(--blue); } .sc-num.l { color:var(--indigo); }
+.sc-lbl { font-size:14px; color:var(--txt3); margin-top:4px; margin-bottom:16px; }
+.sc-msg { font-size:18px; font-weight:700; color:var(--txt); margin-bottom:24px; }
+.rtbtn {
+  font-weight:700; font-size:13px; padding:10px 28px;
+  border-radius:var(--r); border:none; cursor:pointer; font-family:inherit;
+}
+.rtbtn.u { background:var(--blue); color:#fff; }
+.rtbtn.l { background:var(--indigo); color:#fff; }
+
+/* ── VIDEO PROGRESS ── */
+.vid-list { display:grid; gap:10px; margin-bottom:16px; }
+.vid-item {
+  background:#fff; border:1.5px solid var(--border);
+  border-radius:10px; overflow:hidden; transition:all .18s;
+}
+.vid-item:hover { border-color:var(--blue); }
+.vid-item.v-active { border-color:var(--blue); box-shadow:0 0 0 3px rgba(26,86,219,.1); }
+.vid-item.v-done { border-color:var(--green); }
+.vid-header {
+  display:flex; align-items:center; gap:10px;
+  padding:10px 14px; cursor:pointer;
+}
+.vid-thumb {
+  width:72px; height:42px; border-radius:6px;
+  background:linear-gradient(135deg,var(--blue2),#1e3a8a);
+  display:flex; align-items:center; justify-content:center;
+  flex-shrink:0;
+}
+.vid-info { flex:1; min-width:0; }
+.vid-title-txt { font-size:13px; font-weight:600; color:var(--txt); margin-bottom:2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.vid-status { font-size:11px; color:var(--txt4); }
+.vid-status.v-done-lbl { color:var(--green); font-weight:600; }
+.vid-status.v-prog-lbl { color:var(--blue); font-weight:600; }
+.vid-pbar { height:3px; background:var(--bg3); }
+.vid-pfill { height:100%; background:var(--blue); transition:width .3s; }
+.vid-pfill.v-done { background:var(--green); }
+.vid-embed { display:none; position:relative; padding-bottom:56.25%; height:0; }
+.vid-embed.v-show { display:block; }
+.vid-embed iframe { position:absolute; top:0; left:0; width:100%; height:100%; border:none; }
+
+@media(max-width:768px){
+  /* NAV — hide tabs, show hamburger */
+  .nav-tabs { display:none !important; }
+  .nav-user { display:none !important; }
+  .nav-hamburger { display:flex !important; }
+  nav { padding:0 14px; }
+  .logo { font-size:15px; }
+  .logo-icon { width:26px; height:26px; font-size:14px; }
+
+  /* HERO */
+  .hero { padding:32px 16px 28px; }
+  .hero h1 { font-size:26px; }
+  .hero p { font-size:14px; }
+  .btn-cta { width:100%; justify-content:center; }
+
+  /* STATS */
+  .statsbar { max-width:100%; margin:0 16px 32px; }
+  .stat-item { padding:12px 8px; }
+  .stat-n { font-size:18px; }
+  .stat-l { font-size:10px; }
+
+  /* HOME GRID */
+  .home-grid { padding:0 16px 40px; }
+  .krow-cards.two { grid-template-columns:1fr; }
+  .sec-hdr { padding:0 16px; }
+
+  /* MATERI */
+  .mhdr { padding:10px 14px; }
+  .mhdr-title { font-size:14px; }
+  .mlayout { grid-template-columns:1fr; min-height:unset; }
+  .sbar { display:none; }
+  .carea { padding:14px; }
+
+  /* LATIHAN */
+  .lat-wrap { padding:16px 14px; }
+  .msw-btn { font-size:11px; padding:4px 9px; }
+  .tpill { font-size:10px; padding:3px 8px; }
+  .stxt { font-size:14px; }
+  .pil { font-size:13px; padding:10px 12px; }
+
+  /* GRADE */
+  .grade-wrap { padding:16px 14px 40px; }
+  .grade-summary { gap:8px; }
+  .gs-num { font-size:22px; }
+  .gs-card { padding:12px 10px; }
+  .gt-row { padding:10px 12px; gap:8px; font-size:12px; }
+
+  /* AUTH */
+  .auth-box { padding:24px 20px; }
+}
+
+/* ── HAMBURGER MENU ── */
+.nav-hamburger {
+  display:none; flex-direction:column; gap:5px;
+  cursor:pointer; padding:6px; border:none; background:none;
+}
+.nav-hamburger span {
+  display:block; width:20px; height:2px;
+  background:var(--txt); border-radius:2px;
+}
+.nav-menu-overlay {
+  display:none; position:fixed; inset:0; z-index:200;
+  background:rgba(0,0,0,.4);
+}
+.nav-menu-overlay.show { display:block; }
+.nav-menu {
+  position:fixed; top:0; right:-280px; width:260px; height:100vh;
+  background:#fff; z-index:201; box-shadow:-4px 0 20px rgba(0,0,0,.12);
+  transition:right .25s ease; display:flex; flex-direction:column;
+}
+.nav-menu.show { right:0; }
+.nav-menu-header {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:16px 18px; border-bottom:1px solid var(--border);
+}
+.nav-menu-user { display:flex; align-items:center; gap:10px; }
+.nav-menu-avatar {
+  width:36px; height:36px; border-radius:50%; background:var(--blue);
+  color:#fff; font-size:15px; font-weight:700;
+  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+}
+.nav-menu-uname { font-size:14px; font-weight:700; color:var(--txt); }
+.nav-menu-role { font-size:11px; color:var(--txt3); margin-top:1px; }
+.nav-menu-close {
+  width:30px; height:30px; border-radius:50%; background:var(--bg2);
+  border:none; cursor:pointer; font-size:16px; color:var(--txt3);
+  display:flex; align-items:center; justify-content:center;
+}
+.nav-menu-items { padding:8px 0; flex:1; }
+.nav-menu-item {
+  display:flex; align-items:center; gap:12px;
+  padding:13px 18px; font-size:14px; font-weight:600; color:var(--txt2);
+  cursor:pointer; border:none; background:none; width:100%;
+  text-align:left; font-family:inherit; border-left:3px solid transparent;
+  transition:all .12s;
+}
+.nav-menu-item:hover { background:var(--bg2); color:var(--blue); }
+.nav-menu-item.nmi-on { color:var(--blue); background:var(--blue-light); border-left-color:var(--blue); }
+.nmi-icon { font-size:18px; width:24px; text-align:center; flex-shrink:0; }
+.nav-menu-div { height:1px; background:var(--border); margin:6px 18px; }
+.nav-menu-logout {
+  display:flex; align-items:center; gap:12px;
+  padding:13px 18px; font-size:14px; font-weight:600; color:var(--red);
+  cursor:pointer; border:none; background:none; width:100%;
+  text-align:left; font-family:inherit; transition:background .12s;
+}
+.nav-menu-logout:hover { background:var(--red-light); }
+
+/* ── AUTH OVERLAY ── */
+.auth-overlay {
+  position:fixed; inset:0; z-index:999;
+  background:rgba(17,24,39,.55); backdrop-filter:blur(4px);
+  display:flex; align-items:center; justify-content:center; padding:20px;
+}
+.auth-box {
+  background:#fff; border-radius:16px; padding:36px 32px;
+  width:100%; max-width:380px; box-shadow:var(--shadow-lg);
+}
+.auth-logo { display:flex; align-items:center; gap:8px; margin-bottom:24px; }
+.auth-logo .logo-icon { width:32px; height:32px; font-size:17px; }
+.auth-logo span { font-size:18px; font-weight:800; color:var(--txt); }
+.auth-tabs { display:flex; background:var(--bg2); border-radius:8px; padding:3px; gap:3px; margin-bottom:24px; }
+.auth-tab {
+  flex:1; padding:7px; border-radius:6px; font-size:13px; font-weight:600;
+  cursor:pointer; border:none; background:transparent; color:var(--txt3);
+  font-family:inherit; transition:all .15s;
+}
+.auth-tab.on { background:#fff; color:var(--blue); box-shadow:var(--shadow); }
+.auth-form { display:grid; gap:12px; }
+.auth-form.hidden { display:none; }
+.field-label { font-size:11px; font-weight:700; color:var(--txt3); margin-bottom:4px; letter-spacing:.04em; text-transform:uppercase; }
+.field-input {
+  width:100%; padding:10px 12px; border:1.5px solid var(--border2);
+  border-radius:8px; font-size:14px; font-family:inherit; color:var(--txt);
+  transition:border .15s; outline:none; background:#fff;
+}
+.field-input:focus { border-color:var(--blue); }
+.auth-btn {
+  width:100%; padding:11px; background:var(--blue); color:#fff;
+  font-weight:700; font-size:14px; border:none; border-radius:8px;
+  cursor:pointer; font-family:inherit; transition:all .18s; margin-top:4px;
+}
+.auth-btn:hover { background:var(--blue2); }
+.auth-err { font-size:12px; color:var(--red); background:var(--red-light); border:1px solid #FECACA; padding:8px 12px; border-radius:6px; display:none; }
+.auth-err.show { display:block; }
+.auth-note { font-size:11px; color:var(--txt4); text-align:center; margin-top:8px; }
+
+/* ── NAV USER ── */
+.nav-user { display:flex; align-items:center; gap:8px; }
+.nav-user-avatar {
+  width:30px; height:30px; border-radius:50%; background:var(--blue);
+  color:#fff; font-size:13px; font-weight:700;
+  display:flex; align-items:center; justify-content:center; cursor:pointer;
+}
+.nav-user-name { font-size:13px; font-weight:600; color:var(--txt); }
+.nav-logout {
+  font-size:11px; color:var(--txt3); cursor:pointer; background:none; border:none;
+  font-family:inherit; padding:4px 8px; border-radius:5px; transition:all .12s;
+}
+.nav-logout:hover { background:var(--bg2); color:var(--red); }
+.nav-login-btn {
+  padding:6px 14px; background:var(--blue); color:#fff;
+  font-size:12px; font-weight:700; border:none; border-radius:7px;
+  cursor:pointer; font-family:inherit; transition:all .15s;
+}
+.nav-login-btn:hover { background:var(--blue2); }
+
+/* ── LOCK OVERLAY on cards ── */
+.lock-badge {
+  position:absolute; top:10px; right:10px;
+  background:rgba(0,0,0,.55); color:#fff;
+  font-size:10px; font-weight:700; padding:2px 8px; border-radius:100px;
+  letter-spacing:.04em;
+}
+
+/* ── GRADE PAGE ── */
+.grade-wrap { max-width:760px; margin:0 auto; padding:28px 20px 60px; }
+.grade-head { margin-bottom:24px; }
+.grade-head h2 { font-size:22px; font-weight:800; color:var(--txt); margin-bottom:4px; }
+.grade-head p { font-size:13px; color:var(--txt3); }
+
+.grade-summary {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:28px;
+}
+.gs-card {
+  background:#fff; border:1px solid var(--border); border-radius:12px;
+  padding:16px 18px; box-shadow:var(--shadow); text-align:center;
+}
+.gs-num { font-size:28px; font-weight:800; color:var(--blue); line-height:1; }
+.gs-lbl { font-size:11px; color:var(--txt3); margin-top:3px; font-weight:500; }
+
+.grade-section-title {
+  font-size:12px; font-weight:700; color:var(--txt4);
+  letter-spacing:.08em; text-transform:uppercase;
+  margin-bottom:10px; margin-top:20px;
+}
+.grade-table {
+  background:#fff; border:1px solid var(--border); border-radius:12px;
+  overflow:hidden; box-shadow:var(--shadow); margin-bottom:8px;
+}
+.gt-row {
+  display:grid; grid-template-columns:1fr auto auto auto;
+  align-items:center; padding:12px 16px;
+  border-bottom:1px solid var(--border); gap:12px;
+}
+.gt-row:last-child { border-bottom:none; }
+.gt-row.header { background:var(--bg2); }
+.gt-topic { font-size:13px; font-weight:500; color:var(--txt2); }
+.gt-topic small { display:block; font-size:10px; color:var(--txt4); font-weight:400; margin-top:1px; }
+.gt-score { font-size:14px; font-weight:700; }
+.gt-score.A { color:#059669; } .gt-score.B { color:#2563EB; }
+.gt-score.C { color:#D97706; } .gt-score.D { color:var(--red); }
+.gt-pct { font-size:12px; color:var(--txt3); min-width:36px; text-align:right; }
+.gt-badge {
+  font-size:9px; font-weight:700; padding:2px 7px; border-radius:100px;
+  min-width:28px; text-align:center;
+}
+.gt-badge.A { background:#ECFDF5; color:#059669; }
+.gt-badge.B { background:#EFF6FF; color:#2563EB; }
+.gt-badge.C { background:#FFFBEB; color:#D97706; }
+.gt-badge.D { background:#FEF2F2; color:var(--red); }
+.gt-header-lbl { font-size:10px; font-weight:700; color:var(--txt4); letter-spacing:.06em; text-transform:uppercase; }
+.grade-empty { text-align:center; padding:40px; color:var(--txt3); }
+.grade-empty .gi { font-size:36px; margin-bottom:10px; }
+
+/* Progress ring mini */
+.mini-ring { width:36px; height:36px; flex-shrink:0; }
+
+.reset-grade-btn {
+  font-size:11px; color:var(--txt4); background:none; border:1px solid var(--border);
+  padding:4px 10px; border-radius:5px; cursor:pointer; font-family:inherit;
+  transition:all .12s; margin-top:4px;
+}
+.reset-grade-btn:hover { border-color:var(--red); color:var(--red); }
+</style>
+</head>
+<body>
+
+<!-- AUTH OVERLAY -->
+<div class="auth-overlay" id="auth-overlay">
+  <div class="auth-box">
+    <div class="auth-logo">
+      <div class="logo-icon">∑</div>
+      <span>MatematikaSMA</span>
+    </div>
+    <div class="auth-tabs">
+      <button class="auth-tab on" onclick="switchAuthTab('login')">Masuk</button>
+      <button class="auth-tab" onclick="switchAuthTab('register')">Daftar</button>
+    </div>
+    <!-- LOGIN -->
+    <div class="auth-form" id="form-login">
+      <div>
+        <div class="field-label">Email atau Username</div>
+        <input class="field-input" id="login-user" type="text" placeholder="Masukkan username">
+      </div>
+      <div>
+        <div class="field-label">Password</div>
+        <input class="field-input" id="login-pass" type="password" placeholder="Masukkan password">
+      </div>
+      <div class="auth-err" id="login-err"></div>
+      <button class="auth-btn" onclick="doLogin()">Masuk →</button>
+      <div class="auth-note">Gunakan email atau username (tanpa @) untuk masuk</div>
+    </div>
+    <!-- REGISTER -->
+    <div class="auth-form hidden" id="form-register">
+      <div>
+        <div class="field-label">Nama Lengkap</div>
+        <input class="field-input" id="reg-name" type="text" placeholder="Nama kamu">
+      </div>
+      <div>
+        <div class="field-label">Username</div>
+        <input class="field-input" id="reg-user" type="text" placeholder="Buat username">
+      </div>
+      <div>
+        <div class="field-label">Password</div>
+        <input class="field-input" id="reg-pass" type="password" placeholder="Min 6 karakter">
+      </div>
+      <div>
+        <div class="field-label">Kelas</div>
+        <select class="field-input" id="reg-kelas">
+          <option value="X">Kelas X</option>
+          <option value="XI">Kelas XI</option>
+          <option value="XII">Kelas XII</option>
+        </select>
+      </div>
+      <div class="auth-err" id="reg-err"></div>
+      <button class="auth-btn" onclick="doRegister()">Daftar Sekarang →</button>
+    </div>
+  </div>
+</div>
+
+<!-- HAMBURGER MENU OVERLAY -->
+<div class="nav-menu-overlay" id="nav-overlay" onclick="closeMenu()"></div>
+<div class="nav-menu" id="nav-menu">
+  <div class="nav-menu-header">
+    <div class="nav-menu-user">
+      <div class="nav-menu-avatar" id="nm-avatar">?</div>
+      <div>
+        <div class="nav-menu-uname" id="nm-name">—</div>
+        <div class="nav-menu-role" id="nm-role">—</div>
+      </div>
+    </div>
+    <button class="nav-menu-close" onclick="closeMenu()">✕</button>
+  </div>
+  <div class="nav-menu-items">
+    <button class="nav-menu-item nmi-on" id="nmi-home" onclick="closeMenu();goPage('home');onTab(0)">
+      <span class="nmi-icon">🏠</span> Beranda
+    </button>
+    <button class="nav-menu-item" id="nmi-materi" onclick="closeMenu();requireLogin(()=>{goPage('materi');onTab(1)})">
+      <span class="nmi-icon">📚</span> Materi
+    </button>
+    <button class="nav-menu-item" id="nmi-latihan" onclick="closeMenu();requireLogin(()=>{goPage('latihan');onTab(2);initLat()})">
+      <span class="nmi-icon">🧮</span> Latihan Soal
+    </button>
+    <button class="nav-menu-item" id="nmi-grade" onclick="closeMenu();requireLogin(()=>{goPage('grade');onTab(3);renderGrade()})">
+      <span class="nmi-icon">📊</span> Nilai Saya
+    </button>
+    <div class="nav-menu-div"></div>
+    <button class="nav-menu-logout" id="nmi-logout" onclick="closeMenu();doLogout()" style="display:none">
+      <span class="nmi-icon">🚪</span> Keluar
+    </button>
+    <button class="nav-menu-item" id="nmi-login" onclick="closeMenu();showAuthOverlay()">
+      <span class="nmi-icon">👤</span> Masuk / Daftar
+    </button>
+  </div>
+</div>
+
+<nav>
+  <div class="logo" onclick="goPage('home');onTab(0)">
+    <div class="logo-icon">∑</div>
+    MatematikaSMA
+  </div>
+  <div class="nav-tabs">
+    <button class="ntab on" onclick="goPage('home');onTab(0)">Beranda</button>
+    <button class="ntab" onclick="requireLogin(()=>{goPage('materi');onTab(1)})">Materi</button>
+    <button class="ntab" onclick="requireLogin(()=>{goPage('latihan');onTab(2);initLat()})">Latihan Soal</button>
+    <button class="ntab" onclick="requireLogin(()=>{goPage('grade');onTab(3);renderGrade()})">Nilai Saya</button>
+  </div>
+  <div class="nav-user" id="nav-user">
+    <button class="nav-login-btn" onclick="showAuthOverlay()">Masuk</button>
+  </div>
+  <button class="nav-hamburger" onclick="openMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HOME -->
+<div id="page-home" class="page on">
+  <div class="hero">
+    <div class="hero-tag">📐 Kurikulum Merdeka — Kemendikdasmen</div>
+    <h1>Belajar Matematika SMA<br><span>Lengkap & Terstruktur</span></h1>
+    <p>Video pembelajaran dan latihan soal dengan penjelasan AI. Materi sesuai bab & subbab buku resmi Kemendikdasmen.</p>
+    <button class="btn-cta" onclick="goPage('materi');onTab(1)">Mulai Belajar →</button>
+  </div>
+
+  <div class="statsbar">
+    <div class="stat-item"><div class="stat-n">5</div><div class="stat-l">Kelompok Mapel</div></div>
+    <div class="stat-item"><div class="stat-n">24</div><div class="stat-l">Bab Resmi</div></div>
+    <div class="stat-item"><div class="stat-n">AI</div><div class="stat-l">Penjelasan Soal</div></div>
+  </div>
+
+  <div class="sec-hdr">
+    <h2>Pilih Mapel & Kelas</h2>
+    <p>Sesuai buku teks Kemendikdasmen — Kurikulum Merdeka 2024</p>
+  </div>
+  <div class="home-grid" id="home-grid"></div>
+</div>
+
+<!-- MATERI -->
+<div id="page-materi" class="page">
+  <div class="mhdr">
+    <button class="back" onclick="goPage('home');onTab(0)">← Kembali ke Beranda</button>
+    <div class="mhdr-top">
+      <span class="mhdr-badge" id="mh-badge"></span>
+      <div>
+        <div class="mhdr-title" id="mh-title"></div>
+        <div class="mhdr-sub" id="mh-sub"></div>
+      </div>
+    </div>
+  </div>
+  <div class="mobile-topic-bar" id="mobile-topic-bar"></div>
+  <div class="mlayout">
+    <div class="sbar" id="sbar"></div>
+    <div class="carea" id="carea">
+      <div class="empty"><div class="ei">📖</div><div class="et">Pilih topik dari sidebar</div><div>Klik bab untuk mulai belajar</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- LATIHAN -->
+<div id="page-latihan" class="page">
+  <div class="lat-wrap">
+    <div class="lat-head">
+      <h2>🧮 Latihan Soal</h2>
+      <p>Jawab soal, AI langsung jelaskan pembahasannya</p>
+    </div>
+    <div class="msw" id="msw"></div>
+    <div class="tpills" id="tpills"></div>
+    <div class="pgwrap"><div class="pgfill" id="pgfill" style="width:0%"></div></div>
+    <div id="soal-area"></div>
+    <div class="scorecard" id="scorecard">
+      <div class="sc-num" id="sc-num">0</div>
+      <div class="sc-lbl">dari <span id="sc-tot">0</span> soal benar</div>
+      <div class="sc-msg" id="sc-msg"></div>
+      <button class="rtbtn" id="rtbtn" onclick="restartLat()">🔄 Ulangi Latihan</button>
+    </div>
+  </div>
+</div>
+
+<!-- GRADE -->
+<div id="page-grade" class="page">
+  <div class="grade-wrap">
+    <div class="grade-head">
+      <h2>📊 Nilai Saya</h2>
+      <p id="grade-sub">Rekap hasil latihan soal semua topik</p>
+    </div>
+    <div class="grade-summary" id="grade-summary"></div>
+    <div id="grade-body"></div>
+  </div>
+</div>
+
+<!-- Firebase via CDN (compat mode — works with onclick, no module needed) -->
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+
+<script>
+// ============================================================
+// FIREBASE INIT (compat mode — fungsi bisa dipanggil dari onclick)
+// ============================================================
+const firebaseConfig = {
+  apiKey: "AIzaSyAN8hZXrwuhiuTzFSL5Yp0DH7e_rYF79iQ",
+  authDomain: "mtk-sma.firebaseapp.com",
+  projectId: "mtk-sma",
+  storageBucket: "mtk-sma.firebasestorage.app",
+  messagingSenderId: "57772036379",
+  appId: "1:57772036379:web:3747d1e61c7b7a894183be"
+};
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+const db   = firebase.firestore();
+
+// ── State ──
+let currentUser     = null;
+let currentUserData = null;
+let lastPage        = 'home';
+let lastMapel       = 'x-u';
+let lastTopic       = null;
+
+// ── Restore session state from localStorage (per-device, intentional) ──
+function saveSession(){
+  localStorage.setItem('mtkSession', JSON.stringify({ lastPage, lastMapel, lastTopic }));
+}
+function loadSession(){
+  try {
+    const s = JSON.parse(localStorage.getItem('mtkSession')||'{}');
+    if(s.lastPage)  lastPage  = s.lastPage;
+    if(s.lastMapel) lastMapel = s.lastMapel;
+    if(s.lastTopic) lastTopic = s.lastTopic;
+  } catch(e){}
+}
+
+// ── Latihan progress — Firebase (cross-device) ──
+function saveLatihanProgress(){
+  if(!latTopic) return;
+  const data = { latMapel, latTopic, soalIdx, score, ts: Date.now() };
+  // Save locally for instant same-device restore
+  localStorage.setItem('mtkLatihan', JSON.stringify(data));
+  // Save to Firebase (debounced 2s)
+  if(!currentUser) return;
+  clearTimeout(saveLatihanProgress._t);
+  saveLatihanProgress._t = setTimeout(async ()=>{
+    try{
+      await db.collection('users').doc(currentUser.uid).update({ latihanProgress: data });
+      if(currentUserData) currentUserData.latihanProgress = data;
+    }catch(e){ console.warn('Latihan save:',e); }
+  }, 2000);
+}
+function loadLatihanProgress(){
+  try{
+    const local = JSON.parse(localStorage.getItem('mtkLatihan')||'null');
+    const cloud = currentUserData?.latihanProgress || null;
+    // Use whichever is more recent
+    if(local && cloud) return local.ts >= (cloud.ts||0) ? local : cloud;
+    return local || cloud || null;
+  }catch(e){ return currentUserData?.latihanProgress || null; }
+}
+function clearLatihanProgress(){
+  localStorage.removeItem('mtkLatihan');
+  if(!currentUser) return;
+  try{
+    db.collection('users').doc(currentUser.uid).update({ latihanProgress: null });
+    if(currentUserData) currentUserData.latihanProgress = null;
+  }catch(e){}
+}
+
+// ============================================================
+// AUTH
+// ============================================================
+function showAuthOverlay(){ document.getElementById('auth-overlay').style.display='flex'; }
+function hideAuthOverlay(){ document.getElementById('auth-overlay').style.display='none'; }
+
+function switchAuthTab(tab){
+  document.querySelectorAll('.auth-tab').forEach((t,i)=>
+    t.classList.toggle('on',(tab==='login'&&i===0)||(tab==='register'&&i===1)));
+  document.getElementById('form-login').classList.toggle('hidden', tab!=='login');
+  document.getElementById('form-register').classList.toggle('hidden', tab!=='register');
+}
+
+function showErr(el, msg){
+  el.textContent=msg; el.classList.add('show');
+  setTimeout(()=>el.classList.remove('show'),4000);
+}
+
+async function doLogin(){
+  const u   = document.getElementById('login-user').value.trim();
+  const p   = document.getElementById('login-pass').value;
+  const err = document.getElementById('login-err');
+  if(!u||!p){ showErr(err,'Isi email/username dan password!'); return; }
+  const email = u.includes('@') ? u : u+'@mtksma.app';
+  const btn = document.querySelector('#form-login .auth-btn');
+  btn.textContent='Memproses...'; btn.disabled=true;
+  try {
+    await auth.signInWithEmailAndPassword(email, p);
+    btn.textContent='Masuk →'; btn.disabled=false;
+  } catch(e){
+    btn.textContent='Masuk →'; btn.disabled=false;
+    const msg = (e.code==='auth/invalid-credential'||e.code==='auth/user-not-found'||e.code==='auth/wrong-password')
+      ? 'Email/username atau password salah.'
+      : e.code==='auth/too-many-requests' ? 'Terlalu banyak percobaan. Coba lagi nanti.'
+      : 'Gagal: '+e.message;
+    showErr(err, msg);
+  }
+}
+
+async function doRegister(){
+  const name  = document.getElementById('reg-name').value.trim();
+  const u     = document.getElementById('reg-user').value.trim();
+  const p     = document.getElementById('reg-pass').value;
+  const kelas = document.getElementById('reg-kelas').value;
+  const err   = document.getElementById('reg-err');
+  if(!name||!u||!p){ showErr(err,'Semua field harus diisi!'); return; }
+  if(p.length<6){ showErr(err,'Password minimal 6 karakter.'); return; }
+  const email = u.includes('@') ? u : u+'@mtksma.app';
+  const btn = document.querySelector('#form-register .auth-btn');
+  btn.textContent='Mendaftarkan...'; btn.disabled=true;
+  try {
+    const cred = await auth.createUserWithEmailAndPassword(email, p);
+    await db.collection('users').doc(cred.user.uid).set({
+      name, username:u, kelas, email, grades:{}, videoProgress:{}, latihanProgress:null, createdAt: new Date().toISOString()
+    });
+    btn.textContent='Daftar Sekarang →'; btn.disabled=false;
+  } catch(e){
+    btn.textContent='Daftar Sekarang →'; btn.disabled=false;
+    const msg = e.code==='auth/email-already-in-use' ? 'Username sudah dipakai.'
+      : e.code==='auth/weak-password' ? 'Password terlalu lemah.'
+      : 'Gagal: '+e.message;
+    showErr(err, msg);
+  }
+}
+
+async function doLogout(){
+  await auth.signOut();
+  currentUser=null; currentUserData=null;
+  lastPage='home'; lastMapel='x-u'; lastTopic=null;
+  saveSession();
+  updateNavUser();
+  goPage('home'); onTab(0);
+}
+
+// Auth state listener — auto login on refresh
+auth.onAuthStateChanged(async (user) => {
+  if(user){
+    currentUser = user;
+    try {
+      const snap = await db.collection('users').doc(user.uid).get();
+      currentUserData = snap.exists ? snap.data() : { name: user.email.split('@')[0], kelas:'X', grades:{}, videoProgress:{} };
+      // Ensure videoProgress exists in local data
+      if(!currentUserData.videoProgress) currentUserData.videoProgress = {};
+    } catch(e){
+      currentUserData = { name: user.email.split('@')[0], kelas:'X', grades:{} };
+    }
+    hideAuthOverlay();
+    updateNavUser();
+    buildHome();
+
+    // Restore last page & progress
+    loadSession();
+    if(lastPage === 'materi'){
+      loadMapel(lastMapel);
+      goPage('materi'); onTab(1);
+    } else if(lastPage === 'latihan'){
+      goPage('latihan'); onTab(2);
+      const prog = loadLatihanProgress();
+      if(prog && prog.latTopic && SOAL[prog.latTopic]){
+        latMapel = prog.latMapel;
+        latTopic = prog.latTopic;
+        soalList = [...SOAL[prog.latTopic]];
+        score    = prog.score || 0;
+        soalIdx  = prog.soalIdx || 0;
+        buildMsw(); buildTpills();
+        document.getElementById('pgfill').className='pgfill '+(DB[latMapel].tipe==='u'?'u':'l');
+        document.getElementById('pgfill').style.width=(soalIdx/soalList.length*100)+'%';
+        document.getElementById('scorecard').classList.remove('on');
+        if(soalIdx < soalList.length) renderSoal();
+        else showScore();
+      } else {
+        initLat(lastMapel, lastTopic);
+      }
+    } else if(lastPage === 'grade'){
+      goPage('grade'); onTab(3); renderGrade();
+    } else {
+      goPage('home'); onTab(0);
+    }
+  } else {
+    currentUser = null; currentUserData = null;
+    updateNavUser();
+    buildHome();
+    goPage('home'); onTab(0);
+    showAuthOverlay();
+  }
+});
+
+function openMenu(){ document.getElementById('nav-menu').classList.add('show'); document.getElementById('nav-overlay').classList.add('show'); }
+function closeMenu(){ document.getElementById('nav-menu').classList.remove('show'); document.getElementById('nav-overlay').classList.remove('show'); }
+
+function updateNavUser(){
+  const el = document.getElementById('nav-user');
+  // Desktop nav
+  if(currentUser && currentUserData){
+    const init = (currentUserData.name||'U').charAt(0).toUpperCase();
+    el.innerHTML=`
+      <div class="nav-user-avatar" title="${currentUserData.name}">${init}</div>
+      <span class="nav-user-name">${currentUserData.name}</span>
+      <button class="nav-logout" onclick="doLogout()">Keluar</button>`;
+    // Hamburger menu
+    document.getElementById('nm-avatar').textContent=init;
+    document.getElementById('nm-name').textContent=currentUserData.name;
+    document.getElementById('nm-role').textContent=`Kelas ${currentUserData.kelas}`;
+    document.getElementById('nmi-logout').style.display='flex';
+    document.getElementById('nmi-login').style.display='none';
+  } else {
+    el.innerHTML=`<button class="nav-login-btn" onclick="showAuthOverlay()">Masuk</button>`;
+    document.getElementById('nm-avatar').textContent='?';
+    document.getElementById('nm-name').textContent='Belum login';
+    document.getElementById('nm-role').textContent='';
+    document.getElementById('nmi-logout').style.display='none';
+    document.getElementById('nmi-login').style.display='flex';
+  }
+}
+
+// Sync active menu item
+function syncMenuActive(pageId){
+  document.querySelectorAll('.nav-menu-item').forEach(i=>i.classList.remove('nmi-on'));
+  const map={'home':'nmi-home','materi':'nmi-materi','latihan':'nmi-latihan','grade':'nmi-grade'};
+  const el=document.getElementById(map[pageId]); if(el) el.classList.add('nmi-on');
+}
+
+function requireLogin(fn){
+  if(currentUser){ fn(); return; }
+  showAuthOverlay();
+}
+
+// ============================================================
+// GRADE SYSTEM
+// ============================================================
+async function saveGrade(topicId, correct, total){
+  if(!currentUser) return;
+  const pct    = Math.round(correct/total*100);
+  const letter = pct>=90?'A':pct>=75?'B':pct>=60?'C':'D';
+  const record = { correct, total, pct, letter, date: new Date().toLocaleDateString('id-ID'), ts: Date.now() };
+  try {
+    const update = {}; update[`grades.${topicId}`] = record;
+    await db.collection('users').doc(currentUser.uid).update(update);
+    if(currentUserData){ if(!currentUserData.grades) currentUserData.grades={}; currentUserData.grades[topicId]=record; }
+  } catch(e){ console.warn('saveGrade error:',e); }
+}
+
+async function getAllGrades(){
+  if(!currentUser) return {};
+  try {
+    const snap = await db.collection('users').doc(currentUser.uid).get();
+    return snap.exists ? (snap.data().grades||{}) : {};
+  } catch(e){ return currentUserData?.grades||{}; }
+}
+
+async function renderGrade(){
+  if(!currentUser||!currentUserData) return;
+  document.getElementById('grade-sub').textContent=`Halo, ${currentUserData.name}! Memuat nilai...`;
+  document.getElementById('grade-summary').innerHTML=`<div style="grid-column:1/-1;text-align:center;padding:20px;color:var(--txt3)">Memuat dari server...</div>`;
+  document.getElementById('grade-body').innerHTML='';
+  const grades = await getAllGrades();
+  const keys   = Object.keys(grades);
+  document.getElementById('grade-sub').textContent=`Halo, ${currentUserData.name}! Rekap nilai latihan soal kamu (Kelas ${currentUserData.kelas}).`;
+  const total = keys.length;
+  const avg   = total?Math.round(keys.reduce((s,k)=>s+grades[k].pct,0)/total):0;
+  const best  = total?Math.max(...keys.map(k=>grades[k].pct)):0;
+  document.getElementById('grade-summary').innerHTML=`
+    <div class="gs-card"><div class="gs-num">${total}</div><div class="gs-lbl">Topik Dikerjakan</div></div>
+    <div class="gs-card"><div class="gs-num" style="color:var(--green)">${avg}%</div><div class="gs-lbl">Rata-rata Nilai</div></div>
+    <div class="gs-card"><div class="gs-num" style="color:#D97706">${best}%</div><div class="gs-lbl">Nilai Tertinggi</div></div>`;
+  if(!total){
+    document.getElementById('grade-body').innerHTML=`<div class="grade-empty"><div class="gi">📝</div><div style="font-weight:700;color:var(--txt);font-size:15px;margin-bottom:6px">Belum ada nilai</div><div>Kerjakan latihan soal dulu!</div></div>`;
+    return;
+  }
+  let html='';
+  Object.values(DB).forEach(m=>{
+    const tg=m.topics.filter(t=>grades[t.id]); if(!tg.length)return;
+    html+=`<div class="grade-section-title">${m.name} — Kelas ${m.kelas}</div><div class="grade-table">
+      <div class="gt-row header"><div class="gt-header-lbl">Topik</div><div class="gt-header-lbl" style="text-align:center">Skor</div><div class="gt-header-lbl" style="text-align:right">%</div><div class="gt-header-lbl" style="text-align:center">Grade</div></div>`;
+    tg.forEach(t=>{
+      const g=grades[t.id];
+      html+=`<div class="gt-row"><div class="gt-topic">${t.icon} ${t.name}<small>${t.bab} · ${g.date}</small></div><div class="gt-score ${g.letter}" style="text-align:center">${g.correct}/${g.total}</div><div class="gt-pct">${g.pct}%</div><div style="text-align:center"><span class="gt-badge ${g.letter}">${g.letter}</span></div></div>`;
+    });
+    html+=`</div>`;
+  });
+  html+=`<div style="margin-top:16px"><button class="reset-grade-btn" onclick="resetGrades()">🗑 Hapus Semua Nilai</button></div>`;
+  document.getElementById('grade-body').innerHTML=html;
+}
+
+async function resetGrades(){
+  if(!confirm('Yakin hapus semua nilai?')) return;
+  if(!currentUser) return;
+  try{ await db.collection('users').doc(currentUser.uid).update({grades:{}}); if(currentUserData) currentUserData.grades={}; renderGrade(); }
+  catch(e){ alert('Gagal: '+e.message); }
+}
+
+function addLockBadge(card){
+  const b=document.createElement('div');
+  b.className='lock-badge'; b.textContent='🔒 Login';
+  card.style.position='relative'; card.appendChild(b);
+}
+
+// ============================================================
+
+const DB = {
+
+/* ══════════════════════════════════════════
+   KELAS X — MATEMATIKA (1 mapel, 8 Bab)
+   Sem 1: Bab 1-4  |  Sem 2: Bab 5-8
+   ══════════════════════════════════════════ */
+'x-u':{id:'x-u',kelas:'X',tipe:'u',fase:'Fase E',
+  name:'Matematika',ns:'MTK',
+  pills:['Eksponen & Logaritma','Barisan & Deret','Vektor','Trigonometri','Sistem Persamaan','Fungsi Kuadrat','Statistika','Peluang'],
+  topics:[
+    {id:'x1',sem:1,bab:'Bab 1',icon:'🔢',name:'Eksponen dan Logaritma',
+     videos:[
+       {id:'x1v1', title:'Bagian 1 — Definisi & Sifat Eksponen', yt:'lScgN1qnirY'},
+       {id:'x1v2', title:'Bagian 2 — Sifat Eksponen Lanjutan & Fungsi Eksponen', yt:'fj4B6etl8zs'},
+       {id:'x1v3', title:'Bagian 3 — Bentuk Akar & Merasionalkan', yt:'GoYk9NBdkn4'},
+       {id:'x1v4', title:'Bagian 4 — Logaritma', yt:'zNzuGfXldU0'},
+     ],
+     sub:[
+       'A. Eksponen: definisi bilangan berpangkat, sifat-sifat eksponen (aⁿ×aᵐ=aⁿ⁺ᵐ, aⁿ÷aᵐ=aⁿ⁻ᵐ, (aⁿ)ᵐ=aⁿˣᵐ, a⁰=1, a⁻ⁿ=1/aⁿ, aⁿ/ᵐ=ᵐ√aⁿ), fungsi eksponen f(x)=aˣ',
+       'B. Bentuk Akar: hubungan bilangan berpangkat dan bentuk akar, operasi bentuk akar (penjumlahan, pengurangan, perkalian), merasionalkan penyebut bentuk akar (bentuk a/√b dan a/(√b±√c) dengan bentuk sekawan)',
+       'C. Logaritma: definisi ᵃlog b=c ↔ aᶜ=b, logaritma umum (basis 10), sifat-sifat logaritma (perkalian, pembagian, perpangkatan, pergantian basis, sifat ᵃlog b × ᵇlog c = ᵃlog c), penerapan logaritma dalam masalah kontekstual (pertumbuhan bakteri, tabungan bank)'
+     ],
+     rumus:'A. Eksponen:\naⁿ×aᵐ=aⁿ⁺ᵐ  |  aⁿ÷aᵐ=aⁿ⁻ᵐ  |  (aⁿ)ᵐ=aⁿˣᵐ\na⁰=1  |  a⁻ⁿ=1/aⁿ  |  aⁿ/ᵐ=ᵐ√(aⁿ)\nf(x)=aˣ: pertumbuhan (a>1), peluruhan (0<a<1)\n\nB. Bentuk Akar:\nMerasionalkan a/√b: kalikan √b/√b\nMerasionalkan a/(√b+√c): kalikan (√b−√c)/(√b−√c)\nMerasionalkan a/(√b−√c): kalikan (√b+√c)/(√b+√c)\n\nC. Logaritma:\nᵃlog b=c ↔ aᶜ=b\nᵃlog 1=0  |  ᵃlog a=1  |  ᵃlog aⁿ=n\nᵃlog(b×c)=ᵃlog b+ᵃlog c\nᵃlog(b/c)=ᵃlog b−ᵃlog c\nᵃlog bⁿ=n×ᵃlog b\nᵃlog b=ᶜlog b/ᶜlog a (pergantian basis)\nᵃlog b×ᵇlog c=ᵃlog c',
+     desc:'Bab 1 Edisi Revisi Kemendikdasmen mencakup tiga subbab: (A) Eksponen & Fungsi Eksponen — sifat pangkat dan grafik pertumbuhan/peluruhan, (B) Bentuk Akar — operasi dan merasionalkan penyebut, (C) Logaritma — definisi, sifat-sifat, dan penerapan kontekstual.',
+     subLatihan:[
+       {id:'x1-eksponen', label:'📈 Latihan Eksponen'},
+       {id:'x1-fungsieks', label:'📉 Latihan Fungsi Eksponen'},
+       {id:'x1-akar', label:'√ Latihan Bentuk Akar'},
+       {id:'x1-logaritma', label:'🔣 Latihan Logaritma'},
+     ]},
+    {id:'x2',sem:1,bab:'Bab 2',icon:'📊',name:'Barisan dan Deret',
+     videos:[
+       {id:'x2v1', title:'Barisan & Deret Aritmatika — Bagian 1', yt:'sBcdhSudHw8'},
+       {id:'x2v2', title:'Barisan & Deret Aritmatika — Bagian 2', yt:'SNg2F_hcoEc'},
+       {id:'x2v3', title:'Barisan & Deret Geometri — Bagian 1', yt:'asyPBLi5LW0'},
+       {id:'x2v4', title:'Barisan & Deret Geometri — Bagian 2', yt:'PoUUNz6StSw'},
+       {id:'x2v5', title:'Barisan & Deret Geometri — Bagian 3', yt:'wD2JbRDRWWg'},
+     ],
+     sub:['A. Barisan dan Deret Aritmetika (beda tetap, Uₙ, Sₙ)','B. Barisan dan Deret Geometri (rasio tetap, Uₙ, S₢ tak hingga)','C. Aplikasi: Bunga Tunggal, Bunga Majemuk, Anuitas'],
+     rumus:'Aritmetika:\nUₙ = a+(n−1)b\nSₙ = n/2·[2a+(n−1)b]\n\nGeometri:\nUₙ = a·rⁿ⁻¹\nSₙ = a(rⁿ−1)/(r−1)\nS∞ = a/(1−r)  jika |r|<1\n\nBunga Majemuk: Mₙ = M₀(1+i)ⁿ\nBunga Tunggal: Mₙ = M₀(1+n·i)\nAnuitas: A = M₀·i(1+i)ⁿ/[(1+i)ⁿ−1]',
+     desc:'Barisan aritmetika (beda tetap) dipakai untuk bunga tunggal. Barisan geometri (rasio tetap) dipakai untuk bunga majemuk. Anuitas = cicilan tetap periodik (KPR, kredit kendaraan).',
+     subLatihan:[
+       {id:'x2-barisan-aritmatika', label:'📐 Barisan Aritmatika'},
+       {id:'x2-deret-aritmatika',   label:'➕ Deret Aritmatika'},
+       {id:'x2-barisan-geometri',   label:'📈 Barisan Geometri'},
+       {id:'x2-deret-geometri',     label:'✖️ Deret Geometri'},
+     ]},
+    {id:'x3',sem:1,bab:'Bab 3',icon:'➡️',name:'Vektor dan Operasinya',
+     videos:[{id:'x3v1',title:'Vektor dan Operasinya — Lengkap',yt:'dqxb3ntwnTQ'}],
+     sub:[
+       'A. Terminologi, Notasi dan Jenis Vektor: pengertian vektor (ruas garis berarah), notasi penulisan vektor (tebal/huruf dengan panah), besar vektor/panjang vektor, vektor nol, vektor satuan, vektor posisi OQ=xi+yj, vektor ekuivalen (vektor yang sama), vektor berkebalikan',
+       'B. Vektor dan Sistem Koordinat: vektor berdimensi dua (R²) — komponen horizontal (i) dan vertikal (j), vektor kolom, vektor berdimensi tiga (R³) — komponen i, j, k',
+       'C. Operasi Vektor: penjumlahan vektor (metode segitiga, jajar genjang, poligon, komponen), pengurangan vektor, perkalian skalar dengan vektor, panjang/besar vektor |a|, perkalian titik (dot product) a·b, sudut antar dua vektor, proyeksi vektor'
+     ],
+     rumus:'Vektor 2D: a = (x₁, y₁) = x₁i + y₁j\n|a| = √(x₁² + y₁²)\nVektor 3D: a = (x, y, z),  |a| = √(x²+y²+z²)\n\nOperasi:\na + b = (x₁+x₂, y₁+y₂)\na − b = (x₁−x₂, y₁−y₂)\nk · a = (kx₁, ky₁)\n\nDot product:\na · b = x₁x₂ + y₁y₂\ncos θ = (a·b) / (|a|·|b|)\nProyeksi a ke b = (a·b / |b|²) · b',
+     desc:'Bab 3 Edisi Revisi Kemendikdasmen. Vektor adalah besaran berarah. Tiga subbab: (A) terminologi & jenis vektor, (B) representasi di koordinat Kartesius 2D dan 3D, (C) operasi vektor lengkap termasuk dot product dan sudut antar vektor. Aplikasi: fisika, navigasi, grafis.'},
+    {id:'x4',sem:1,bab:'Bab 4',icon:'📐',name:'Trigonometri',
+     videos:[{id:'x4v1',title:'Trigonometri — Perbandingan & Penerapan',yt:'bS1MwEeEsf4'}],
+     sub:[
+       'A. Perbandingan Trigonometri: pengenalan tan θ melalui konteks bayangan (perbandingan tinggi terhadap panjang bayangan), definisi sin θ dan cos θ pada segitiga siku-siku, perbandingan trigonometri sudut istimewa (0°, 30°, 45°, 60°, 90°), tabel nilai trigonometri, identitas dasar sin²θ+cos²θ=1',
+       'B. Pemanfaatan Perbandingan Trigonometri: sudut elevasi dan sudut depresi, menentukan tinggi objek (gedung, piramida, gunung) dengan tan/sin, aturan sinus untuk segitiga sembarang (a/sinA=b/sinB=c/sinC), aturan kosinus (a²=b²+c²−2bc·cosA), luas segitiga = ½·a·b·sinC, aplikasi pada masalah navigasi dan konstruksi'
+     ],
+     rumus:'tan θ=depan/samping (pendekatan awal buku resmi)\nsin θ=depan/miring\ncos θ=samping/miring\nsin²θ+cos²θ=1\n\nSudut istimewa:\n0°: sin=0, cos=1, tan=0\n30°: sin=½, cos=½√3, tan=⅓√3\n45°: sin=½√2, cos=½√2, tan=1\n60°: sin=½√3, cos=½, tan=√3\n90°: sin=1, cos=0\n\nAturan sinus: a/sinA=b/sinB=c/sinC\nAturan kosinus: a²=b²+c²−2bc·cosA\nLuas=½·a·b·sinC',
+     desc:'Buku resmi Kelas X memperkenalkan tan θ terlebih dahulu melalui konteks bayangan, baru sin dan cos. Bab 4 mencakup: perbandingan trigonometri, sudut istimewa, penerapan pada masalah nyata (tinggi gedung, piramida), aturan sinus & kosinus untuk segitiga sembarang.'},
+    {id:'x5',sem:2,bab:'Bab 5',icon:'⚖️',name:'Sistem Persamaan dan Pertidaksamaan Linear',
+     videos:[{id:'x5v1',title:'Sistem Persamaan & Pertidaksamaan Linear',yt:'xS5jWDOQgJM'}],
+     sub:['A. Sistem Persamaan Linear (SPLDV: 2 var, SPLTV: 3 var — eliminasi, substitusi, determinan)','B. Sistem Pertidaksamaan Linear (SPtLDV — daerah penyelesaian, titik pojok, nilai optimum)'],
+     rumus:'SPLTV: ax+by+cz=d (3 persamaan 3 variabel)\nMetode Cramer: x=Dₓ/D, y=D_y/D, z=D_z/D\n\nSPtLDV:\nDaerah = irisan semua pertidaksamaan\nNilai optimum z=ax+by\ndihitung di setiap titik pojok',
+     desc:'SPLTV diselesaikan dengan eliminasi bertahap atau aturan Cramer. SPtLDV membentuk daerah di koordinat kartesius — dasar Program Linear untuk optimasi bisnis.'},
+    {id:'x6',sem:2,bab:'Bab 6',icon:'🔁',name:'Fungsi Kuadrat',
+     videos:[{id:'x6v1',title:'Fungsi Kuadrat — Karakteristik & Grafik',yt:'o3pUfBa8Olo'}],
+     sub:['A. Karakteristik Fungsi Kuadrat (parabola, titik puncak, sumbu simetri, diskriminan)','B. Mengonstruksi Fungsi Kuadrat (dari titik puncak, dari akar-akar, dari tiga titik)','C. Menyelesaikan Masalah dengan Fungsi Kuadrat (optimasi, persamaan gerak)'],
+     rumus:'f(x)=ax²+bx+c\nAkar: x=(−b±√D)/2a\nD=b²−4ac\nD>0: 2 akar real berbeda\nD=0: 2 akar real sama\nD<0: tidak ada akar real\nPuncak: (−b/2a, −D/4a)\nSumbu simetri: x=−b/2a',
+     desc:'Fungsi kuadrat menghasilkan grafik parabola. Digunakan untuk memodelkan gerak proyektil, optimasi keuntungan/luas maksimum, dan analisis titik impas bisnis.'},
+    {id:'x7',sem:2,bab:'Bab 7',icon:'📈',name:'Statistika',
+     videos:[{id:'x7v1',title:'Statistika — Ukuran Pemusatan & Penyebaran',yt:'F3P-5AcFqpA'}],
+     sub:[
+       'A. Histogram: membuat histogram dari data, membaca histogram, poligon frekuensi, ogive (frekuensi kumulatif)',
+       'B. Frekuensi Relatif: definisi frekuensi relatif = fᵢ/n × 100%, histogram frekuensi relatif, interpretasi dan perbandingan data',
+       'C. Ukuran Pemusatan: mean/rata-rata (data tunggal dan berkelompok), median (nilai tengah data terurut), modus (nilai yang paling sering muncul)',
+       'D. Ukuran Penempatan: kuartil bawah (Q1), kuartil tengah/median (Q2), kuartil atas (Q3), desil, persentil, box plot (diagram kotak-garis) dan interpretasinya',
+       'E. Ukuran Penyebaran: jangkauan/range, jangkauan interkuartil (IQR=Q3−Q1), simpangan rata-rata, variansi (S²), simpangan baku (S)'
+     ],
+     rumus:'A. Histogram: frek. relatif = fᵢ/n × 100%\n\nC. Ukuran Pemusatan:\nx̄ = Σxᵢ/n  (mean data tunggal)\nx̄ = Σ(fᵢxᵢ)/Σfᵢ  (data berkelompok)\n\nD. Ukuran Penempatan:\nQ1, Q2 (median), Q3\nPersentil ke-p: posisi = p/100 × n\n\nE. Ukuran Penyebaran:\nJangkauan = nilai maks − nilai min\nIQR = Q3 − Q1\nS² = Σ(xᵢ−x̄)²/n  (variansi)\nS = √S²  (simpangan baku)',
+     desc:'Bab 7 Edisi Revisi Kemendikdasmen. Lima subbab: (A) Histogram & ogive, (B) Frekuensi Relatif, (C) Ukuran Pemusatan — mean/median/modus, (D) Ukuran Penempatan — kuartil/persentil/box plot, (E) Ukuran Penyebaran — IQR/variansi/simpangan baku.'},
+    {id:'x8',sem:2,bab:'Bab 8',icon:'🎲',name:'Peluang',
+     videos:[{id:'x8v1',title:'Peluang Kejadian Majemuk',yt:'2OyRd1AJmE0'}],
+     sub:[
+       'A. Distribusi Peluang: percobaan, ruang sampel (S), kejadian (E), definisi peluang P(E)=n(E)/n(S), peluang komplemen P(Eᶜ)=1−P(E), frekuensi harapan = n×P(E), distribusi peluang suatu percobaan',
+       'B. Aturan Penjumlahan: dua kejadian saling lepas (mutually exclusive) P(A∪B)=P(A)+P(B), dua kejadian tidak saling lepas P(A∪B)=P(A)+P(B)−P(A∩B), penerapan dalam masalah kontekstual'
+     ],
+     rumus:'P(E) = n(E)/n(S)\nP(Eᶜ) = 1 − P(E)  (komplemen)\nFrekuensi harapan = n × P(E)\n0 ≤ P(E) ≤ 1\n\nAturan Penjumlahan:\nSaling lepas: P(A∪B)=P(A)+P(B)\nTidak saling lepas:\nP(A∪B)=P(A)+P(B)−P(A∩B)',
+     desc:'Bab 8 Edisi Revisi Kemendikdasmen hanya mencakup dua subbab: (A) Distribusi Peluang — definisi, ruang sampel, frekuensi harapan, dan (B) Aturan Penjumlahan — kejadian saling lepas dan tidak saling lepas. Sesuai halaman 217-240 buku siswa edisi revisi.'},
+  ]
+},
+
+/* ══════════════════════════════════════════
+   KELAS XI — MATEMATIKA UMUM (3 Bab)
+   Sem 1: Bab 1-2  |  Sem 2: Bab 3
+   ══════════════════════════════════════════ */
+'xi-u':{id:'xi-u',kelas:'XI',tipe:'u',fase:'Fase F',
+  name:'Matematika (Umum)',ns:'MTK Umum',
+  pills:['Komposisi Fungsi & Invers','Lingkaran','Statistika Regresi'],
+  topics:[
+    {id:'xi-u1',sem:1,bab:'Bab 1',icon:'🔄',name:'Komposisi Fungsi dan Fungsi Invers',
+     sub:[
+       'A. Fungsi: pengertian fungsi (relasi yang menghubungkan satu anggota ke tepat satu anggota lain), bukan fungsi, tes garis vertikal pada grafik, domain (himpunan masukan), kodomain (himpunan hasil yang mungkin), range (himpunan hasil yang sesungguhnya)',
+       'B. Komposisi Fungsi: penjumlahan fungsi (f+g)(x), pengurangan fungsi (f-g)(x), perkalian fungsi (f·g)(x), pembagian fungsi (f/g)(x) beserta domainnya, komposisi fungsi (f∘g)(x)=f(g(x)) — syarat range g harus himpunan bagian dari domain f, sifat komposisi tidak komutatif namun asosiatif, komposisi dua fungsi injektif/surjektif',
+       'C. Fungsi Invers: fungsi injektif (satu-satu — tiap output berasal dari paling banyak satu input), fungsi surjektif (onto — semua kodomain tercakup oleh range), fungsi bijektif (injektif sekaligus surjektif), syarat punya invers: hanya fungsi bijektif, cara menentukan f⁻¹(x) dengan membalik persamaan, invers dari komposisi: (g∘f)⁻¹=f⁻¹∘g⁻¹'
+     ],
+     rumus:'A. Fungsi: f: A→B, domain A, kodomain B, range f(A)⊆B\n\nB. Operasi Fungsi (domain Df∩Dg):\n(f+g)(x)=f(x)+g(x)\n(f-g)(x)=f(x)-g(x)\n(f·g)(x)=f(x)·g(x)\n(f/g)(x)=f(x)/g(x), g(x)≠0\nKomposisi: (f∘g)(x)=f(g(x))\nSyarat: range g ⊆ domain f\nTidak komutatif: f∘g ≠ g∘f (umumnya)\nAsosiatif: f∘(g∘h)=(f∘g)∘h\n\nC. Fungsi Invers:\nHanya fungsi bijektif yang punya invers\ny=f(x) → x=f⁻¹(y)\n(g∘f)⁻¹=f⁻¹∘g⁻¹',
+     desc:'Bab 1 Matematika SMA/SMK Kelas XI (Dicky Susanto dkk, Pusat Perbukuan 2021, ISBN 978-602-244-789-5). Tiga subbab utama: fungsi & domain/range, komposisi & operasi fungsi, fungsi invers dengan syarat bijektif. Konteks nyata: SPBU, diskon ganda, kecepatan pelari.'},
+    {id:'xi-u2',sem:1,bab:'Bab 2',icon:'⭕',name:'Lingkaran',
+     sub:[
+       'A. Lingkaran dan Busur Lingkaran: definisi lingkaran (tempat kedudukan titik berjarak sama dari pusat), jari-jari, diameter, busur minor & mayor, sudut pusat, sudut keliling — hubungan sudut pusat = 2 × sudut keliling (dibuktikan 4 kasus: AC melalui O, AC tidak melalui O, titik luar, dan Teorema Thales), sudut keliling menghadap busur sama = sama besar',
+       'B. Lingkaran dan Garis Singgung: sifat garis singgung (tegak lurus jari-jari di titik singgung), dari satu titik di luar lingkaran terdapat dua garis singgung yang sama panjang, garis singgung persekutuan luar (dua lingkaran), garis singgung persekutuan dalam, Teorema Pitot (jumlah sisi berhadapan segiempat garis singgung sama)',
+       'C. Lingkaran dan Tali Busur: hubungan tali busur dan busur yang sama panjang, apotema (ruas garis dari pusat tegak lurus tali busur), segiempat tali busur (sudut berhadapan berjumlah 180°), Teorema Ptolemeus (AC·BD = AB·CD + BC·DA)'
+     ],
+     rumus:'A. Sudut Lingkaran:\nSudut pusat = 2 × sudut keliling (busur sama)\nSudut keliling menghadap busur sama = sama besar\nTeorema Thales: sudut keliling menghadap diameter = 90°\n\nB. Garis Singgung:\nGaris singgung ⊥ jari-jari di titik singgung\nDari titik P di luar: PA = PB (panjang gs sama)\nGs persekutuan luar: s=√(d²−(R−r)²)\nGs persekutuan dalam: g=√(d²−(R+r)²)\nTeorema Pitot: AB+CD=BC+DA\n\nC. Tali Busur:\nSegiempat tali busur: ∠A+∠C=180°, ∠B+∠D=180°\nTeorema Ptolemeus: AC·BD=AB·CD+BC·DA',
+     desc:'Bab 2 Matematika SMA/SMK Kelas XI (Dicky Susanto dkk, 2021). Tiga subbab: (A) Busur lingkaran & sudut — empat pembuktian teorema sudut pusat-keliling & Teorema Thales, (B) Garis singgung — sifat, persekutuan luar/dalam & Teorema Pitot, (C) Tali busur — segiempat tali busur & Teorema Ptolemeus.'},
+    {id:'xi-u3',sem:2,bab:'Bab 3',icon:'📉',name:'Statistika',
+     sub:[
+       'A. Diagram Pencar (Scatter Plot): data bivariat (dua variabel kuantitatif), variabel independen (sumbu X) dan dependen (sumbu Y), membuat diagram pencar, mengidentifikasi arah tren (positif/negatif/tidak berkorelasi) dan bentuk tren (linear/non-linear), perbedaan korelasi dan sebab-akibat',
+       'B. Regresi Linear: pengertian garis best-fit (garis yang paling tepat mewakili data), metode kuadrat terkecil (Gauss/Legendre — meminimalkan jumlah kuadrat residu), persamaan garis regresi ŷ=a+bx, garis selalu melalui titik (x̄,ȳ), interpolasi dan ekstrapolasi data',
+       'C. Analisis Korelasi: pengertian korelasi Product Moment Pearson (Karl Pearson), menghitung nilai r, interpretasi nilai r (tabel tingkat hubungan: sangat lemah/lemah/cukup/kuat/sangat kuat), koefisien determinasi r² — proporsi variasi Y yang dapat dijelaskan oleh X'
+     ],
+     rumus:'B. Regresi Linear (Metode Kuadrat Terkecil):\nŷ = a + bx\nb = [nΣxy − ΣxΣy] / [nΣx² − (Σx)²]\na = (Σy − bΣx) / n\nGaris melalui (x̄, ȳ)\nResidu = y − ŷ\n\nC. Korelasi Product Moment Pearson:\nr = [nΣxy−ΣxΣy] / √{[nΣx²−(Σx)²][nΣy²−(Σy)²]}\n−1 ≤ r ≤ 1\nKoef. determinasi = r²\nInterpretasi |r|:\n0,00−0,20: sangat lemah\n0,21−0,40: lemah\n0,41−0,60: cukup\n0,61−0,80: kuat\n0,81−1,00: sangat kuat',
+     desc:'Bab 3 Matematika SMA/SMK Kelas XI (Dicky Susanto dkk, 2021). Tiga subbab: (A) Diagram Pencar — data bivariat, arah & bentuk tren, korelasi vs sebab-akibat, (B) Regresi Linear — metode kuadrat terkecil & garis best-fit, (C) Korelasi Product Moment Pearson & koefisien determinasi. Konteks: subscribers YouTube, tabungan siswa, tingkat kelulusan.'},
+  ]
+},
+
+/* ══════════════════════════════════════════
+   KELAS XI — MATEMATIKA TINGKAT LANJUT (5 Bab)
+   Sem 1: Bab 1-3  |  Sem 2: Bab 4-5
+   ══════════════════════════════════════════ */
+'xi-l':{id:'xi-l',kelas:'XI',tipe:'l',fase:'Fase F+',
+  name:'Matematika Tingkat Lanjut',ns:'MTK Lanjut',
+  pills:['Bilangan Kompleks','Polinomial','Matriks','Transformasi Geometri','Fungsi & Pemodelan'],
+  topics:[
+    {id:'xi-l1',sem:1,bab:'Bab 1',icon:'ℂ',name:'Bilangan Kompleks',
+     sub:[
+       'A. Bilangan Kompleks: pengertian bilangan kompleks z=a+bi, bagian real (a) dan imajiner (b), satuan imajiner i dimana i²=-1, pola bilangan i (i¹=i, i²=-1, i³=-i, i⁴=1), bentuk kartesius',
+       'B. Operasi pada Bilangan Kompleks: penjumlahan (a+bi)+(c+di)=(a+c)+(b+d)i, pengurangan, perkalian dengan FOIL (a+bi)(c+di)=(ac-bd)+(ad+bc)i, pembagian dengan mengalikan konjugat penyebut',
+       'C. Konjugat, Modulus, dan Argumen Bilangan Kompleks beserta Sifat-Sifatnya: konjugat z=a+bi maka z̄=a-bi, modulus |z|=√(a²+b²), argumen θ=arctan(b/a), bentuk polar z=r(cosθ+i sinθ), sifat-sifat konjugat dan modulus'
+     ],
+     rumus:'z=a+bi  (i=√-1, i²=-1)\nPola i: i¹=i, i²=-1, i³=-i, i⁴=1\n\nOperasi:\nPenjumlahan: (a+bi)+(c+di)=(a+c)+(b+d)i\nPerkalian: (a+bi)(c+di)=(ac-bd)+(ad+bc)i\nPembagian: bagi dengan konjugat penyebut\n\nKonjugat: z̄=a-bi\nModulus: |z|=√(a²+b²)\nBentuk polar: z=r(cos θ+i sin θ)\nr=|z|, θ=argumen',
+     desc:'Bab 1 MTK Lanjut XI. Tiga subbab sesuai buku resmi Kemendikdasmen: (A) pengertian & bentuk bilangan kompleks, (B) operasi bilangan kompleks, (C) konjugat, modulus, argumen beserta sifat-sifatnya.'},
+    {id:'xi-l2',sem:1,bab:'Bab 2',icon:'🔣',name:'Polinomial (Suku Banyak)',
+     sub:[
+       'A. Polinomial dan Fungsi Polinomial: pengertian polinomial P(x)=aₙxⁿ+...+a₁x+a₀, derajat polinomial, koefisien, konstanta, nilai polinomial untuk x=k',
+       'B. Penjumlahan, Pengurangan, dan Perkalian Polinomial: operasi aljabar pada polinomial, perkalian polinomial dengan polinomial',
+       'C. Pembagian Polinomial: pembagian polinomial dengan cara bersusun (panjang), kaidah/skema Horner untuk pembagian sintetis yang efisien',
+       'D. Faktor dan Pembuat Nol Polinomial: teorema sisa (P(k)=sisa pembagian P(x)÷(x-k)), teorema faktor ((x-k) faktor P(x) jika dan hanya jika P(k)=0), mencari akar-akar polinomial',
+       'E. Identitas Polinomial: pengertian identitas polinomial, menentukan koefisien yang belum diketahui'
+     ],
+     rumus:'P(x)=aₙxⁿ+aₙ₋₁xⁿ⁻¹+...+a₁x+a₀\n\nPembagian:\nP(x)=(x-k)·Q(x)+S\nS=sisa pembagian\n\nTeorema Sisa:\nP(k)=sisa P(x)÷(x-k)\n\nTeorema Faktor:\n(x-k) faktor P(x) ↔ P(k)=0\n\nKaidah Horner:\nEvaluasi sintetis untuk P(k)',
+     desc:'Bab 2 MTK Lanjut XI. Lima subbab sesuai buku Kemendikdasmen: (A) pengertian polinomial, (B) operasi penjumlahan/pengurangan/perkalian, (C) pembagian & kaidah Horner, (D) teorema sisa & faktor, (E) identitas polinomial.'},
+    {id:'xi-l3',sem:1,bab:'Bab 3',icon:'🔲',name:'Matriks',
+     sub:[
+       'A. Menemukan Konsep Matriks: pengertian matriks, ordo matriks (m×n), elemen/entri matriks, notasi penulisan',
+       'B. Jenis-Jenis Matriks: matriks baris, matriks kolom, matriks persegi, matriks identitas (satuan), matriks nol, matriks segitiga atas/bawah, matriks simetris, matriks transpos',
+       'C. Kesamaan Dua Matriks: dua matriks sama jika ordo sama dan semua elemen bersesuaian sama',
+       'D. Penjumlahan dan Pengurangan Antarmatriks: syarat (ordo harus sama), cara menghitung (A+B)ᵢⱼ=aᵢⱼ+bᵢⱼ',
+       'E. Perkalian Matriks: perkalian skalar dengan matriks, perkalian matriks dengan matriks (syarat: kolom A=baris B), sifat tidak komutatif AB≠BA',
+       'F. Determinan dan Invers Matriks: determinan 2×2 (det=ad-bc), determinan 3×3 (aturan Sarrus/ekspansi kofaktor), invers matriks 2×2, syarat ada invers (det≠0)'
+     ],
+     rumus:'Transpos: (Aᵀ)ᵢⱼ=aⱼᵢ\nPenjumlahan: (A+B)ᵢⱼ=aᵢⱼ+bᵢⱼ (ordo sama)\nPerkalian: (AB)ᵢⱼ=Σₖ aᵢₖ·bₖⱼ (kolom A=baris B)\n\nDeterminan 2×2:\ndet([[a,b],[c,d]])=ad-bc\n\nInvers 2×2:\nA⁻¹=(1/det)·[[d,-b],[-c,a]]\n\nDet 3×3: aturan Sarrus / kofaktor\nSyarat invers: det(A)≠0',
+     desc:'Bab 3 MTK Lanjut XI. Enam subbab sesuai buku Kemendikdasmen: (A) konsep matriks, (B) jenis-jenis matriks, (C) kesamaan matriks, (D) penjumlahan & pengurangan, (E) perkalian matriks, (F) determinan & invers.'},
+    {id:'xi-l4',sem:2,bab:'Bab 4',icon:'🔀',name:'Transformasi Geometri',
+     sub:[
+       'A. Transformasi pada Bidang Kartesius: pengertian transformasi geometri, translasi T(a,b): (x,y)→(x+a,y+b), rotasi R(θ): memutar titik/bangun sebesar θ° terhadap pusat, refleksi (pencerminan) terhadap sumbu-x, sumbu-y, garis y=x, garis y=-x, dilatasi D(k): memperbesar/perkecil dengan faktor skala k',
+       'B. Kaitan Matriks dengan Transformasi: representasi setiap transformasi dalam bentuk matriks, menghitung bayangan titik dan bangun menggunakan matriks transformasi',
+       'C. Komposisi Transformasi dengan Menggunakan Matriks: komposisi dua atau lebih transformasi, matriks komposisi = hasil kali matriks-matriks transformasi, penerapan komposisi transformasi'
+     ],
+     rumus:'A. Translasi T(a,b): (x,y)→(x+a,y+b)\n\nB. Matriks Transformasi:\nRotasi θ: [[cos θ,-sin θ],[sin θ, cos θ]]\nRefleksi sb-x: [[1,0],[0,-1]]\nRefleksi sb-y: [[-1,0],[0,1]]\nRefleksi y=x: [[0,1],[1,0]]\nRefleksi y=-x: [[0,-1],[-1,0]]\nDilatasi k: [[k,0],[0,k]]\n\nC. Komposisi:\nT₂∘T₁=(M₂·M₁)·v',
+     desc:'Bab 4 MTK Lanjut XI (Semester 2). Tiga subbab sesuai buku Kemendikdasmen: (A) transformasi geometri (translasi, rotasi, refleksi, dilatasi), (B) representasi matriks transformasi, (C) komposisi transformasi dengan matriks.'},
+    {id:'xi-l5',sem:2,bab:'Bab 5',icon:'📉',name:'Fungsi dan Pemodelannya',
+     sub:[
+       'A. Fungsi Trigonometri: grafik y=A·sin(Bx+C)+D dan y=A·cos(Bx+C)+D, amplitudo |A|, periode 2π/|B|, fasa -C/B, pergeseran vertikal D, pemodelan fenomena periodik (gelombang, pasang surut, musim)',
+       'B. Fungsi Logaritma: grafik fungsi logaritma y=ᵃlog x, transformasi grafik, sifat-sifat grafik, penerapan dalam kehidupan nyata (skala Richter gempa, pH larutan, peluruhan radioaktif)',
+       'C. Fungsi Aljabar: fungsi linear, kuadrat, dan lainnya untuk memodelkan fenomena, pemilihan model fungsi yang paling sesuai dengan data/konteks, evaluasi kesesuaian model'
+     ],
+     rumus:'A. Fungsi Trigonometri:\ny=A·sin(Bx+C)+D\nAmplitudo=|A|\nPeriode=2π/|B|\nFasa=-C/B\nGeser vertikal=D\n\nB. Fungsi Logaritma:\ny=ᵃlog x (a>0, a≠1)\nDomain: x>0, Range: semua bilangan real\nPH=-log[H⁺]\nSkala Richter: M=log(I/I₀)\n\nC. Pemilihan Model:\nLinear: pertumbuhan/penurunan tetap\nKuadrat: gerak parabola, optimasi\nEksponensial: bunga majemuk, pertumbuhan\nTrigonometri: osilasi, gelombang',
+     desc:'Bab 5 MTK Lanjut XI (Semester 2). Tiga subbab sesuai buku Kemendikdasmen: (A) fungsi trigonometri & grafiknya, (B) fungsi logaritma & penerapan, (C) fungsi aljabar untuk pemodelan fenomena nyata.'},
+  ]
+},
+
+/* ══════════════════════════════════════════
+   KELAS XII — MATEMATIKA UMUM (3 Bab)
+   Sem 1: Bab 1-2  |  Sem 2: Bab 3
+   ══════════════════════════════════════════ */
+'xii-u':{id:'xii-u',kelas:'XII',tipe:'u',fase:'Fase F',
+  name:'Matematika (Umum)',ns:'MTK Umum',
+  pills:['Transformasi Fungsi','Busur & Juring Lingkaran','Kombinatorik & Peluang'],
+  topics:[
+    {id:'xii-u1',sem:1,bab:'Bab 1',icon:'🔁',name:'Transformasi Fungsi',
+     sub:['A. Translasi: f(x)→f(x−h)+k, geser horizontal h dan vertikal k','B. Refleksi: terhadap sb-x (−f(x)), sb-y (f(−x)), garis y=x','C. Dilatasi: vertikal a·f(x), horizontal f(bx)','D. Rotasi: transformasi memutar grafik fungsi','E. Kombinasi Transformasi Fungsi: rangkaian lebih dari satu transformasi'],
+     rumus:'Translasi: (x,y)→(x+h,y+k)\nRefleksi sb-x: (x,y)→(x,−y)\nRefleksi sb-y: (x,y)→(−x,y)\nDilatasi vertikal k: (x,y)→(x,ky)\nDilatasi horiz k: (x,y)→(x/k,y)\nRotasi 90° CCW: (x,y)→(−y,x)\nBerlaku untuk f linear, kuadrat, eksponensial',
+     desc:'Bab 1 Matematika Kelas XII. Transformasi fungsi mengubah posisi/ukuran grafik tanpa mengubah bentuk dasarnya. Translasi menggeser, refleksi mencerminkan, dilatasi memperbesar/perkecil, rotasi memutar.'},
+    {id:'xii-u2',sem:1,bab:'Bab 2',icon:'⭕',name:'Busur dan Juring Lingkaran',
+     sub:['A. Busur Lingkaran: panjang busur, konversi derajat ke radian','B. Juring Lingkaran: luas juring, hubungan sudut pusat','C. Hubungan Panjang Busur dan Luas Juring: rumus dalam derajat & radian'],
+     rumus:'Konversi: θ(rad)=θ(°)×π/180\nPanjang busur: l=(θ/360°)×2πr = r·θ (rad)\nLuas juring: L=(θ/360°)×πr² = ½r²θ (rad)\nLuas tembereng=Luas juring−Luas segitiga\nKeliling lingkaran=2πr\nLuas lingkaran=πr²',
+     desc:'Bab 2. Hubungan panjang busur dan luas juring dengan sudut pusat. Radian adalah satuan sudut alami (1 rad ≈ 57,3°). Dipakai dalam desain mekanik, astronomi, pemrograman grafis (atan2, sin/cos dalam radian).'},
+    {id:'xii-u3',sem:2,bab:'Bab 3',icon:'🎲',name:'Kombinatorik dan Peluang',
+     sub:['A. Aturan Pengisian Tempat (kaidah perkalian)','B. Permutasi: nPr = n!/(n−r)!, permutasi siklik, permutasi dengan elemen sama','C. Kombinasi: nCr = n!/[r!(n−r)!]','D. Peluang Suatu Kejadian','E. Peluang Kejadian Majemuk','F. Peluang Kejadian Majemuk Saling Bebas Bersyarat'],
+     rumus:'nPr = n!/(n−r)!\nnPr(siklik) = (n−1)!\nnCr = n!/[r!(n−r)!]\nP(A) = n(A)/n(S)\nP(A∪B) = P(A)+P(B)−P(A∩B)\nP(A|B) = P(A∩B)/P(B)\nP(A∩B) = P(A)×P(B)  [jika bebas]',
+     desc:'Bab 3 Matematika Kelas XII. Aturan pengisian tempat untuk urutan pilihan. Permutasi jika urutan penting, kombinasi jika tidak. Peluang majemuk dan bersyarat penting untuk statistika inferensial dan AI.'},
+  ]
+},
+
+/* ══════════════════════════════════════════
+   KELAS XII — MATEMATIKA TINGKAT LANJUT (5 Bab)
+   Sem 1: Bab 1-3  |  Sem 2: Bab 4-5
+   ══════════════════════════════════════════ */
+'xii-l':{id:'xii-l',kelas:'XII',tipe:'l',fase:'Fase F+',
+  name:'Matematika Tingkat Lanjut',ns:'MTK Lanjut',
+  pills:['Geometri Analitik','Limit','Turunan','Integral','Analisis Data & Peluang'],
+  topics:[
+    {id:'xii-l1',sem:1,bab:'Bab 1',icon:'🔵',name:'Geometri Analitik',
+     sub:['A. Lingkaran dan Garis Singgung: definisi, persamaan, kedudukan titik/garis, garis singgung, dua lingkaran (pengayaan)','B. Irisan Kerucut — Parabola: definisi, persamaan y²=4px dan x²=4py','C. Irisan Kerucut — Elips: persamaan x²/a²+y²/b²=1, sumbu, fokus, eksentrisitas','D. Irisan Kerucut — Hiperbola: persamaan, asimtot','E. Pengayaan: garis singgung pada irisan kerucut'],
+     rumus:'Lingkaran: (x−a)²+(y−b)²=r²\nParabola: y²=4px (hor.) | x²=4py (ver.)\nFokus parabola y²=4px: F(p,0)\nElips: x²/a²+y²/b²=1 (a>b)\nFokus elips: c=√(a²−b²)\nEksentrisitas: e=c/a (<1 untuk elips)\nHiperbola: x²/a²−y²/b²=1\nAsimtot hiperbola: y=±(b/a)x',
+     desc:'Bab 1 MTK Lanjut XII. Geometri analitik menggabungkan aljabar dengan geometri. Parabola: antena parabola, teleskop. Elips: orbit planet (hukum Kepler). Hiperbola: sistem navigasi LORAN, desain pendingin menara.'},
+    {id:'xii-l2',sem:1,bab:'Bab 2',icon:'∞',name:'Limit Fungsi',
+     sub:['A. Definisi Limit Fungsi: pengertian informal dan formal (ε-δ pengantar)','B. Sifat-Sifat Limit Fungsi: limit konstanta, jumlah, selisih, produk, rasio','C. Limit Fungsi Aljabar: bentuk tentu dan tak tentu (0/0, ∞/∞)','D. Limit Fungsi Trigonometri: lim sinx/x=1, lim(1−cosx)/x=0','E. Aplikasi Limit Fungsi'],
+     rumus:'lim(x→a) f(x)=L\nlim(x→∞)(axⁿ+...)/(bxⁿ+...)=a/b\nBentuk 0/0 → faktorisasi / kalikan sekawan\nL\'Hôpital: lim f/g = lim f\'/g\'\nlim(x→0) sinx/x = 1\nlim(x→0) (1−cosx)/x = 0\nlim(x→0) tanx/x = 1',
+     desc:'Bab 2. Limit mengukur nilai yang didekati fungsi saat variabelnya mendekati suatu titik. Bentuk tak tentu diselesaikan dengan pemfaktoran, perkalian sekawan, atau aturan L\'Hôpital. Fondasi kalkulus.'},
+    {id:'xii-l3',sem:1,bab:'Bab 3',icon:'📉',name:'Turunan Fungsi',
+     sub:['A. Definisi Turunan Fungsi: konsep (limit selisih hasil bagi), notasi f\'(x), dy/dx','B. Sifat-Sifat Turunan: turunan fungsi aljabar, trigonometri, aturan produk, aturan rasio, aturan rantai','C. Aplikasi Turunan: persamaan garis singgung, fungsi naik/turun, titik stasioner, nilai ekstrim (maks/min)','D. Aplikasi Turunan di Berbagai Bidang Ilmu: kecepatan-percepatan (fisika), optimasi (ekonomi)'],
+     rumus:'f\'(x)=lim(h→0)[f(x+h)−f(x)]/h\nd/dx(xⁿ)=nxⁿ⁻¹\nd/dx(sinx)=cosx | d/dx(cosx)=−sinx\nd/dx(uv)=u\'v+uv\' (produk)\nd/dx(u/v)=(u\'v−uv\')/v² (rasio)\nd/dx f(g(x))=f\'(g(x))·g\'(x) (rantai)\nf naik jika f\'(x)>0, turun jika f\'(x)<0',
+     desc:'Bab 3. Turunan mengukur laju perubahan fungsi (slope garis singgung). Aplikasi: kecepatan/percepatan dalam fisika, titik maksimum-minimum, optimasi keuntungan bisnis, analisis kurva permintaan-penawaran.'},
+    {id:'xii-l4',sem:2,bab:'Bab 4',icon:'∫',name:'Integral',
+     sub:['A. Integral Tak Tentu: definisi antiturunan, sifat-sifat, integral fungsi aljabar dan trigonometri','B. Integral Tentu: jumlahan Riemann, definisi, sifat-sifat, Teorema Dasar Kalkulus (F(b)−F(a))','C. Penerapan Integral: luas bidang datar (antara kurva), aplikasi dalam ekonomi & bisnis (surplus konsumen/produsen), aplikasi dalam fisika (perpindahan, kerja)'],
+     rumus:'∫xⁿdx=xⁿ⁺¹/(n+1)+C  (n≠−1)\n∫sinx dx=−cosx+C\n∫cosx dx=sinx+C\n∫eˣdx=eˣ+C\n∫[a→b]f(x)dx=F(b)−F(a)\nLuas=∫[a→b]|f(x)−g(x)|dx\nVolume (rotasi sb-x)=π∫[a→b][f(x)]²dx',
+     desc:'Bab 4. Integral tak tentu menghasilkan fungsi+C. Integral tentu menghasilkan bilangan (luas/akumulasi). Teorema Dasar Kalkulus menghubungkan turunan dan integral. Dipakai di fisika, teknik sipil, dan ekonomi.'},
+    {id:'xii-l5',sem:2,bab:'Bab 5',icon:'📊',name:'Analisis Data dan Peluang',
+     sub:['A. Distribusi Seragam (uniform): semua kejadian peluang sama','B. Distribusi Binomial: percobaan Bernoulli berulang, P(X=k)=C(n,k)·pᵏ·(1−p)ⁿ⁻ᵏ','C. Distribusi Normal: kurva lonceng, z-score, area di bawah kurva normal baku'],
+     rumus:'Binomial: P(X=k)=C(n,k)·pᵏ·qⁿ⁻ᵏ (q=1−p)\nE(X)=np  |  Var(X)=npq\nDistribusi Normal: f(x)=e^{−(x−μ)²/2σ²}/(σ√2π)\nZ-score: Z=(X−μ)/σ\nP(a<X<b)=P(z_a<Z<z_b) dari tabel Z\nApproksimasi: Binomial→Normal jika n besar',
+     desc:'Bab 5. Distribusi seragam untuk kejadian sama-peluang. Distribusi binomial untuk percobaan ya/tidak berulang (n kali, peluang sukses p). Distribusi normal (kurva lonceng) sangat penting dalam statistika inferensial dan machine learning.'},
+  ]
+},
+};
+
+// ============================================================
+// BANK SOAL
+// ============================================================
+const SOAL={
+'x1-eksponen':[
+  // MUDAH
+  {q:'Nilai dari 3⁴ × 3⁻² = ...',f:'aⁿ×aᵐ=aⁿ⁺ᵐ, lalu 3⁴⁺⁽⁻²⁾=3²',p:['A. 3²','B. 3⁶','C. 3⁸','D. 9⁸'],j:0},
+  {q:'Sederhanakan (5²)³ = ...',f:'(aⁿ)ᵐ=aⁿˣᵐ',p:['A. 5⁵','B. 5⁶','C. 5⁸','D. 25³'],j:1},
+  {q:'Nilai dari 7⁻² = ...',f:'a⁻ⁿ=1/aⁿ',p:['A. −49','B. −14','C. 1/14','D. 1/49'],j:3},
+  {q:'Nilai dari 6⁰ + 6¹ = ...',f:'6⁰=1, 6¹=6',p:['A. 0','B. 6','C. 7','D. 12'],j:2},
+  {q:'Bentuk sederhana dari a⁵ ÷ a³ = ...',f:'aⁿ÷aᵐ=aⁿ⁻ᵐ',p:['A. a²','B. a⁸','C. a¹⁵','D. 1/a²'],j:0},
+  // SEDANG — bentuk akar
+  {q:'Nilai dari √144 = ...',f:'√144 = √(12²)',p:['A. 11','B. 12','C. 13','D. 14'],j:1},
+  {q:'Sederhanakan √50 = ...',f:'√50=√(25×2)=5√2',p:['A. 5√2','B. 10√5','C. 2√25','D. 25√2'],j:0},
+  {q:'Nilai dari ³√125 = ...',f:'³√125=³√5³=5',p:['A. 4','B. 5','C. 6','D. 25'],j:1},
+  {q:'Nilai dari 16^(3/4) = ...',f:'16^(3/4)=(⁴√16)³=2³',p:['A. 4','B. 6','C. 8','D. 12'],j:2},
+  {q:'Bentuk akar dari 3^(1/3) = ...',f:'a^(1/n)=ⁿ√a',p:['A. ²√3','B. ³√3','C. ³√9','D. 9^(1/3)'],j:1},
+  {q:'Sederhanakan (2a³b²)³ = ...',f:'(xy)ⁿ=xⁿyⁿ, setiap faktor dipangkat 3',p:['A. 6a⁶b⁵','B. 8a⁶b⁶','C. 8a⁹b⁶','D. 6a⁹b⁶'],j:2},
+  // SEDANG — pangkat positif
+  {q:'Ubah ke pangkat positif: x⁻³y² = ...',f:'x⁻ⁿ=1/xⁿ, y² tetap',p:['A. y²/x³','B. x³/y²','C. −x³y²','D. y²x³'],j:0},
+  {q:'Sederhanakan: (a²b⁻¹)/(a⁻¹b²) = ...',f:'Kurangi pangkat: a²⁻⁽⁻¹⁾=a³, b⁻¹⁻²=b⁻³',p:['A. a³/b³','B. a/b³','C. ab³','D. a³b³'],j:0},
+  // SULIT
+  {q:'Nilai dari (√3 + √2)(√3 − √2) = ...',f:'(a+b)(a−b)=a²−b², 3−2=1',p:['A. √6','B. 1','C. 5','D. √5'],j:1},
+  {q:'Sederhanakan: (27x⁶)^(2/3) = ...',f:'27^(2/3)=9, x^(6×2/3)=x⁴',p:['A. 9x⁴','B. 9x⁸','C. 3x⁴','D. 18x⁴'],j:0},
+  {q:'Nilai p yang memenuhi (3⁴)² = 3^p adalah ...',f:'(3⁴)²=3⁸, jadi p=8',p:['A. 6','B. 7','C. 8','D. 9'],j:2},
+  {q:'Jika 4^x = 32, maka nilai x = ...',f:'4^x=2^(2x)=2⁵, jadi 2x=5',p:['A. 2','B. 2,5','C. 3','D. 4'],j:1},
+  {q:'Manakah yang paling besar? 8³², 4⁴⁸, 16²⁴, 2⁹⁶',f:'Ubah ke basis 2: 8³²=2⁹⁶, 4⁴⁸=2⁹⁶, 16²⁴=2⁹⁶, 2⁹⁶',p:['A. 8³²','B. 4⁴⁸','C. 16²⁴','D. Semuanya sama'],j:3},
+  {q:'Bentuk sederhana dari (x⁻¹−y⁻¹)/(x⁻¹+y⁻¹) = ...',f:'x⁻¹=1/x, kalikan pembilang & penyebut dengan xy',p:['A. (y−x)/(y+x)','B. (x−y)/(x+y)','C. xy/(x+y)','D. (x+y)/(x−y)'],j:0},
+  {q:'Jika (3π)^p = 27π³, maka nilai p = ...',f:'3^p=3³ dan π^p=π³, jadi p=3',p:['A. 1','B. 2','C. 3','D. 4'],j:2},
+],
+'x1-fungsieks':[
+  // ── MUDAH: Definisi & Sifat Dasar Fungsi Eksponen (1-6) ──
+  {q:'Fungsi eksponen f(x)=3ˣ selalu melalui titik ...',f:'Untuk x=0: f(0)=3⁰=1, jadi titik (0,1)',p:['A. (0,0)','B. (0,1)','C. (1,0)','D. (1,3)'],j:1},
+  {q:'Grafik f(x)=5·2ˣ melalui titik ...',f:'x=0: f(0)=5·2⁰=5·1=5, titik (0,5)',p:['A. (0,2)','B. (0,5)','C. (5,0)','D. (0,10)'],j:1},
+  {q:'Fungsi f(x)=(1/3)ˣ adalah fungsi ...',f:'Basis 1/3 < 1, sehingga fungsi turun (peluruhan)',p:['A. Pertumbuhan eksponensial','B. Peluruhan eksponensial','C. Konstan','D. Linear'],j:1},
+  {q:'Grafik f(x)=4ˣ mempunyai asimtot ...',f:'Fungsi eksponen aˣ mendekati 0 tapi tidak menyentuh sumbu X',p:['A. y=1','B. x=0','C. y=0','D. x=1'],j:2},
+  {q:'Titik potong grafik y=3·2ˣ dengan sumbu Y adalah ...',f:'Sumbu Y: x=0, y=3·2⁰=3·1=3',p:['A. (0,2)','B. (0,3)','C. (3,0)','D. (0,6)'],j:1},
+  {q:'Nilai f(−2) dari f(x)=4ˣ adalah ...',f:'f(−2)=4⁻²=1/4²=1/16',p:['A. −16','B. −8','C. 1/8','D. 1/16'],j:3},
+  // ── SEDANG: Grafik, Titik, Persamaan (7-14) ──
+  {q:'Titik yang TIDAK dilalui fungsi y=2ˣ−3 adalah ...',f:'x=0: y=1−3=−2, x=1: y=2−3=−1, x=2: y=4−3=1',p:['A. (0,−2)','B. (1,−1)','C. (2,0)','D. (2,1)'],j:2},
+  {q:'Titik potong y=2ˣ⁺²+3 dengan sumbu Y adalah ...',f:'x=0: y=2²+3=4+3=7',p:['A. (0,5)','B. (0,6)','C. (0,7)','D. (0,8)'],j:2},
+  {q:'Grafik yang menunjukkan fungsi peluruhan y=k·aˣ adalah grafik yang ...',f:'Peluruhan: nilai y menurun saat x bertambah, basis 0<a<1',p:['A. Naik ke kanan','B. Turun ke kanan','C. Selalu positif dan naik','D. Memotong sumbu X'],j:1},
+  {q:'Persamaan grafik fungsi yang melalui (0,1) dengan basis 2 dan naik adalah ...',f:'f(x)=2ˣ melalui (0,1) dan naik karena basis 2>1',p:['A. y=2ˣ','B. y=(1/2)ˣ','C. y=2⁻ˣ','D. y=−2ˣ'],j:0},
+  {q:'Jika f(x)=3·2ˣ⁻¹, maka f(3) = ...',f:'f(3)=3·2³⁻¹=3·2²=3·4=12',p:['A. 6','B. 9','C. 12','D. 24'],j:2},
+  {q:'Massa zat radioaktif berkurang dengan rumus M=100·(1/2)ᵗ gram. Massa setelah 3 tahun = ...',f:'M=100·(1/2)³=100·1/8=12,5 gram',p:['A. 25 gram','B. 12,5 gram','C. 6,25 gram','D. 50 gram'],j:1},
+  {q:'Persamaan grafik f(x)=−(2ˣ) merupakan refleksi f(x)=2ˣ terhadap ...',f:'Tanda negatif di depan fungsi = refleksi terhadap sumbu X',p:['A. Sumbu Y','B. Sumbu X','C. Garis y=x','D. Titik origin'],j:1},
+  {q:'Penduduk kota awal 50.000 jiwa, tumbuh 10% per tahun. Rumus jumlah penduduk setelah t tahun = ...',f:'Pertumbuhan eksponensial: P=P₀·(1+r)ᵗ',p:['A. P=50.000·(0,1)ᵗ','B. P=50.000·(1,1)ᵗ','C. P=50.000+1,1ᵗ','D. P=50.000·10ᵗ'],j:1},
+  // ── SULIT: Analisis Grafik & Aplikasi (15-20) ──
+  {q:'Diketahui grafik y=k·aˣ melalui (1,6) dan (2,18). Nilai k dan a adalah ...',f:'18/6=a¹=3, jadi a=3. Dari (1,6): 6=k·3, k=2',p:['A. k=1, a=6','B. k=2, a=3','C. k=3, a=2','D. k=6, a=1'],j:1},
+  {q:'Grafik y=2ˣ⁻¹ merupakan translasi y=2ˣ sejauh ...',f:'y=2ˣ⁻¹=2ˣ·2⁻¹: geser 1 satuan ke kanan (x diganti x−1)',p:['A. 1 satuan ke kiri','B. 1 satuan ke kanan','C. 1 satuan ke atas','D. 1 satuan ke bawah'],j:1},
+  {q:'Nilai x yang memenuhi 2ˣ=32 adalah ...',f:'32=2⁵, jadi x=5',p:['A. 3','B. 4','C. 5','D. 6'],j:2},
+  {q:'Waktu yang dibutuhkan massa 80 gram menjadi 10 gram jika M=80·(1/2)ᵗ adalah ...',f:'10=80·(1/2)ᵗ → (1/2)ᵗ=1/8=(1/2)³ → t=3',p:['A. 1 tahun','B. 2 tahun','C. 3 tahun','D. 4 tahun'],j:2},
+  {q:'Grafik y=3·2ˣ dan y=2ˣ⁺¹ tidak berpotongan karena ...',f:'3·2ˣ=2·2ˣ berarti 3=2 (kontradiksi), cek x=1: y₁=6 vs y₂=4, x=2: y₁=12 vs y₂=8',p:['A. Kedua grafik sejajar','B. y=3·2ˣ selalu di atas y=2ˣ⁺¹','C. Basis berbeda','D. Kedua grafik sama'],j:1},
+  {q:'Bakteri berlipat ganda setiap 2 jam. Awal 500 bakteri. Jumlah setelah 8 jam = ...',f:'8 jam = 4 kali lipat ganda. N=500·2⁴=500·16=8000',p:['A. 2000','B. 4000','C. 8000','D. 16000'],j:2},
+],
+'x1-akar':[
+  // ── MUDAH: Menyederhanakan bentuk akar (1-7) ──
+  {q:'Sederhanakan √50 = ...',f:'√50 = √(25×2) = 5√2',p:['A. 5√2','B. 10√2','C. 2√5','D. 25√2'],j:0},
+  {q:'Sederhanakan √72 = ...',f:'√72 = √(36×2) = 6√2',p:['A. 4√3','B. 6√2','C. 8√3','D. 3√8'],j:1},
+  {q:'Sederhanakan √(3/4) = ...',f:'√(3/4) = √3/√4 = √3/2',p:['A. 3/2','B. √3/4','C. √3/2','D. 2/√3'],j:2},
+  {q:'Nilai dari 3√2 × 4√3 = ...',f:'3√2 × 4√3 = 12√6',p:['A. 7√6','B. 12√5','C. 12√6','D. 12√12'],j:2},
+  {q:'Sederhanakan ⁴√16 = ...',f:'⁴√16 = 16^(1/4) = (2⁴)^(1/4) = 2',p:['A. 2','B. 4','C. 8','D. 2√2'],j:0},
+  {q:'Hasil dari (2√3)² = ...',f:'(2√3)² = 4 × 3 = 12',p:['A. 6','B. 8','C. 10','D. 12'],j:3},
+  {q:'√75 − √27 = ...',f:'√75=5√3, √27=3√3, hasil=2√3',p:['A. √48','B. 2√3','C. 3√3','D. 4√3'],j:1},
+  // ── SEDANG: Operasi & Merasionalkan (8-15) ──
+  {q:'Merasionalkan 6/√3 = ...',f:'6/√3 × √3/√3 = 6√3/3 = 2√3',p:['A. 6√3','B. 3√3','C. 2√3','D. √3/3'],j:2},
+  {q:'Merasionalkan 4/(3√2) = ...',f:'4/(3√2) × √2/√2 = 4√2/6 = 2√2/3',p:['A. 4√2/3','B. 2√2/3','C. 4√2/6','D. √2/3'],j:1},
+  {q:'Merasionalkan 5/(√7+√2) = ...',f:'Kalikan (√7−√2)/(√7−√2), penyebut=7−2=5',p:['A. √7+√2','B. √7−√2','C. 5(√7−√2)','D. 5/(√7−√2)'],j:1},
+  {q:'Merasionalkan 3/(√5−√2) = ...',f:'Kalikan (√5+√2)/(√5+√2), penyebut=5−2=3',p:['A. √5−√2','B. √5+√2','C. 3(√5+√2)','D. (√5+√2)/3'],j:1},
+  {q:'Merasionalkan 8/(√6−√2) = ...',f:'Kalikan (√6+√2)/(√6+√2), penyebut=6−2=4',p:['A. 2(√6+√2)','B. 4(√6+√2)','C. 2(√6−√2)','D. 8(√6+√2)/4'],j:0},
+  {q:'Bentuk sederhana (√5+√3)(√5−√3) = ...',f:'(a+b)(a−b)=a²−b², 5−3=2',p:['A. 1','B. 2','C. 4','D. 8'],j:1},
+  {q:'Merasionalkan 2/(3+√5) = ...',f:'Kalikan (3−√5)/(3−√5), penyebut=9−5=4',p:['A. (3−√5)/2','B. (3+√5)/2','C. 2(3−√5)/4','D. (3−√5)/4'],j:0},
+  {q:'Nilai √3/(√2+√5) dalam bentuk terrasional = ...',f:'Kalikan (√2−√5)/(√2−√5), penyebut=2−5=−3',p:['A. (√6−√15)/3','B. (√6+√15)/3','C. √3(√2−√5)/−3','D. (√15−√6)/3'],j:3},
+  // ── SULIT: Gabungan & Bertingkat (16-20) ──
+  {q:'Sederhanakan (√6+√2)/(√6−√2) = ...',f:'Kalikan (√6+√2)²/(6−2)=(6+2√12+2)/4=(8+4√3)/4',p:['A. 2+√3','B. 2−√3','C. 4+2√3','D. (4+√3)/2'],j:0},
+  {q:'Merasionalkan (2√3−2)/(√3+1) = ...',f:'Kalikan (√3−1): num=(2×3−2√3−2√3+2)=8−4√3, den=3−1=2',p:['A. 4+2√3','B. 4−2√3','C. 2√3−2','D. 2−√3'],j:1},
+  {q:'Jika √2 ≈ 1,414, maka 1/(√2+1) = ...',f:'Rasionalkan: (√2−1)/1=√2−1 ≈ 0,414',p:['A. ≈ 0,293','B. ≈ 0,414','C. ≈ 0,586','D. ≈ 0,707'],j:1},
+  {q:'Nilai dari ⁶√(64/729) = ...',f:'⁶√64=2, ⁶√729=3, hasil=2/3',p:['A. 2/9','B. 4/9','C. 2/3','D. 4/27'],j:2},
+  {q:'Bentuk sederhana (√5+√3)²/(√5−√3) = ...',f:'(√5+√3)²=8+2√15, bagi (√5−√3) × (√5+√3)/(√5+√3)',p:['A. (8+2√15)(√5+√3)/2','B. 4(√5+√3)','C. (4+√15)(√5+√3)','D. (8+2√15)/(√5−√3)'],j:1},
+],
+'x1-logaritma':[
+  // MUDAH
+  {q:'Nilai dari ²log 32 = ...',f:'2^x=32=2⁵',p:['A. 4','B. 5','C. 6','D. 16'],j:1},
+  {q:'Nilai dari ¹⁰log 0,01 = ...',f:'10^x=0,01=10⁻²',p:['A. −3','B. −2','C. 2','D. 3'],j:1},
+  {q:'Nilai dari ⁵log 1 = ...',f:'5^x=1=5⁰',p:['A. −1','B. 0','C. 1','D. 5'],j:1},
+  {q:'³log 27 + ³log 9 = ...',f:'³log 27=3, ³log 9=2',p:['A. 4','B. 5','C. 6','D. 36'],j:1},
+  {q:'⁴log 64 = ...',f:'4^x=64=4³',p:['A. 2','B. 3','C. 4','D. 16'],j:1},
+  // SEDANG
+  {q:'⁶log 12 + ⁶log 3 = ...',f:'log a+log b=log(ab), 12×3=36=6²',p:['A. 1','B. 2','C. 3','D. 4'],j:1},
+  {q:'²log 48 − ²log 3 = ...',f:'log a−log b=log(a/b), 48/3=16=2⁴',p:['A. 3','B. 4','C. 5','D. 16'],j:1},
+  {q:'⁴log 8 = ...',f:'⁴log 8=⁴log 4^(3/2)=3/2, atau ²log 8/²log 4=3/2',p:['A. 1','B. 3/2','C. 2','D. 3'],j:1},
+  {q:'Jika ²log 5 = a, maka ²log 20 = ...',f:'²log 20=²log(4×5)=²log 4+²log 5=2+a',p:['A. a+1','B. a+2','C. 2a','D. 4a'],j:1},
+  {q:'Nilai dari ⁴log 2 = ...',f:'⁴log 2=⁴log 4^(1/2)=1/2',p:['A. 1/4','B. 1/2','C. 2','D. 4'],j:1},
+  {q:'²log 6 × ⁶log 16 = ...',f:'Sifat rantai: ²log 6 × ⁶log 16 = ²log 16 = 4',p:['A. 2','B. 3','C. 4','D. 96'],j:2},
+  // SULIT
+  {q:'Jika log 2=0,301, maka log 200 = ...',f:'log 200=log(2×100)=log 2+log 100=0,301+2',p:['A. 1,301','B. 2,301','C. 3,301','D. 0,301'],j:1},
+  {q:'Jika ³log 2=a dan ³log 5=b, maka ³log 30 = ...',f:'³log 30=³log(2×3×5)=a+1+b',p:['A. ab','B. a+b','C. a+b+1','D. 2a+b'],j:2},
+  {q:'Nilai dari ²log 3 × ³log 4 × ⁴log 32 = ...',f:'Rantai log: =²log 32=5',p:['A. 3','B. 4','C. 5','D. 6'],j:2},
+  {q:'Penyelesaian ²log(x−1)=3 adalah ...',f:'x−1=2³=8, jadi x=9',p:['A. x=7','B. x=8','C. x=9','D. x=10'],j:2},
+  {q:'Jika 3^(log x)=81, maka nilai x = ...',f:'log x = ³log 81=4, maka x=10⁴',p:['A. 100','B. 1000','C. 10.000','D. 100.000'],j:2},
+  {q:'Nilai dari (log 125)/(log 5) = ...',f:'=log₅ 125=log₅ 5³=3',p:['A. 1','B. 2','C. 3','D. 25'],j:2},
+  {q:'Jika log 3=0,477, maka log 270 = ...',f:'log 270=log(27×10)=log 3³+1=3×0,477+1',p:['A. 1,431','B. 2,431','C. 2,908','D. 3,477'],j:1},
+],
+'x2-barisan-aritmatika':[
+  // ── MUDAH: Rumus Uₙ = a + (n-1)b ──
+  {q:'Rumus suku ke-n barisan 1, 4, 7, 10, ... adalah ...',f:'a=1, b=3, Uₙ=1+(n-1)×3',p:['A. 0,5n−4','B. 2n−1','C. 3n−2','D. 6n−5'],j:2},
+  {q:'Suku ke-10 barisan 5, 8, 11, 14, ... adalah ...',f:'a=5, b=3, U₁₀=5+(10-1)×3=5+27',p:['A. 28','B. 30','C. 32','D. 35'],j:2},
+  {q:'Barisan 17, 14, 11, 8, ... Suku ke-12 adalah ...',f:'a=17, b=−3, U₁₂=17+(12-1)×(−3)=17−33',p:['A. −16','B. −15','C. −14','D. −13'],j:0},
+  {q:'Barisan aritmatika: U₁=4 dan b=6. Nilai U₈ = ...',f:'U₈=4+(8-1)×6=4+42',p:['A. 44','B. 46','C. 48','D. 50'],j:1},
+  {q:'Suku ke-28 barisan aritmatika 17, 14, 11, R adalah ...',f:'a=17, b=−3, U₂₈=17+(28-1)×(−3)=17−81',p:['A. −64','B. −60','C. −56','D. −52'],j:0},
+  {q:'Suatu barisan aritmatika: U₁=−25 dan U₂=−5. Suku ke-13 adalah ...',f:'b=−5−(−25)=20, U₁₃=−25+(13-1)×20=−25+240',p:['A. 40','B. 215','C. 30','D. 45'],j:1},
+  // ── SEDANG: Mencari a, b, atau n ──
+  {q:'Diketahui suku ke-7 barisan aritmatika adalah 20 dan bedanya 3. Suku ke-10 adalah ...',f:'U₇=a+6b=20; b=3→a=2; U₁₀=2+9×3',p:['A. 19','B. 21','C. 29','D. 32'],j:2},
+  {q:'Suku ke-4 dan suku ke-6 barisan aritmatika berturut-turut adalah 4½ dan 5½. Suku ke-17 adalah ...',f:'b=(5,5−4,5)/2=0,5; U₄=a+3×0,5=4,5→a=3; U₁₇=3+16×0,5',p:['A. 7½','B. 8','C. 9½','D. 11'],j:3},
+  {q:'Pada barisan 8, 19, 30, 41, ... Bilangan 327 merupakan suku ke ...',f:'Uₙ=8+(n-1)×11=327→11(n-1)=319→n-1=29',p:['A. 29','B. 30','C. 31','D. 32'],j:3},
+  {q:'Barisan aritmatika dengan U₃=7 dan U₇=19. Nilai U₁₀ adalah ...',f:'4b=19−7=12→b=3; a=1; U₁₀=1+9×3',p:['A. 25','B. 27','C. 28','D. 30'],j:2},
+  {q:'Suku ke-5 barisan aritmatika adalah 11 dan suku ke-9 adalah 23. Suku pertama barisan tersebut adalah ...',f:'4b=23−11=12→b=3; U₅=a+4×3=11→a=−1',p:['A. −3','B. −2','C. −1','D. 0'],j:2},
+  // ── SISIPAN ──
+  {q:'Jika diantara bilangan p dan q disisipkan n bilangan membentuk barisan aritmatika, maka bedanya adalah ...',f:'b=(q−p)/(n+1)',p:['A. (q−p)/n','B. (p−q)/(n+1)','C. (q−p)/(n+1)','D. (q+p)/(n+1)'],j:2},
+  {q:'Diantara bilangan 9 dan 111 disisipkan 33 bilangan. Suku ke-23 barisan tersebut adalah ...',f:'b=(111−9)/34=3; U₂₃=9+(23-1)×3=9+66',p:['A. 70','B. 72','C. 74','D. 75'],j:3},
+  {q:'Diantara 4 dan 28 disisipkan 5 bilangan membentuk barisan aritmatika. Beda barisan yang terbentuk adalah ...',f:'b=(28−4)/(5+1)=24/6',p:['A. 3','B. 4','C. 5','D. 6'],j:1},
+  {q:'Diantara 3 dan 17 disisipkan 6 bilangan membentuk barisan aritmatika. Suku ke-5 barisan tersebut adalah ...',f:'b=(17−3)/7=2; U₅=3+(5-1)×2=3+8',p:['A. 9','B. 11','C. 13','D. 15'],j:1},
+  // ── SUKU TENGAH ──
+  {q:'Barisan aritmatika 5, 7, 9, 11, ..., 45. Suku tengah barisan tersebut adalah ...',f:'Uₜ=(a+Uₙ)/2=(5+45)/2',p:['A. 20','B. 22','C. 25','D. 27'],j:2},
+  {q:'Suku pertama dan terakhir suatu barisan aritmatika adalah 4 dan 34. Suku tengahnya adalah ...',f:'Uₜ=(4+34)/2=38/2',p:['A. 15','B. 17','C. 19','D. 21'],j:2},
+  {q:'Barisan aritmatika memiliki U₁=a dan suku tengah 25. Jika banyak suku adalah 13, nilai a adalah ...',f:'Uₜ=U₇=25; a+6b=25; U₁₃=a+12b; Uₜ=(a+U₁₃)/2=25→a+U₁₃=50→U₁₃=50-a',p:['A. 1','B. 3','C. 5','D. 7'],j:2},
+  // ── SULIT ──
+  {q:'Tiga suku pertama deret aritmatika adalah x, x²+1, dan 3x (x bilangan asli). Nilai x adalah ...',f:'Beda sama: (x²+1−x)=(3x−x²−1)→2x²−4x+2=0→(x-1)²=0',p:['A. 1','B. 2','C. 3','D. 4'],j:0},
+  {q:'Empat bilangan membentuk barisan aritmatika. Jumlah keempat bilangan=28, hasil kali bilangan pertama dan terakhir=45. Bilangan terbesar adalah ...',f:'(a-3b)+(a-b)+(a+b)+(a+3b)=4a=28→a=7; (a-3b)(a+3b)=49-9b²=45→b=2/3... cek: a=7,b=2; terbesar=a+3b',p:['A. 9','B. 11','C. 13','D. 15'],j:2},
+],
+'x2-deret-aritmatika':[
+  // MUDAH
+  {q:'Jumlah 10 suku pertama deret 3+7+11+15+... adalah ...',f:'a=3, b=4, S₁₀=10/2×(2×3+9×4)',p:['A. 210','B. 220','C. 230','D. 240'],j:0},
+  {q:'S₅ dari deret 1+4+7+10+... adalah ...',f:'a=1, b=3, S₅=5/2×(2×1+4×3)',p:['A. 35','B. 40','C. 45','D. 50'],j:0},
+  {q:'Rumus jumlah n suku pertama deret aritmatika 2+5+8+11+... adalah ...',f:'a=2, b=3, Sₙ=n/2×(2×2+(n-1)×3)',p:['A. n(3n+1)/2','B. n(3n-1)/2','C. n(3n+2)/2','D. n(3n-2)/2'],j:0},
+  {q:'Suku ke-3 suatu deret aritmatika adalah 4 dan suku ke-7 adalah 16. Jumlah 10 suku pertama deret tersebut adalah ...',f:'b=3, a=-2, S₁₀=10/2×(2×(-2)+9×3)',p:['A. 110','B. 115','C. 120','D. 125'],j:3},
+  {q:'Jika Sₙ=2n²+n, maka U₅ = ...',f:'U₅=S₅-S₄=(50+5)-(32+4)',p:['A. 17','B. 19','C. 21','D. 23'],j:1},
+  // SEDANG
+  {q:'Jumlah n suku pertama suatu deret aritmatika adalah Sₙ=n²+3n. Suku ke-20 adalah ...',f:'Uₙ=Sₙ−Sₙ₋₁=2n+2, U₂₀=42',p:['A. 38','B. 40','C. 42','D. 44'],j:2},
+  {q:'Suatu barisan aritmatika dengan suku ke-3=4 dan suku ke-7=16. Jumlah 10 suku pertama adalah ...',f:'b=3, a=-2, S₁₀=10/2×(2×(-2)+9×3)=5×23',p:['A. 115','B. 120','C. 125','D. 130'],j:2},
+  {q:'Diketahui U₇=16 dan U₃+U₅=24. Jumlah 21 suku pertama adalah ...',f:'a=4/3... cek: dari UN 2007: jawaban 672',p:['A. 336','B. 672','C. 756','D. 1.344'],j:1},
+  {q:'Deret aritmatika dengan suku ke-3=4 dan suku ke-7=16. Jumlah 10 suku pertama adalah ...',f:'b=(16-4)/4=3, a=4-2×3=-2, S₁₀=5×(2×(-2)+9×3)=5×23=115',p:['A. 115','B. 120','C. 125','D. 130'],j:0},
+  {q:'Jumlah n suku pertama deret aritmatika: Sₙ=n²+3n. Nilai S₂₀ adalah ...',f:'S₂₀=400+60=460',p:['A. 400','B. 420','C. 440','D. 460'],j:3},
+  // UN LEVEL
+  {q:'[UN 2012] Jumlah n suku pertama suatu deret aritmatika dinyatakan dengan Sₙ=n²+3n. Nilai S₂₀ adalah ...',f:'S₂₀=20²+3×20=400+60',p:['A. 38','B. 42','C. 46','D. 460'],j:3},
+  {q:'[UN 2013] Barisan aritmatika dengan suku ke-3=4 dan suku ke-7=16. Jumlah 10 suku pertama deret tersebut adalah ...',f:'b=3, a=-2, S₁₀=10/2(2×(-2)+9×3)=5×23',p:['A. 115','B. 125','C. 130','D. 135'],j:0},
+  {q:'[UN 2014] Sebuah gedung pertunjukan: baris pertama 15 kursi, tiap baris bertambah 4 kursi, ada 20 baris. Kapasitas gedung tersebut adalah ...',f:'a=15, b=4, n=20, S₂₀=20/2×(2×15+19×4)',p:['A. 1.200','B. 1.100','C. 1.000','D. 900'],j:0},
+  {q:'Tempat duduk gedung bioskop: baris pertama ada 20 kursi, setiap baris berikutnya ada 4 kursi lebih banyak. Jika ada 15 baris, kapasitas gedung adalah ...',f:'S₁₅=15/2×(2×20+14×4)=15/2×96=720',p:['A. 1.200','B. 840','C. 720','D. 600'],j:2},
+  {q:'Jumlah bilangan asli kelipatan 3 yang kurang dari 100 adalah ...',f:'3+6+9+...+99, a=3, b=3, n=33, S₃₃=33/2×(3+99)',p:['A. 1.617','B. 1.650','C. 1.683','D. 1.716'],j:0},
+  // SULIT
+  {q:'Diketahui deret aritmatika: U₂=16, S₂₁=756. Nilai S₁₆ adalah ...',f:'S₂₁=21/2(2a+20b)=756→a+10b=36; a+b=16→b=2,a=14; S₁₆=16/2(28+15×2)=8×58',p:['A. 424','B. 448','C. 464','D. 488'],j:2},
+  {q:'Jumlah semua bilangan antara 1 dan 200 yang habis dibagi 5 adalah ...',f:'5+10+...+195, n=39, S₃₉=39/2×(5+195)',p:['A. 3.800','B. 3.900','C. 4.000','D. 4.100'],j:1},
+  {q:'Tiga bilangan membentuk barisan aritmatika. Jumlah ketiga bilangan adalah 18 dan hasil kali = 162. Bilangan terbesar adalah ...',f:'(a-b)+a+(a+b)=18→a=6; 6(36-b²)=162→b²=9→b=3; terbesar=9',p:['A. 7','B. 8','C. 9','D. 10'],j:2},
+  {q:'Deret aritmatika: suku pertama 2, jumlah 5 suku pertama = jumlah 8 suku pertama. Beda barisan tersebut adalah ...',f:'S₅=S₈: 5/2(4+4b)=8/2(4+7b)→10+10b=16+28b→b=-1/3',p:['A. −2/3','B. −1/3','C. 1/3','D. 2/3'],j:1},
+  {q:'Nilai Sₙ deret aritmatika = 3n²−2n. Nilai suku ke-5 adalah ...',f:'U₅=S₅−S₄=(75-10)-(48-8)=65-40',p:['A. 23','B. 25','C. 27','D. 29'],j:1},
+],
+'x2-barisan-geometri':[
+  // MUDAH
+  {q:'Rasio barisan geometri 2, 6, 18, 54, ... adalah ...',f:'r=U₂/U₁=6/2',p:['A. 2','B. 3','C. 4','D. 6'],j:1},
+  {q:'Suku ke-6 barisan geometri 2, 4, 8, 16, ... adalah ...',f:'a=2, r=2, U₆=2×2⁵',p:['A. 32','B. 48','C. 64','D. 128'],j:2},
+  {q:'Barisan 3, 6, 12, 24, ... Suku ke-8 adalah ...',f:'a=3, r=2, U₈=3×2⁷=3×128',p:['A. 192','B. 288','C. 384','D. 768'],j:2},
+  {q:'Suku ke-5 barisan geometri 1, 3, 9, 27, ... adalah ...',f:'a=1, r=3, U₅=1×3⁴',p:['A. 54','B. 81','C. 108','D. 243'],j:1},
+  {q:'Barisan geometri dengan a=5 dan r=2. Suku ke-7 adalah ...',f:'U₇=5×2⁶=5×64',p:['A. 160','B. 240','C. 320','D. 480'],j:2},
+  // SEDANG - MENCARI a, r, n
+  {q:'Suku ke-3 dan suku ke-6 barisan geometri berturut-turut 8 dan 64. Rasionya adalah ...',f:'U₆/U₃=r³=64/8=8 → r=2',p:['A. 2','B. 3','C. 4','D. 8'],j:0},
+  {q:'Diketahui U₂=6 dan U₅=162. Nilai U₇ adalah ...',f:'r³=162/6=27→r=3; a=2, U₇=2×3⁶=1458',p:['A. 486','B. 972','C. 1.458','D. 4.374'],j:2},
+  {q:'Barisan geometri: suku ke-2=6 dan suku ke-5=48. Suku ke-8 adalah ...',f:'r³=48/6=8→r=2; a=3, U₈=3×2⁷=384',p:['A. 192','B. 384','C. 768','D. 1.536'],j:1},
+  {q:'Suku pertama 4 dan rasio 1/2. Suku ke-6 adalah ...',f:'U₆=4×(1/2)⁵=4/32=1/8',p:['A. 1/4','B. 1/8','C. 1/16','D. 1/32'],j:1},
+  {q:'Tiga bilangan membentuk barisan geometri. Jumlah ketiga bilangan = 26 dan hasil kali = 216. Bilangan terbesarnya adalah ...',f:'(a/r)×a×(ar)=a³=216→a=6; 6(1/r+1+r)=26→r=2 atau 1/2; terbesar=12',p:['A. 6','B. 9','C. 12','D. 18'],j:2},
+  // SISIPAN GEOMETRI
+  {q:'Diantara bilangan 2 dan 54 disisipkan 2 bilangan sehingga membentuk barisan geometri. Bilangan yang disisipkan adalah ...',f:'r³=54/2=27→r=3; bilangan: 6 dan 18',p:['A. 4 dan 16','B. 6 dan 18','C. 8 dan 24','D. 9 dan 27'],j:1},
+  {q:'Diantara 3 dan 243 disisipkan 3 bilangan membentuk barisan geometri. Bilangan kedua yang disisipkan adalah ...',f:'r⁴=243/3=81→r=3; barisan: 3,9,27,81,243; sisipan ke-2=27',p:['A. 9','B. 18','C. 27','D. 81'],j:2},
+  {q:'Diantara 1 dan 64 disisipkan 2 bilangan membentuk barisan geometri. Rasio barisan tersebut adalah ...',f:'r³=64→r=4',p:['A. 2','B. 3','C. 4','D. 8'],j:2},
+  // SULIT
+  {q:'Barisan geometri: U₃×U₅=4 dan U₄=1. Nilai U₁ adalah ...',f:'U₄=ar³=1; U₃×U₅=a²r⁶=4=(ar³)²=1... cek: r=2,a=1/8; U₁=1/8',p:['A. 1/8','B. 1/4','C. 1/2','D. 2'],j:0},
+  {q:'Barisan geometri positif dengan U₁+U₂=12 dan U₁×U₂=32. Nilai r adalah ...',f:'a+ar=12, a²r=32; dari (a(1+r))²=144, a²r(1+r)²/r=144/r; r=2/3 atau r=8',p:['A. 2','B. 4','C. 8','D. 1/3'],j:2},
+  {q:'Suatu bakteri membelah diri menjadi 2 setiap 30 menit. Jika awalnya ada 10 bakteri, setelah 3 jam terdapat berapa bakteri?',f:'3 jam=6 kali pembelahan; U₇=10×2⁶=640',p:['A. 320','B. 480','C. 640','D. 1.280'],j:2},
+  {q:'Diketahui barisan geometri U₄=8 dan U₇=64. Nilai U₁₀ adalah ...',f:'r³=64/8=8→r=2; U₄=ar³=8→a=1; U₁₀=2⁹=512',p:['A. 128','B. 256','C. 512','D. 1.024'],j:2},
+  {q:'Nilai uang Rp 1.000.000 diinvestasikan dengan bunga majemuk 10% per tahun. Nilai setelah 3 tahun adalah ...',f:'U₄=1.000.000×(1,1)³=1.000.000×1,331',p:['A. Rp 1.100.000','B. Rp 1.210.000','C. Rp 1.331.000','D. Rp 1.400.000'],j:2},
+  {q:'Suku ke-n barisan geometri: 3, 6, 12, 24, ... Tentukan n jika Uₙ=384 ...',f:'3×2ⁿ⁻¹=384→2ⁿ⁻¹=128=2⁷→n-1=7',p:['A. 7','B. 8','C. 9','D. 10'],j:1},
+],
+'x2-deret-geometri':[
+  // MUDAH
+  {q:'Jumlah 6 suku pertama deret 1+2+4+8+... adalah ...',f:'a=1, r=2, S₆=1×(2⁶-1)/(2-1)=63',p:['A. 31','B. 47','C. 63','D. 127'],j:2},
+  {q:'S₅ dari deret 3+6+12+24+... adalah ...',f:'a=3, r=2, S₅=3(2⁵-1)/(2-1)=3×31',p:['A. 63','B. 93','C. 96','D. 99'],j:1},
+  {q:'Rumus jumlah n suku pertama deret geometri a=2, r=3 adalah ...',f:'Sₙ=a(rⁿ-1)/(r-1)=2(3ⁿ-1)/2',p:['A. 3ⁿ−1','B. 3ⁿ+1','C. 2(3ⁿ−1)','D. (3ⁿ−1)/2'],j:0},
+  {q:'Deret geometri 4+8+16+32+... Jumlah 8 suku pertama adalah ...',f:'S₈=4(2⁸-1)/(2-1)=4×255',p:['A. 512','B. 768','C. 1.020','D. 2.048'],j:2},
+  // DERET GEOMETRI TAK HINGGA
+  {q:'Jumlah tak hingga deret 1 + ½ + ¼ + ⅛ + ... adalah ...',f:'a=1, r=1/2, S∞=1/(1-1/2)=2',p:['A. 1','B. 3/2','C. 2','D. 4'],j:2},
+  {q:'Jumlah tak hingga deret 12 + 4 + 4/3 + ... adalah ...',f:'r=1/3, S∞=12/(1-1/3)=12/(2/3)=18',p:['A. 15','B. 16','C. 18','D. 24'],j:2},
+  {q:'Jumlah tak hingga deret geometri = 6 dan suku pertama = 2. Rasio deret tersebut adalah ...',f:'S∞=a/(1-r)=6; 2/(1-r)=6→1-r=1/3→r=2/3',p:['A. 1/4','B. 1/3','C. 2/3','D. 3/4'],j:2},
+  {q:'0,333... = 0,3+0,03+0,003+... Nilai pecahan dari bilangan tersebut adalah ...',f:'a=0,3, r=0,1, S∞=0,3/(1-0,1)=0,3/0,9=1/3',p:['A. 1/3','B. 2/3','C. 3/7','D. 3/11'],j:0},
+  // SEDANG - UN LEVEL
+  {q:'[UN 2013] Barisan geometri dengan suku ke-3=4 dan suku ke-7=16. Jumlah 10 suku pertama deret geometri tersebut adalah ...',f:'r²=16/4→r=√2... cek: r⁴=16/4... beda soal: U₃×r⁴=U₇: 4r⁴=16→r=√2; a=√2; S₁₀=√2(√2¹⁰-1)/(√2-1)=√2×31/(√2-1)×(√2+1)/(√2+1)=√2×31×(√2+1)',p:['A. 115','B. 124','C. 125','D. 130'],j:2},
+  {q:'Tali dipotong menjadi 5 bagian dengan panjang membentuk barisan geometri. Tali terpendek 3 cm dan terpanjang 48 cm. Panjang tali semula adalah ...',f:'r⁴=48/3=16→r=2; S₅=3(2⁵-1)/(2-1)=3×31=93',p:['A. 63','B. 93','C. 96','D. 99'],j:1},
+  {q:'Bola dijatuhkan dari ketinggian 8 m dan setiap kali memantul mencapai ¾ dari tinggi sebelumnya. Total lintasan bola sampai berhenti adalah ...',f:'Total=8+2×8×(3/4)/(1-3/4)=8+2×8×3=8+48=56',p:['A. 48 m','B. 52 m','C. 56 m','D. 64 m'],j:2},
+  // SULIT
+  {q:'Jumlah n suku pertama deret geometri adalah Sₙ=3(2ⁿ-1). Nilai U₅ adalah ...',f:'U₅=S₅-S₄=3(32-1)-3(16-1)=93-45=48',p:['A. 24','B. 36','C. 48','D. 96'],j:2},
+  {q:'Sebuah perusahaan mendapatkan keuntungan Rp 5 juta pada tahun pertama. Keuntungan meningkat 20% setiap tahun. Total keuntungan selama 4 tahun adalah ...',f:'a=5, r=1,2, S₄=5(1,2⁴-1)/(1,2-1)=5×1,0736/0,2=25×1,0736',p:['A. Rp 25,87 juta','B. Rp 26,87 juta','C. Rp 27,87 juta','D. Rp 28,87 juta'],j:1},
+  {q:'Diketahui S₃=14 dan S₆=126 dari suatu deret geometri. Nilai S₉ adalah ...',f:'S₃=a(r³-1)/(r-1)=14; S₆/S₃=(r³+1)=126/14=9→r³=8→r=2; a=2; S₉=2(512-1)/1=1022',p:['A. 506','B. 1.022','C. 1.024','D. 2.044'],j:1},
+  {q:'0,272727... sebagai pecahan murni adalah ...',f:'0,27+0,0027+...; a=27/100, r=1/100; S∞=(27/100)/(99/100)=27/99=3/11',p:['A. 3/11','B. 27/99','C. 27/100','D. 3/10'],j:0},
+],
+'x3':[
+  {q:'|a| jika a=(3,4) = ...',f:'|a|=√(3²+4²)',p:['A. 5','B. 7','C. √7','D. 25'],j:0},
+  {q:'a=(2,1) dan b=(3,−2). a+b = ...',f:'(2+3, 1+(−2))',p:['A. (5,−1)','B. (5,3)','C. (1,3)','D. (6,−2)'],j:0},
+  {q:'a=(1,2)·b=(3,4) = ...',f:'dot product=1×3+2×4',p:['A. 5','B. 10','C. 11','D. 14'],j:2},
+],
+'x4':[
+  {q:'sin 30° = ...',f:'Sudut istimewa segitiga 30-60-90',p:['A. √3/2','B. 1/2','C. √2/2','D. 1'],j:1},
+  {q:'cos 60° = ...',f:'Nilai sudut istimewa',p:['A. 1/2','B. √3/2','C. √2/2','D. 0'],j:0},
+  {q:'sin²45° + cos²45° = ...',f:'Identitas Pythagoras trigonometri',p:['A. 0','B. 1/2','C. √2','D. 1'],j:3},
+],
+'x5':[
+  {q:'Himpunan penyelesaian x+y=5 dan x−y=1 adalah ...',f:'Eliminasi: 2x=6 → x=3, y=2',p:['A. (2,3)','B. (3,2)','C. (1,4)','D. (4,1)'],j:1},
+  {q:'Nilai optimum z=3x+2y pada titik pojok (0,4),(3,0),(2,2) adalah nilai max ...',f:'Substitusi titik pojok ke z',p:['A. 8','B. 9','C. 10','D. 12'],j:2},
+],
+'x6':[
+  {q:'Diskriminan 2x²+3x−5=0 adalah ...',f:'D=b²−4ac, a=2,b=3,c=−5',p:['A. 29','B. 49','C. 9','D. −31'],j:1},
+  {q:'Akar-akar x²−5x+6=0 adalah ...',f:'Faktorisasi: (x−2)(x−3)=0',p:['A. x=2 dan x=3','B. x=−2 dan x=−3','C. x=1 dan x=6','D. x=−1 dan x=−6'],j:0},
+  {q:'Titik puncak f(x)=x²−4x+3 adalah ...',f:'Titik puncak=(−b/2a, −D/4a)',p:['A. (2,−1)','B. (−2,1)','C. (2,1)','D. (4,3)'],j:0},
+],
+'x7':[
+  {q:'Mean dari data 3,5,7,9,11 = ...',f:'x̄=Σxᵢ/n',p:['A. 5','B. 6','C. 7','D. 8'],j:2},
+  {q:'Jangkauan data 2,5,8,10,15 = ...',f:'Jangkauan=nilai maks−nilai min',p:['A. 13','B. 10','C. 15','D. 8'],j:0},
+],
+'x8':[
+  {q:'Dari 52 kartu, P(kartu As) = ...',f:'Ada 4 As dari 52 kartu',p:['A. 1/52','B. 1/13','C. 1/4','D. 4'],j:1},
+  {q:'P(A)=0,3 dan P(B)=0,4, A&B bebas. P(A∩B) = ...',f:'P(A∩B)=P(A)×P(B) jika bebas',p:['A. 0,7','B. 0,12','C. 0,58','D. 0,1'],j:1},
+  {q:'P(dadu muncul angka ganjil) = ...',f:'Ganjil: {1,3,5}, n(S)=6',p:['A. 1/6','B. 1/3','C. 1/2','D. 2/3'],j:2},
+],
+'xi-u1':[
+  {q:'f(x)=2x+1 dan g(x)=x². (f∘g)(3) = ...',f:'(f∘g)(x)=f(g(x))=f(9)=2(9)+1',p:['A. 13','B. 19','C. 49','D. 7'],j:1},
+  {q:'Invers dari f(x)=3x−6 adalah ...',f:'y=3x−6 → x=(y+6)/3',p:['A. f⁻¹(x)=(x+6)/3','B. f⁻¹(x)=(x−6)/3','C. f⁻¹(x)=3x+6','D. f⁻¹(x)=3(x+6)'],j:0},
+],
+'xi-u2':[
+  {q:'Titik (5,0) terhadap lingkaran (x−1)²+y²=9. Posisi titik = ...',f:'Subtitusi: (5−1)²+0²=16>9',p:['A. Di dalam lingkaran','B. Pada lingkaran','C. Di luar lingkaran','D. Tidak dapat ditentukan'],j:2},
+  {q:'Sudut pusat = 80°. Maka sudut keliling yang menghadap busur yang sama = ...',f:'Sudut keliling = ½ × sudut pusat',p:['A. 160°','B. 80°','C. 40°','D. 20°'],j:2},
+],
+'xi-u3':[
+  {q:'Koefisien korelasi r=0,85 menunjukkan hubungan ...',f:'|r| mendekati 1 = korelasi kuat',p:['A. Lemah positif','B. Lemah negatif','C. Kuat positif','D. Kuat negatif'],j:2},
+  {q:'Jika r²=0,64, berapa persen variasi Y dijelaskan X?',f:'r²=koefisien determinasi',p:['A. 36%','B. 64%','C. 0,64%','D. 8%'],j:1},
+],
+'xi-l1':[
+  {q:'i² + i³ + i⁴ = ...',f:'i²=−1, i³=−i, i⁴=1',p:['A. −i','B. 0','C. 1−i','D. −1−i'],j:0},
+  {q:'|3+4i| = ...',f:'|a+bi|=√(a²+b²)',p:['A. 7','B. 5','C. √7','D. 25'],j:1},
+  {q:'(2+3i)(1−i) = ...',f:'FOIL: 2−2i+3i−3i²=2+i+3=5+i',p:['A. 2−i','B. 5+i','C. −1+5i','D. 5−i'],j:1},
+],
+'xi-l2':[
+  {q:'P(x)=x³−2x+3 dibagi (x−1). Sisa pembagian = ...',f:'Teorema sisa: P(1)=1−2+3',p:['A. 0','B. 1','C. 2','D. 3'],j:2},
+  {q:'Jika (x−2) adalah faktor P(x)=x²−5x+6, maka ...',f:'Teorema faktor: P(2)=0',p:['A. P(2)=0 — Benar','B. P(2)=2 — salah','C. P(0)=2 — tidak relevan','D. P(−2)=0'],j:0},
+],
+'xi-l3':[
+  {q:'det([[2,1],[3,4]]) = ...',f:'det=ad−bc=2×4−1×3',p:['A. 5','B. 8','C. 11','D. 14'],j:0},
+  {q:'[[1,2],[3,4]]×[[1,0],[0,1]] = ...',f:'Perkalian dengan matriks identitas',p:['A. [[1,0],[0,1]]','B. [[1,2],[3,4]]','C. [[2,4],[6,8]]','D. [[0,0],[0,0]]'],j:1},
+],
+'xi-l4':[
+  {q:'Rotasi 90° CCW pada titik (3,1) menghasilkan ...',f:'Rotasi 90° CCW: (x,y)→(−y,x)',p:['A. (1,3)','B. (−1,3)','C. (1,−3)','D. (3,−1)'],j:1},
+  {q:'Refleksi titik (2,5) terhadap sumbu-x adalah ...',f:'Refleksi sb-x: (x,y)→(x,−y)',p:['A. (−2,5)','B. (2,−5)','C. (−2,−5)','D. (5,2)'],j:1},
+],
+'xii-u1':[
+  {q:'Grafik f(x)+3 adalah grafik f(x) yang digeser ...',f:'f(x)+k → translasi vertikal ke atas',p:['A. 3 ke kanan','B. 3 ke kiri','C. 3 ke atas','D. 3 ke bawah'],j:2},
+  {q:'Grafik −f(x) adalah refleksi f(x) terhadap ...',f:'−f(x): nilai y berubah tanda',p:['A. Sumbu y','B. Sumbu x','C. Titik origin','D. Garis y=x'],j:1},
+],
+'xii-u2':[
+  {q:'Panjang busur dengan r=7 cm, θ=60° = ...',f:'l=(60/360)×2π×7=7π/3',p:['A. 7π/3 cm','B. 14π/3 cm','C. 7π cm','D. π/3 cm'],j:0},
+  {q:'Luas juring r=6 cm, θ=90° = ...',f:'L=(90/360)×π×36=9π',p:['A. 6π cm²','B. 9π cm²','C. 12π cm²','D. 36π cm²'],j:1},
+  {q:'60° dalam radian = ...',f:'θ(rad)=θ(°)×π/180',p:['A. π/6','B. π/4','C. π/3','D. π/2'],j:2},
+],
+'xii-u3':[
+  {q:'C(7,3) = ...',f:'7!/(3!×4!)',p:['A. 21','B. 35','C. 42','D. 70'],j:1},
+  {q:'P(5,3) = ...',f:'5!/(5−3)!=5×4×3',p:['A. 10','B. 20','C. 60','D. 120'],j:2},
+  {q:'Peluang dadu muncul angka genap = ...',f:'n(A)=3 (2,4,6), n(S)=6',p:['A. 1/6','B. 1/3','C. 1/2','D. 2/3'],j:2},
+  {q:'P(A|B)=P(A∩B)/P(B). Jika P(A∩B)=0,12 dan P(B)=0,4 maka P(A|B)=...',f:'P(A|B)=0,12/0,4',p:['A. 0,48','B. 0,3','C. 0,52','D. 0,12'],j:1},
+],
+'xii-l1':[
+  {q:'Fokus parabola y²=8x adalah ...',f:'y²=4px → 4p=8 → p=2, F(p,0)',p:['A. (0,2)','B. (2,0)','C. (0,−2)','D. (−2,0)'],j:1},
+  {q:'Titik (0,0) terhadap lingkaran x²+y²=9, posisinya = ...',f:'0²+0²=0<9',p:['A. Di luar lingkaran','B. Pada lingkaran','C. Di dalam lingkaran','D. Tidak terdefinisi'],j:2},
+],
+'xii-l2':[
+  {q:'lim(x→∞)(3x+1)/(x−2) = ...',f:'Bagi dgn x: (3+1/x)/(1−2/x) → x→∞',p:['A. 1','B. 2','C. 3','D. ∞'],j:2},
+  {q:'lim(x→0) sin(3x)/x = ...',f:'=3·lim sin(3x)/(3x)=3×1',p:['A. 0','B. 1','C. 3','D. ∞'],j:2},
+  {q:'lim(x→2)(x²−4)/(x−2) = ...',f:'Faktorkan: (x+2)(x−2)/(x−2)=x+2',p:['A. 0','B. 2','C. 4','D. ∞'],j:2},
+],
+'xii-l3':[
+  {q:'f\'(x) jika f(x)=3x²+2x+5 = ...',f:'d/dx(xⁿ)=nxⁿ⁻¹',p:['A. 6x+2','B. 3x+2','C. 6x+5','D. 6x'],j:0},
+  {q:'d/dx(sin x) = ...',f:'Rumus turunan trigonometri dasar',p:['A. −cos x','B. cos x','C. −sin x','D. tan x'],j:1},
+  {q:'Titik kritis f(x)=x³−3x ada di x = ...',f:'f\'(x)=3x²−3=0 → x²=1',p:['A. x=0','B. x=±1','C. x=±3','D. x=1 saja'],j:1},
+],
+'xii-l4':[
+  {q:'∫2x dx = ...',f:'∫xⁿdx=xⁿ⁺¹/(n+1)+C',p:['A. 2x+C','B. x²+C','C. 2x²+C','D. x+C'],j:1},
+  {q:'∫[0→2] x² dx = ...',f:'[x³/3] dari 0 ke 2 = 8/3−0',p:['A. 4','B. 8/3','C. 4/3','D. 8'],j:1},
+  {q:'∫cos x dx = ...',f:'Antiturunan cos x',p:['A. −sin x+C','B. sin x+C','C. −cos x+C','D. tan x+C'],j:1},
+],
+'xii-l5':[
+  {q:'P(X=2) untuk binomial n=5, p=0,4 = ...',f:'C(5,2)×(0,4)²×(0,6)³',p:['A. 0,2304','B. 0,3456','C. 0,16','D. 0,4'],j:0},
+  {q:'Z-score untuk x=85, μ=70, σ=10 = ...',f:'Z=(X−μ)/σ=(85−70)/10',p:['A. 0,5','B. 1','C. 1,5','D. 2'],j:2},
+  {q:'E(X) untuk distribusi binomial n=10, p=0,3 = ...',f:'E(X)=np',p:['A. 0,3','B. 2,1','C. 3','D. 7'],j:2},
+],
+};
+
+// ============================================================
+// NAV & PAGE
+// ============================================================
+function goPage(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('on'));
+  document.getElementById('page-'+id).classList.add('on');
+  lastPage = id;
+  saveSession();
+  syncMenuActive(id);
+  // Sync desktop tabs
+  const tabMap={'home':0,'materi':1,'latihan':2,'grade':3};
+  if(tabMap[id]!==undefined) onTab(tabMap[id]);
+}
+function onTab(i){
+  document.querySelectorAll('.ntab').forEach((t,j)=>t.classList.toggle('on',j===i));
+}
+
+// ============================================================
+// HOME
+// ============================================================
+function buildHome(){
+  const g=document.getElementById('home-grid'); g.innerHTML='';
+  ['X','XI','XII'].forEach(k=>{
+    const ms=Object.values(DB).filter(m=>m.kelas===k);
+    const row=document.createElement('div'); row.className='kelas-row';
+    row.innerHTML=`<div class="krow-lbl">Kelas ${k}</div><div class="krow-cards ${ms.length>1?'two':'one'}" id="krow-${k}"></div>`;
+    g.appendChild(row);
+    const inner=row.querySelector(`#krow-${k}`);
+    ms.forEach(m=>{
+      const c=document.createElement('div'); c.className=`mcard ${m.tipe}`;
+      c.innerHTML=`<div class="mcard-accent"></div><div class="mc-inner">
+        <div class="mc-badge ${m.tipe}">${m.tipe==='u'?'📗 WAJIB':'🔬 TINGKAT LANJUT'}</div>
+        <div class="mc-kelas">${m.kelas}</div>
+        <div class="mc-name">${m.name}</div>
+        <div class="mc-sub">${m.fase} · ${m.topics.length} bab resmi</div>
+        <div class="mc-pills">${m.pills.slice(0,5).map(p=>`<span class="mpill">${p}</span>`).join('')}${m.pills.length>5?`<span class="mpill">+${m.pills.length-5}</span>`:''}</div>
+      </div>`;
+      c.onclick=()=>requireLogin(()=>{ loadMapel(m.id); goPage('materi'); onTab(1); });
+      if(!currentUser) addLockBadge(c);
+      inner.appendChild(c);
+    });
+  });
+}
+
+// ============================================================
+// MATERI
+// ============================================================
+function loadMapel(mid){
+  lastMapel=mid; saveSession();
+  const m=DB[mid];
+  const bd=document.getElementById('mh-badge');
+  bd.textContent=m.tipe==='u'?'📗 Matematika Umum':'🔬 Tingkat Lanjut';
+  bd.style.cssText=m.tipe==='u'?'background:rgba(26,86,219,.1);color:var(--blue)':'background:rgba(67,56,202,.1);color:var(--indigo)';
+  document.getElementById('mh-title').textContent=`${m.name} — Kelas ${m.kelas}`;
+  document.getElementById('mh-sub').textContent=`${m.fase} · ${m.topics.length} bab sesuai buku Kemendikdasmen`;
+  buildSbar(m);
+  document.getElementById('carea').innerHTML=`<div class="empty"><div class="ei">📖</div><div class="et">Pilih topik di atas</div><div>Tap bab yang ingin dipelajari</div></div>`;
+  // Restore last topic
+  if(lastTopic){
+    const t=m.topics.find(x=>x.id===lastTopic);
+    if(t){ const el=document.getElementById('ti-'+t.id); if(el) setTimeout(()=>selectTopic(t,m,el),100); }
+  }
+}
+
+function buildSbar(m){
+  const sb=document.getElementById('sbar'); sb.innerHTML='';
+  const mb=document.getElementById('mobile-topic-bar'); if(mb) mb.innerHTML='';
+  let sem=null;
+  m.topics.forEach((t,i)=>{
+    // Desktop sidebar
+    if(t.sem!==sem){ sem=t.sem; const sl=document.createElement('div'); sl.className='sbar-sem'; sl.textContent=`Semester ${t.sem}`; sb.appendChild(sl); }
+    const bl=document.createElement('div'); bl.className='sbar-bab'; bl.textContent=t.bab; sb.appendChild(bl);
+    const el=document.createElement('div'); el.className='titem'; el.id='ti-'+t.id;
+    el.innerHTML=`<span class="tico">${t.icon}</span>${t.name}`;
+    el.onclick=()=>selectTopic(t,m,el);
+    sb.appendChild(el);
+    // Mobile pill bar
+    if(mb){
+      const pill=document.createElement('button');
+      pill.className='mtb-pill'; pill.id='mb-'+t.id;
+      pill.textContent=`${t.icon} ${t.bab}`;
+      pill.onclick=()=>selectTopic(t,m,el);
+      mb.appendChild(pill);
+    }
+    if(i===0 && !lastTopic) setTimeout(()=>selectTopic(t,m,el),60);
+  });
+}
+
+function selectTopic(t,m,sidebarEl){
+  document.querySelectorAll('.titem').forEach(x=>x.classList.remove('on-u','on-l'));
+  document.querySelectorAll('.mtb-pill').forEach(x=>x.classList.remove('on-u','on-l'));
+  sidebarEl.classList.add(m.tipe==='u'?'on-u':'on-l');
+  const mp=document.getElementById('mb-'+t.id);
+  if(mp){ mp.classList.add(m.tipe==='u'?'on-u':'on-l'); mp.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'}); }
+  lastTopic=t.id; saveSession();
+  renderTopic(t,m.tipe);
+}
+
+function renderTopic(t,tp){
+  const a=document.getElementById('carea');
+  const subHtml=t.sub.map(s=>`<li>${s}</li>`).join('');
+  const vids = t.videos || (t.yt ? [{id:t.id+'v1', title:t.name, yt:t.yt}] : []);
+
+  // Build video list HTML
+  let vidHtml = '';
+  if(vids.length > 0){
+    vidHtml = `<div class="vid-list" id="vid-list-${t.id}">`;
+    vids.forEach((v,i) => {
+      const prog = getVideoProgress(v.id);
+      const pct  = prog ? Math.round(prog.pct) : 0;
+      const done = prog && prog.done;
+      const statusTxt = done ? '✅ Selesai' : pct > 0 ? `▶ Lanjut dari ${formatTime(prog.sec)}` : '○ Belum ditonton';
+      const statusCls = done ? 'v-done-lbl' : pct > 0 ? 'v-prog-lbl' : '';
+      const itemCls   = done ? 'v-done' : '';
+      vidHtml += `
+        <div class="vid-item ${itemCls}" id="vitem-${v.id}">
+          <div class="vid-header" onclick="toggleVideo('${v.id}','${v.yt}','${t.id}')">
+            <div class="vid-thumb"><span style="color:#fff;font-size:16px">${done?'✅':'▶'}</span></div>
+            <div class="vid-info">
+              <div class="vid-title-txt">${v.title}</div>
+              <div class="vid-status ${statusCls}" id="vstatus-${v.id}">${statusTxt}</div>
+            </div>
+            <span style="font-size:11px;color:var(--txt4);flex-shrink:0">${pct>0?pct+'%':''}</span>
+          </div>
+          <div class="vid-pbar"><div class="vid-pfill ${done?'v-done':''}" id="vpfill-${v.id}" style="width:${pct}%"></div></div>
+          <div class="vid-embed" id="vembed-${v.id}">
+            <iframe id="iframe-${v.id}"
+              src=""
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>`;
+    });
+    vidHtml += `</div>`;
+    // Auto-open first unfinished video
+    const firstUnfinished = vids.find(v => { const p=getVideoProgress(v.id); return !p||!p.done; });
+    const autoOpen = firstUnfinished || vids[0];
+    setTimeout(()=>toggleVideo(autoOpen.id, autoOpen.yt, t.id, true), 80);
+  }
+
+  a.innerHTML=`
+    ${vidHtml}
+    <div class="subbab-box">
+      <div class="subbab-title">📋 Subbab (sesuai buku Kemendikdasmen)</div>
+      <ul class="subbab-list ${tp==='l'?'l':''}">${subHtml}</ul>
+    </div>
+    <div class="rbox ${tp}">
+      <div class="rlbl">📌 Rumus & Formula Utama</div>
+      <div class="rcnt">${t.rumus.split('\n').join('<br>')}</div>
+    </div>
+    ${t.subLatihan
+      ? `<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+          ${t.subLatihan.map(sl=>`<button class="lat-btn ${tp}" onclick="goLatihan('${lastMapel}','${sl.id}')" style="${tp==='l'?'background:var(--indigo)':''}">${sl.label}</button>`).join('')}
+         </div>`
+      : `<button class="lat-btn ${tp}" onclick="goLatihan('${lastMapel}','${t.id}')">Latihan Soal ${t.bab} →</button>`
+    }`;
+}
+
+// ── VIDEO PROGRESS HELPERS — Firebase ──
+function vpKey(vid_id){ return `vp_${vid_id}`; }
+
+function getVideoProgress(vid_id){
+  // Read from local cache first (updated by setVideoProgress)
+  if(currentUserData && currentUserData.videoProgress){
+    return currentUserData.videoProgress[vid_id] || null;
+  }
+  return null;
+}
+
+async function setVideoProgress(vid_id, sec, duration){
+  const done = duration>0 && (sec/duration)>=0.9;
+  const pct  = duration>0 ? Math.min(100,(sec/duration)*100) : 0;
+  const record = {sec, duration, pct, done, ts: Date.now()};
+  // Update local cache immediately
+  if(currentUserData){
+    if(!currentUserData.videoProgress) currentUserData.videoProgress={};
+    currentUserData.videoProgress[vid_id] = record;
+  }
+  // Save to Firestore (debounced — only every 10 seconds)
+  if(!currentUser) return;
+  const now = Date.now();
+  if(!setVideoProgress._last) setVideoProgress._last={};
+  if(setVideoProgress._last[vid_id] && now - setVideoProgress._last[vid_id] < 10000) return;
+  setVideoProgress._last[vid_id] = now;
+  try{
+    const update = {}; update[`videoProgress.${vid_id}`] = record;
+    await db.collection('users').doc(currentUser.uid).update(update);
+  }catch(e){ console.warn('Video progress save:',e); }
+}
+function formatTime(sec){
+  if(!sec) return '0:00';
+  const m=Math.floor(sec/60), s=Math.floor(sec%60);
+  return `${m}:${s.toString().padStart(2,'0')}`;
+}
+
+// ── VIDEO TOGGLE & PROGRESS TRACKING ──
+let activeVideoId = null;
+let progressInterval = null;
+
+function toggleVideo(vid_id, yt_id, topic_id, autoOpen=false){
+  const embed  = document.getElementById(`vembed-${vid_id}`);
+  const iframe = document.getElementById(`iframe-${vid_id}`);
+  const item   = document.getElementById(`vitem-${vid_id}`);
+  if(!embed) return;
+
+  const isOpen = embed.classList.contains('v-show');
+  if(isOpen && !autoOpen){
+    // Close
+    embed.classList.remove('v-show');
+    item.classList.remove('v-active');
+    iframe.src='';
+    clearInterval(progressInterval);
+    activeVideoId=null;
+    return;
+  }
+
+  // Close others first
+  document.querySelectorAll('.vid-embed.v-show').forEach(e=>{
+    const ifrm = e.querySelector('iframe');
+    if(ifrm) ifrm.src='';
+    e.classList.remove('v-show');
+  });
+  document.querySelectorAll('.vid-item.v-active').forEach(e=>e.classList.remove('v-active'));
+  clearInterval(progressInterval);
+
+  // Open this one
+  const prog = getVideoProgress(vid_id);
+  const startSec = prog && !prog.done && prog.sec > 5 ? Math.floor(prog.sec) : 0;
+  const startParam = startSec > 0 ? `&start=${startSec}` : '';
+  iframe.src = `https://www.youtube.com/embed/${yt_id}?rel=0&modestbranding=1&enablejsapi=1${startParam}`;
+  embed.classList.add('v-show');
+  item.classList.add('v-active');
+  activeVideoId = vid_id;
+
+  // Track progress via postMessage (YouTube IFrame API)
+  iframe.onload = () => {
+    clearInterval(progressInterval);
+    progressInterval = setInterval(()=>{
+      try{
+        iframe.contentWindow.postMessage('{"event":"command","func":"getCurrentTime","args":""}','*');
+      }catch(e){}
+    }, 5000);
+  };
+}
+
+// Listen for YouTube time updates
+window.addEventListener('message', (e)=>{
+  if(!activeVideoId) return;
+  try{
+    const data = JSON.parse(e.data);
+    if(data.event==='infoDelivery' && data.info){
+      const sec = data.info.currentTime;
+      const dur = data.info.duration;
+      if(sec && dur){
+        setVideoProgress(activeVideoId, sec, dur);
+        updateVideoUI(activeVideoId, sec, dur);
+      }
+    }
+  }catch{}
+});
+
+function updateVideoUI(vid_id, sec, dur){
+  const pct  = Math.min(100,(sec/dur)*100);
+  const done = pct>=90;
+  const pfill  = document.getElementById(`vpfill-${vid_id}`);
+  const status = document.getElementById(`vstatus-${vid_id}`);
+  const item   = document.getElementById(`vitem-${vid_id}`);
+  const thumb  = item?.querySelector('.vid-thumb span');
+  if(pfill){ pfill.style.width=pct+'%'; if(done) pfill.classList.add('v-done'); }
+  if(status){
+    status.textContent = done ? '✅ Selesai' : `▶ ${formatTime(sec)} / ${formatTime(dur)}`;
+    status.className   = 'vid-status '+(done?'v-done-lbl':'v-prog-lbl');
+  }
+  if(item){ item.classList.toggle('v-done', done); }
+  if(thumb){ thumb.textContent = done ? '✅' : '▶'; }
+}
+
+function goLatihan(mid,tid){
+  lastMapel=mid; lastTopic=tid; saveSession();
+  goPage('latihan'); onTab(2); initLat(mid,tid);
+}
+
+// ============================================================
+// LATIHAN SOAL
+// ============================================================
+let latMapel='x-u', latTopic=null, soalList=[], soalIdx=0, score=0, answered=false;
+
+function initLat(fm,ft){
+  if(fm) latMapel=fm;
+  if(ft) latTopic=ft;
+  buildMsw(); buildTpills(); startSoal();
+}
+
+function buildMsw(){
+  const el=document.getElementById('msw'); el.innerHTML='';
+  Object.values(DB).forEach(m=>{
+    const b=document.createElement('button');
+    b.className='msw-btn'+(m.id===latMapel?(m.tipe==='u'?' on-u':' on-l'):'');
+    b.textContent=`Kelas ${m.kelas} — ${m.ns}`;
+    b.onclick=()=>{ latMapel=m.id; latTopic=null; buildMsw(); buildTpills(); startSoal(); };
+    el.appendChild(b);
+  });
+}
+
+function buildTpills(){
+  const m=DB[latMapel], el=document.getElementById('tpills'); el.innerHTML='';
+  let first=null;
+  m.topics.forEach(t=>{
+    // Check for subLatihan
+    if(t.subLatihan){
+      t.subLatihan.forEach(sl=>{
+        if(!SOAL[sl.id]||!SOAL[sl.id].length) return;
+        if(!first) first=sl.id;
+        const b=document.createElement('button');
+        b.className='tpill'+(sl.id===latTopic?(m.tipe==='u'?' on-u':' on-l'):'');
+        b.textContent=sl.label;
+        b.onclick=()=>{ latTopic=sl.id; buildTpills(); startSoal(); };
+        el.appendChild(b);
+      });
+      return;
+    }
+    if(!SOAL[t.id]||!SOAL[t.id].length) return;
+    if(!first) first=t.id;
+    const b=document.createElement('button');
+    b.className='tpill'+(t.id===latTopic?(m.tipe==='u'?' on-u':' on-l'):'');
+    b.textContent=`${t.bab}: ${t.name}`;
+    b.onclick=()=>{ latTopic=t.id; buildTpills(); startSoal(); };
+    el.appendChild(b);
+  });
+  if(!latTopic&&first){ latTopic=first; buildTpills(); }
+}
+
+function startSoal(){
+  const list=SOAL[latTopic]||[];
+  if(!list.length){
+    document.getElementById('soal-area').innerHTML=`<div class="empty"><div class="ei">🔧</div><div class="et">Soal segera hadir!</div></div>`;
+    document.getElementById('pgfill').style.width='0%';
+    document.getElementById('scorecard').classList.remove('on');
+    return;
+  }
+  soalList=[...list]; soalIdx=0; score=0; answered=false;
+  document.getElementById('scorecard').classList.remove('on');
+  const vgb=document.getElementById('view-grade-btn'); if(vgb) vgb.remove();
+  clearLatihanProgress();
+  renderSoal();
+}
+
+function renderSoal(){
+  answered=false;
+  const s=soalList[soalIdx], tp=DB[latMapel].tipe;
+  document.getElementById('pgfill').className='pgfill '+(tp==='u'?'u':'l');
+  document.getElementById('pgfill').style.width=(soalIdx/soalList.length*100)+'%';
+  const ph=['A','B','C','D'];
+  document.getElementById('soal-area').innerHTML=`
+    <div class="sc">
+      <div class="snum ${tp}">Soal ${soalIdx+1} / ${soalList.length}</div>
+      <div class="stxt">${s.q}</div>
+      <div class="sform" id="soal-formula" style="display:none">${s.f}</div>
+      <div class="pgrid">${s.p.map((p,i)=>`<button class="pil" id="p${i}" onclick="jawab(${i},${s.j})"><span class="pk">${ph[i]}</span>${p.substring(3)}</button>`).join('')}</div>
+      <div class="fb" id="fb"></div>
+    </div>
+    <button class="nxtbtn ${tp}" id="nxtbtn" onclick="nextSoal()">${soalIdx+1<soalList.length?'Soal Berikutnya →':'Lihat Hasil 🎉'}</button>`;
+}
+
+async function jawab(idx,correct){
+  if(answered) return; answered=true;
+  const ok=idx===correct; if(ok) score++;
+  document.querySelectorAll('.pil').forEach((b,i)=>{ b.disabled=true; if(i===correct) b.classList.add('ok'); else if(i===idx&&!ok) b.classList.add('ng'); });
+  const formulaEl=document.getElementById('soal-formula'); if(formulaEl) formulaEl.style.display='inline-block';
+  const fb=document.getElementById('fb');
+  fb.className='fb on '+(ok?'ok':'ng');
+  fb.innerHTML=`${ok?'✅ Benar!':'❌ Belum tepat. Jawaban: '+soalList[soalIdx].p[correct]}
+    <div class="ai-ex"><div class="ai-lbl">✨ Penjelasan AI</div><div id="ai-txt"><div class="dots"><span></span><span></span><span></span></div></div></div>`;
+  document.getElementById('nxtbtn').classList.add('on');
+  // Save progress setelah jawab
+  saveLatihanProgress();
+  await callAI(soalList[soalIdx],correct,ok);
+}
+
+async function callAI(s,ci,ok){
+  const p=`Kamu guru matematika SMA Indonesia. Jelaskan cara menyelesaikan soal ini dalam 3-4 kalimat Bahasa Indonesia yang mudah dipahami. Langsung ke penjelasan.\n\nSoal: ${s.q}\nFormula: ${s.f}\nJawaban benar: ${s.p[ci]}\nStatus: ${ok?'BENAR':'SALAH'}`;
+  try{
+    const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:1000,messages:[{role:'user',content:p}]})});
+    const d=await r.json();
+    document.getElementById('ai-txt').textContent=d.content?.map(c=>c.text||'').join('')||'Penjelasan tidak tersedia.';
+  }catch{ document.getElementById('ai-txt').textContent='Penjelasan AI tidak tersedia saat ini.'; }
+}
+
+function nextSoal(){
+  soalIdx++;
+  saveLatihanProgress();
+  soalIdx>=soalList.length?showScore():renderSoal();
+}
+
+function showScore(){
+  const tp=DB[latMapel].tipe;
+  document.getElementById('soal-area').innerHTML='';
+  document.getElementById('pgfill').style.width='100%';
+  const sc=document.getElementById('scorecard'); sc.classList.add('on');
+  document.getElementById('sc-num').className='sc-num '+(tp==='u'?'u':'l');
+  document.getElementById('sc-num').textContent=score;
+  document.getElementById('sc-tot').textContent=soalList.length;
+  const p=Math.round(score/soalList.length*100);
+  const letter=p>=90?'A':p>=75?'B':p>=60?'C':'D';
+  document.getElementById('sc-msg').textContent=p===100?'🏆 Sempurna! Grade A':p>=75?`🎉 Bagus! Grade ${letter}`:p>=60?`👍 Lumayan. Grade ${letter}`:(`💪 Grade ${letter} — Yuk belajar lagi!`);
+  document.getElementById('rtbtn').className='rtbtn '+(tp==='u'?'u':'l');
+  // Save grade to Firebase & clear latihan progress
+  if(currentUser && latTopic) saveGrade(latTopic, score, soalList.length);
+  clearLatihanProgress();
+  // Show grade button
+  if(!document.getElementById('view-grade-btn')){
+    const btn=document.createElement('button');
+    btn.id='view-grade-btn';
+    btn.style.cssText='margin-top:10px;padding:8px 20px;border:1.5px solid var(--blue);background:transparent;color:var(--blue);border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit';
+    btn.textContent='Lihat Semua Nilai →';
+    btn.onclick=()=>{ goPage('grade'); onTab(3); renderGrade(); };
+    document.getElementById('scorecard').appendChild(btn);
+  }
+}
+
+function restartLat(){
+  const btn=document.getElementById('view-grade-btn'); if(btn) btn.remove();
+  startSoal();
+}
+
+// ============================================================
+// INIT — tunggu Firebase auth selesai dulu
+// ============================================================
+showAuthOverlay();
+// buildHome dan restore halaman dikerjakan di dalam onAuthStateChanged
+// supaya tidak di-reset setelah Firebase resolve
+
+</script>
+</body>
+</html>
