@@ -1181,7 +1181,7 @@ function addLockBadge(card){
 const DB = {
 
 /* ══════════════════════════════════════════
-   KELAS X — MATEMATIKA (1 mapel, 8 Bab)
+   KELAS X MATEMATIKA (1 mapel, 8 Bab)
    Sem 1: Bab 1-4  |  Sem 2: Bab 5-8
    ══════════════════════════════════════════ */
 'x-u':{id:'x-u',kelas:'X',tipe:'u',fase:'Fase E',
@@ -1190,10 +1190,10 @@ const DB = {
   topics:[
     {id:'x1',sem:1,bab:'Bab 1',icon:'🔢',name:'Eksponen dan Logaritma',
      videos:[
-       {id:'x1v1', title:'Bagian 1 — Definisi & Sifat Eksponen', yt:'lScgN1qnirY'},
-       {id:'x1v2', title:'Bagian 2 — Sifat Eksponen Lanjutan & Fungsi Eksponen', yt:'fj4B6etl8zs'},
-       {id:'x1v3', title:'Bagian 3 — Bentuk Akar & Merasionalkan', yt:'GoYk9NBdkn4'},
-       {id:'x1v4', title:'Bagian 4 — Logaritma', yt:'zNzuGfXldU0'},
+       {id:'x1v1', title:'Bagian 1 Definisi & Sifat Eksponen', yt:'lScgN1qnirY'},
+       {id:'x1v2', title:'Bagian 2 Sifat Eksponen Lanjutan & Fungsi Eksponen', yt:'fj4B6etl8zs'},
+       {id:'x1v3', title:'Bagian 3 Bentuk Akar & Merasionalkan', yt:'GoYk9NBdkn4'},
+       {id:'x1v4', title:'Bagian 4 Logaritma', yt:'zNzuGfXldU0'},
      ],
      sub:[
        'A. Eksponen: definisi bilangan berpangkat, sifat-sifat eksponen (aⁿ×aᵐ=aⁿ⁺ᵐ, aⁿ÷aᵐ=aⁿ⁻ᵐ, (aⁿ)ᵐ=aⁿˣᵐ, a⁰=1, a⁻ⁿ=1/aⁿ, aⁿ/ᵐ=ᵐ√aⁿ), fungsi eksponen f(x)=aˣ',
@@ -1210,15 +1210,15 @@ const DB = {
      ]},
     {id:'x2',sem:1,bab:'Bab 2',icon:'📊',name:'Barisan dan Deret',
      videos:[
-       {id:'x2v1', title:'Barisan & Deret Aritmatika — Bagian 1', yt:'sBcdhSudHw8'},
-       {id:'x2v2', title:'Barisan & Deret Aritmatika — Bagian 2', yt:'SNg2F_hcoEc'},
-       {id:'x2v3', title:'Barisan & Deret Geometri — Bagian 1', yt:'asyPBLi5LW0'},
-       {id:'x2v4', title:'Barisan & Deret Geometri — Bagian 2', yt:'PoUUNz6StSw'},
-       {id:'x2v5', title:'Barisan & Deret Geometri — Bagian 3', yt:'wD2JbRDRWWg'},
+       {id:'x2v1', title:'Barisan & Deret Aritmatika Bagian 1', yt:'sBcdhSudHw8'},
+       {id:'x2v2', title:'Barisan & Deret Aritmatika Bagian 2', yt:'SNg2F_hcoEc'},
+       {id:'x2v3', title:'Barisan & Deret Geometri Bagian 1', yt:'asyPBLi5LW0'},
+       {id:'x2v4', title:'Barisan & Deret Geometri Bagian 2', yt:'PoUUNz6StSw'},
+       {id:'x2v5', title:'Barisan & Deret Geometri Bagian 3', yt:'wD2JbRDRWWg'},
        {id:'x2v6', title:'Bunga Tunggal & Majemuk', yt:'oS5MQKTMtN8'},
      ],
      sub:['A. Barisan dan Deret Aritmetika (beda tetap, Uₙ, Sₙ)','B. Barisan dan Deret Geometri (rasio tetap, Uₙ, S₢ tak hingga)','C. Aplikasi: Bunga Tunggal, Bunga Majemuk, Anuitas'],
-     rumus:'Aritmetika:\nUₙ = a+(n−1)b\nSₙ = n/2·[2a+(n−1)b]\n\nGeometri:\nUₙ = a·rⁿ⁻¹\nSₙ = a(rⁿ−1)/(r−1)\nS∞ = a/(1−r)  jika |r|<1\n\nBunga Majemuk: Mₙ = M₀(1+i)ⁿ\nBunga Tunggal: Mₙ = M₀(1+n·i)\nAnuitas: A = M₀·i(1+i)ⁿ/[(1+i)ⁿ−1]',
+     rumus:'Aritmetika:\nUₙ = a+(n−1)b\nSₙ = n/2·[2a+(n-1)b]\n\nGeometri:\nUₙ = a·rⁿ⁻¹\nSₙ = a(rⁿ−1)/(r−1)\nS∞ = a/(1−r)  jika |r|<1\n\nBunga Majemuk: Mₙ = M₀(1+i)ⁿ\nBunga Tunggal: Mₙ = M₀(1+n·i)\nAnuitas: A = M₀·i(1+i)ⁿ/[(1+i)ⁿ−1]',
      desc:'Barisan aritmetika (beda tetap) dipakai untuk bunga tunggal. Barisan geometri (rasio tetap) dipakai untuk bunga majemuk. Anuitas = cicilan tetap periodik (KPR, kredit kendaraan).',
      subLatihan:[
        {id:'x2-barisan-aritmatika',              label:'📐 Barisan Aritmatika'},
@@ -1237,25 +1237,25 @@ const DB = {
      rumus:'Vektor 2D: a = (x₁, y₁) = x₁i + y₁j\n|a| = √(x₁² + y₁²)\nVektor 3D: a = (x, y, z),  |a| = √(x²+y²+z²)\n\nOperasi:\na + b = (x₁+x₂, y₁+y₂)\na − b = (x₁−x₂, y₁−y₂)\nk · a = (kx₁, ky₁)\n\nDot product:\na · b = x₁x₂ + y₁y₂\ncos θ = (a·b) / (|a|·|b|)\nProyeksi a ke b = (a·b / |b|²) · b',
      desc:'Bab 3 Edisi Revisi Kemendikdasmen. Vektor adalah besaran berarah. Tiga subbab: (A) terminologi & jenis vektor, (B) representasi di koordinat Kartesius 2D dan 3D, (C) operasi vektor lengkap termasuk dot product dan sudut antar vektor. Aplikasi: fisika, navigasi, grafis.'},
     {id:'x4',sem:1,bab:'Bab 4',icon:'📐',name:'Trigonometri',
-     videos:[{id:'x4v1',title:'Trigonometri — Perbandingan & Penerapan',yt:'bS1MwEeEsf4'}],
+     videos:[{id:'x4v1',title:'Trigonometri Perbandingan & Penerapan',yt:'bS1MwEeEsf4'}],
      sub:[
        'A. Perbandingan Trigonometri: pengenalan tan θ melalui konteks bayangan (perbandingan tinggi terhadap panjang bayangan), definisi sin θ dan cos θ pada segitiga siku-siku, perbandingan trigonometri sudut istimewa (0°, 30°, 45°, 60°, 90°), tabel nilai trigonometri, identitas dasar sin²θ+cos²θ=1',
-       'B. Pemanfaatan Perbandingan Trigonometri: sudut elevasi dan sudut depresi, menentukan tinggi objek (gedung, piramida, gunung) dengan tan/sin, aturan sinus untuk segitiga sembarang (a/sinA=b/sinB=c/sinC), aturan kosinus (a²=b²+c²−2bc·cosA), luas segitiga = ½·a·b·sinC, aplikasi pada masalah navigasi dan konstruksi'
+       'B. Pemanfaatan Perbandingan Trigonometri: sudut elevasi dan sudut depresi, menentukan tinggi objek (gedung, piramida, gunung) dengan tan/sin, aturan sinus untuk segitiga sembarang (a/sinA=b/sinB=c/sinC), aturan kosinus (a²=b²+c²-2bc·cosA), luas segitiga = ½·a·b·sinC, aplikasi pada masalah navigasi dan konstruksi'
      ],
-     rumus:'tan θ=depan/samping (pendekatan awal buku resmi)\nsin θ=depan/miring\ncos θ=samping/miring\nsin²θ+cos²θ=1\n\nSudut istimewa:\n0°: sin=0, cos=1, tan=0\n30°: sin=½, cos=½√3, tan=⅓√3\n45°: sin=½√2, cos=½√2, tan=1\n60°: sin=½√3, cos=½, tan=√3\n90°: sin=1, cos=0\n\nAturan sinus: a/sinA=b/sinB=c/sinC\nAturan kosinus: a²=b²+c²−2bc·cosA\nLuas=½·a·b·sinC',
+     rumus:'tan θ=depan/samping (pendekatan awal buku resmi)\nsin θ=depan/miring\ncos θ=samping/miring\nsin²θ+cos²θ=1\n\nSudut istimewa:\n0°: sin=0, cos=1, tan=0\n30°: sin=½, cos=½√3, tan=⅓√3\n45°: sin=½√2, cos=½√2, tan=1\n60°: sin=½√3, cos=½, tan=√3\n90°: sin=1, cos=0\n\nAturan sinus: a/sinA=b/sinB=c/sinC\nAturan kosinus: a²=b²+c²-2bc·cosA\nLuas=½·a·b·sinC',
      desc:'Buku resmi Kelas X memperkenalkan tan θ terlebih dahulu melalui konteks bayangan, baru sin dan cos. Bab 4 mencakup: perbandingan trigonometri, sudut istimewa, penerapan pada masalah nyata (tinggi gedung, piramida), aturan sinus & kosinus untuk segitiga sembarang.'},
     {id:'x5',sem:2,bab:'Bab 5',icon:'⚖️',name:'Sistem Persamaan dan Pertidaksamaan Linear',
      videos:[{id:'x5v1',title:'Sistem Persamaan & Pertidaksamaan Linear',yt:'xS5jWDOQgJM'}],
-     sub:['A. Sistem Persamaan Linear (SPLDV: 2 var, SPLTV: 3 var — eliminasi, substitusi, determinan)','B. Sistem Pertidaksamaan Linear (SPtLDV — daerah penyelesaian, titik pojok, nilai optimum)'],
+     sub:['A. Sistem Persamaan Linear (SPLDV: 2 var, SPLTV: 3 var eliminasi, substitusi, determinan)','B. Sistem Pertidaksamaan Linear (SPtLDV — daerah penyelesaian, titik pojok, nilai optimum)'],
      rumus:'SPLTV: ax+by+cz=d (3 persamaan 3 variabel)\nMetode Cramer: x=Dₓ/D, y=D_y/D, z=D_z/D\n\nSPtLDV:\nDaerah = irisan semua pertidaksamaan\nNilai optimum z=ax+by\ndihitung di setiap titik pojok',
      desc:'SPLTV diselesaikan dengan eliminasi bertahap atau aturan Cramer. SPtLDV membentuk daerah di koordinat kartesius — dasar Program Linear untuk optimasi bisnis.'},
     {id:'x6',sem:2,bab:'Bab 6',icon:'🔁',name:'Fungsi Kuadrat',
-     videos:[{id:'x6v1',title:'Fungsi Kuadrat — Karakteristik & Grafik',yt:'o3pUfBa8Olo'}],
+     videos:[{id:'x6v1',title:'Fungsi Kuadrat Karakteristik & Grafik',yt:'o3pUfBa8Olo'}],
      sub:['A. Karakteristik Fungsi Kuadrat (parabola, titik puncak, sumbu simetri, diskriminan)','B. Mengonstruksi Fungsi Kuadrat (dari titik puncak, dari akar-akar, dari tiga titik)','C. Menyelesaikan Masalah dengan Fungsi Kuadrat (optimasi, persamaan gerak)'],
      rumus:'f(x)=ax²+bx+c\nAkar: x=(−b±√D)/2a\nD=b²−4ac\nD>0: 2 akar real berbeda\nD=0: 2 akar real sama\nD<0: tidak ada akar real\nPuncak: (−b/2a, −D/4a)\nSumbu simetri: x=−b/2a',
      desc:'Fungsi kuadrat menghasilkan grafik parabola. Digunakan untuk memodelkan gerak proyektil, optimasi keuntungan/luas maksimum, dan analisis titik impas bisnis.'},
     {id:'x7',sem:2,bab:'Bab 7',icon:'📈',name:'Statistika',
-     videos:[{id:'x7v1',title:'Statistika — Ukuran Pemusatan & Penyebaran',yt:'F3P-5AcFqpA'}],
+     videos:[{id:'x7v1',title:'Statistika Ukuran Pemusatan & Penyebaran',yt:'F3P-5AcFqpA'}],
      sub:[
        'A. Histogram: membuat histogram dari data, membaca histogram, poligon frekuensi, ogive (frekuensi kumulatif)',
        'B. Frekuensi Relatif: definisi frekuensi relatif = fᵢ/n × 100%, histogram frekuensi relatif, interpretasi dan perbandingan data',
@@ -1263,15 +1263,15 @@ const DB = {
        'D. Ukuran Penempatan: kuartil bawah (Q1), kuartil tengah/median (Q2), kuartil atas (Q3), desil, persentil, box plot (diagram kotak-garis) dan interpretasinya',
        'E. Ukuran Penyebaran: jangkauan/range, jangkauan interkuartil (IQR=Q3−Q1), simpangan rata-rata, variansi (S²), simpangan baku (S)'
      ],
-     rumus:'A. Histogram: frek. relatif = fᵢ/n × 100%\n\nC. Ukuran Pemusatan:\nx̄ = Σxᵢ/n  (mean data tunggal)\nx̄ = Σ(fᵢxᵢ)/Σfᵢ  (data berkelompok)\n\nD. Ukuran Penempatan:\nQ1, Q2 (median), Q3\nPersentil ke-p: posisi = p/100 × n\n\nE. Ukuran Penyebaran:\nJangkauan = nilai maks − nilai min\nIQR = Q3 − Q1\nS² = Σ(xᵢ−x̄)²/n  (variansi)\nS = √S²  (simpangan baku)',
-     desc:'Bab 7 Edisi Revisi Kemendikdasmen. Lima subbab: (A) Histogram & ogive, (B) Frekuensi Relatif, (C) Ukuran Pemusatan — mean/median/modus, (D) Ukuran Penempatan — kuartil/persentil/box plot, (E) Ukuran Penyebaran — IQR/variansi/simpangan baku.'},
+     rumus:'A. Histogram: frek. relatif = fᵢ/n × 100%\n\nC. Ukuran Pemusatan:\nx̄ = Σxᵢ/n  (mean data tunggal)\nx̄ = Σ(fᵢxᵢ)/Σfᵢ  (data berkelompok)\n\nD. Ukuran Penempatan:\nQ1, Q2 (median), Q3\nPersentil ke-p: posisi = p/100 × n\n\nE. Ukuran Penyebaran:\nJangkauan = nilai maks - nilai min\nIQR = Q3 - Q1\nS² = Σ(xᵢ-x̄)²/n  (variansi)\nS = √S²  (simpangan baku)',
+     desc:'Bab 7 Edisi Revisi Kemendikdasmen. Lima subbab: (A) Histogram & ogive, (B) Frekuensi Relatif, (C) Ukuran Pemusatan mean/median/modus, (D) Ukuran Penempatan — kuartil/persentil/box plot, (E) Ukuran Penyebaran - IQR/variansi/simpangan baku.'},
     {id:'x8',sem:2,bab:'Bab 8',icon:'🎲',name:'Peluang',
      videos:[{id:'x8v1',title:'Peluang Kejadian Majemuk',yt:'2OyRd1AJmE0'}],
      sub:[
        'A. Distribusi Peluang: percobaan, ruang sampel (S), kejadian (E), definisi peluang P(E)=n(E)/n(S), peluang komplemen P(Eᶜ)=1−P(E), frekuensi harapan = n×P(E), distribusi peluang suatu percobaan',
        'B. Aturan Penjumlahan: dua kejadian saling lepas (mutually exclusive) P(A∪B)=P(A)+P(B), dua kejadian tidak saling lepas P(A∪B)=P(A)+P(B)−P(A∩B), penerapan dalam masalah kontekstual'
      ],
-     rumus:'P(E) = n(E)/n(S)\nP(Eᶜ) = 1 − P(E)  (komplemen)\nFrekuensi harapan = n × P(E)\n0 ≤ P(E) ≤ 1\n\nAturan Penjumlahan:\nSaling lepas: P(A∪B)=P(A)+P(B)\nTidak saling lepas:\nP(A∪B)=P(A)+P(B)−P(A∩B)',
+     rumus:'P(E) = n(E)/n(S)\nP(Eᶜ) = 1 - P(E)  (komplemen)\nFrekuensi harapan = n × P(E)\n0 ≤ P(E) ≤ 1\n\nAturan Penjumlahan:\nSaling lepas: P(A∪B)=P(A)+P(B)\nTidak saling lepas:\nP(A∪B)=P(A)+P(B)−P(A∩B)',
      desc:'Bab 8 Edisi Revisi Kemendikdasmen hanya mencakup dua subbab: (A) Distribusi Peluang — definisi, ruang sampel, frekuensi harapan, dan (B) Aturan Penjumlahan — kejadian saling lepas dan tidak saling lepas. Sesuai halaman 217-240 buku siswa edisi revisi.'},
   ]
 },
