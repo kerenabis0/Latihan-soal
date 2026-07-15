@@ -2132,9 +2132,13 @@ async function jawab(idx, correct) {
   fb.className = 'fb on ' + (ok ? 'ok' : 'ng');
   // Memberikan penjelasan sederhana berdasarkan pilihan jawaban
   const jawabanBenar = soalList[soalIdx].p[correct];
+  const soalSekarang = soalList[soalIdx];
   fb.innerHTML = ok 
     ? '✅ **Benar!** Kamu hebat.' 
-    : `❌ **Belum tepat.** Jawaban yang benar adalah: **${jawabanBenar.substring(3)}**`;
+    : `❌ **Belum tepat.**<br>Jawaban benar: **${jawabanBenar.substring(3)}**<br>
+       <div style="margin-top:8px; font-size:12px; color:#555;">
+       <strong>Penjelasan:</strong> ${soalSekarang.f}
+       </div>`;
   document.getElementById('nxtbtn').classList.add('on');
   // Simpan progres latihan
   saveLatihanProgress();
