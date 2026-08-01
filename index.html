@@ -2103,12 +2103,8 @@ function buildTpills(){
         b.className='tpill'+(sl.id===latTopic?(m.tipe==='u'?' on-u':' on-l'):'');
         b.textContent=sl.label;
         b.onclick=()=>{ 
-          if(sl.url) {
-            window.open(sl.url, '_blank');
-      } else {
-        latTopic=sl.id; buildTpills(); startSoal(); 
-      }
-    };
+          latTopic=sl.id; buildTpills(); startSoal(); 
+        };
         el.appendChild(b);
       });
       return;
@@ -2125,16 +2121,46 @@ function buildTpills(){
 }
 
 function startSoal(){
-  const list=SOAL[latTopic]||[];
-  if(!list.length){
-    document.getElementById('soal-area').innerHTML=`<div class="empty"><div class="ei">🔧</div><div class="et">Soal segera hadir!</div></div>`;
-    document.getElementById('pgfill').style.width='0%';
+  // 1. Cek apakah topik yang dipilih memiliki link eksternal (URL)
+  let urlSoal = null;
+  const m = DB[latMapel];
+  if(m && m.topics) {
+    m.topics.forEach(t => {
+      if(t.id === latTopic && t.url) urlSoal = t.url;
+      if(t.subLatihan) {
+        t.subLatihan.forEach(sl => {
+          if(sl.id === latTopic && sl.url) urlSoal = sl.url;
+        });
+      }
+    });
+  }
+  // 2. Jika ada URL, embed Google Forms di dalam web
+  if(urlSoal) {
+    document.getElementById('soal-area').innerHTML = `
+      <div class="empty" style="padding: 10px 0;">
+        <div class="ei">📝</div>
+        <div class="et">Latihan Spesial / Esai</div>
+        <p style="font-size:13px; color:var(--txt3); margin-bottom: 20px;">Latihan ini dikerjakan melalui Google Forms.</p>
+        <a href="${urlSoal}" target="_blank" class="btn-cta" style="text-decoration:none; margin-bottom: 24px; display:inline-flex;">Buka di Layar Penuh ↗</a>
+        <div style="width:100%; height:600px; border-radius:12px; overflow:hidden; border:1px solid var(--border); box-shadow:var(--shadow);">
+          <iframe src="${urlSoal}" width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0">Memuat...</iframe>
+        </div>
+      </div>`;
+    document.getElementById('pgfill').style.width = '100%';
     document.getElementById('scorecard').classList.remove('on');
     return;
   }
-  soalList=[...list]; soalIdx=0; score=0; answered=false;
+  // 3. Jika tidak ada URL, jalankan kuis internal seperti biasa
+  const list = SOAL[latTopic] || [];
+  if(!list.length){
+    document.getElementById('soal-area').innerHTML = `<div class="empty"><div class="ei">🔧</div><div class="et">Soal segera hadir!</div></div>`;
+    document.getElementById('pgfill').style.width = '0%';
+    document.getElementById('scorecard').classList.remove('on');
+    return;
+  }
+  soalList = [...list]; soalIdx = 0; score = 0; answered = false;
   document.getElementById('scorecard').classList.remove('on');
-  const vgb=document.getElementById('view-grade-btn'); if(vgb) vgb.remove();
+  const vgb = document.getElementById('view-grade-btn'); if(vgb) vgb.remove();
   clearLatihanProgress();
   renderSoal();
 }
