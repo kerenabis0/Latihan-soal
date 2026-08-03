@@ -1288,17 +1288,32 @@ const DB = {
   ]
 },
 
-  "X-Fisika": {
-    kelas: "X",
-    tipe: "w", // 'w' untuk Wajib, bisa diganti 'p' untuk Peminatan jika mau
-    mapel: "Fisika",
-    desc: "Fase E · 1 bab resmi",
-    tags: ["Besaran & Pengukuran"],
-    topics: [
-      /* ════════ SEMESTER 1 ════════ */
-      {id: 'fis_x_bab1', bab: 'Bab 1', name: 'Besaran dan Pengukuran', desc: 'Mempelajari konsep besaran pokok dan turunan, sistem satuan internasional (SI), analisis dimensi, serta prinsip-prinsip pengukuran menggunakan berbagai alat ukur seperti mistar, jangka sorong, dan mikrometer sekrup.'},
-    ]
-  },
+/* ══════════════════════════════════════════
+   KELAS X FISIKA (1 Bab: Pengukuran)
+   Sem 1: Bab 1
+   ══════════════════════════════════════════ */
+'x-fis':{id:'x-fis',kelas:'X',tipe:'u',fase:'Fase E',
+  name:'Fisika',ns:'FIS',
+  pills:['Besaran & Satuan','Dimensi','Notasi Ilmiah','Angka Penting','Pengukuran','Alat Ukur'],
+  topics:[
+    {id:'xf1',sem:1,bab:'Bab 1',icon:'📏',name:'Besaran, Satuan, Dimensi, dan Pengukuran',
+     sub:[
+       'A. Besaran, Satuan, dan Dimensi: pengertian besaran (dapat diukur, dinyatakan angka + satuan) dan satuan (acuan standar skala); satuan baku/SI (global, tetap) vs satuan tidak baku (lokal, mis. jengkal, hasta); besaran pokok (7: panjang, massa, waktu, kuat arus, suhu, jumlah zat, intensitas cahaya) vs besaran turunan (luas, volume, kecepatan, percepatan, gaya, dll — tersusun dari besaran pokok); besaran skalar (nilai saja) vs besaran vektor (nilai & arah); dimensi sebagai lambang huruf besaran pokok, fungsi dimensi untuk mengetahui komponen besaran dalam rumus dan menguji kesetaraan/keabsahan suatu persamaan',
+       'B. Notasi Ilmiah, Awalan, dan Konversi Satuan: teknik penulisan bilangan sangat besar/kecil dalam bentuk a,bc × 10ⁿ (0<a<10); awalan satuan sebagai pengganti pangkat 10 (tera, giga, mega, kilo, ..., mili, mikro, nano, piko, femto); konversi antar satuan panjang, massa, dan arus menggunakan tangga awalan',
+       'C. Angka Penting: definisi (angka pasti + 1 angka taksiran dari hasil pengukuran); aturan penentuan jumlah angka penting (semua angka bukan nol adalah AP; nol di antara angka bukan nol adalah AP; nol di kiri angka bukan nol bukan AP; nol di kanan bilangan bulat perlu notasi ilmiah agar jelas); aturan pembulatan (>5 dibulatkan naik, <5 dihilangkan, tepat 5 dibulatkan ke angka genap terdekat); aturan operasi angka penting (penjumlahan/pengurangan mengikuti angka taksiran/desimal paling sedikit; perkalian/pembagian mengikuti jumlah AP paling sedikit)',
+       'D. Akurasi dan Presisi dalam Pengukuran: pengukuran = membandingkan suatu besaran dengan besaran sejenis yang dijadikan standar/acuan; akurasi = kedekatan nilai rata-rata hasil pengukuran dengan nilai sebenarnya; presisi = kedekatan antar data hasil pengukuran (konsistensi); empat kombinasi akurasi-presisi; ketidakpastian pengukuran dipengaruhi ketelitian alat ukur (nst) dan kecermatan pengukur',
+       'E. Alat Ukur Panjang dan Pelaporan Hasil Pengukuran: mistar (nst 0,1 cm); jangka sorong (hasil = skala utama + skala nonius × nst, nst umum 0,1/0,05/0,01 mm); mikrometer sekrup (hasil = skala utama + skala putar × nst 0,01 mm); ketidakpastian pengukuran tunggal ΔX = ½ × nst; pelaporan pengukuran tunggal X=(Xo±ΔX) dan pengukuran berulang menggunakan nilai rata-rata dan simpangan data'
+     ],
+     rumus:'A. Besaran & Dimensi:\n7 Besaran Pokok: Panjang [L], Massa [M], Waktu [T], Kuat arus [I], Suhu [θ], Jumlah zat [N], Intensitas cahaya [J]\nBesaran turunan = kombinasi besaran pokok\nContoh: kecepatan=[L][T]⁻¹, gaya=[M][L][T]⁻²\n\nB. Notasi Ilmiah:\na,bc × 10ⁿ  (0<a<10, n bilangan bulat)\nAwalan: T=10¹²  G=10⁹  M=10⁶  k=10³  |  m=10⁻³  µ=10⁻⁶  n=10⁻⁹  p=10⁻¹²\n\nC. Angka Penting:\nSemua angka bukan nol = AP\nNol di antara angka bukan nol = AP\nNol di kiri angka bukan nol (desimal) = bukan AP\nPenjumlahan/pengurangan → ikuti angka taksiran (desimal) paling sedikit\nPerkalian/pembagian → ikuti jumlah AP paling sedikit\n\nD-E. Pengukuran:\nΔX (mistar) = ½ × nst\nLo (jangka sorong/mikrometer) = SU + (SN × nst)\nΔX = ½ × nst\nPelaporan: X = (Xo ± ΔX) satuan',
+     desc:'Bab 1 Fisika Kelas X (Fase E), sesuai materi presentasi "Besaran, Satuan, Dimensi dan Pengukuran". Lima subbab: (A) Besaran, Satuan & Dimensi — besaran pokok/turunan, skalar/vektor, dan fungsi dimensi untuk menguji homogenitas rumus; (B) Notasi Ilmiah & Awalan Satuan untuk bilangan sangat besar/kecil; (C) Angka Penting — aturan penentuan, pembulatan, dan operasi hitung; (D) Akurasi & Presisi dalam pengukuran; (E) Alat ukur panjang (mistar, jangka sorong, mikrometer sekrup) serta pelaporan hasil pengukuran tunggal dan berulang.',
+     subLatihan:[
+       {id:'xf1-besaran-dimensi', label:'📐 Besaran & Dimensi'},
+       {id:'xf1-notasi-ilmiah',   label:'🔟 Notasi Ilmiah & Awalan'},
+       {id:'xf1-angka-penting',   label:'✏️ Angka Penting'},
+       {id:'xf1-alat-ukur',       label:'📏 Alat Ukur & Pelaporan'},
+     ]},
+  ]
+},
 
 /* ══════════════════════════════════════════
    KELAS XI — MATEMATIKA UMUM (3 Bab)
