@@ -1289,29 +1289,73 @@ const DB = {
 },
 
 /* ══════════════════════════════════════════
-   KELAS X FISIKA (1 Bab: Pengukuran)
-   Sem 1: Bab 1
+   KELAS X — FISIKA 
    ══════════════════════════════════════════ */
-'x-fis':{id:'x-fis',kelas:'X',tipe:'u',fase:'Fase E',
-  name:'Fisika',ns:'FIS',
-  pills:['Besaran & Satuan','Dimensi','Notasi Ilmiah','Angka Penting','Pengukuran','Alat Ukur'],
-  topics:[
-    {id:'xf1',sem:1,bab:'Bab 1',icon:'📏',name:'Besaran, Satuan, Dimensi, dan Pengukuran',
-     sub:[
-       'A. Besaran, Satuan, dan Dimensi: pengertian besaran (dapat diukur, dinyatakan angka + satuan) dan satuan (acuan standar skala); satuan baku/SI (global, tetap) vs satuan tidak baku (lokal, mis. jengkal, hasta); besaran pokok (7: panjang, massa, waktu, kuat arus, suhu, jumlah zat, intensitas cahaya) vs besaran turunan (luas, volume, kecepatan, percepatan, gaya, dll — tersusun dari besaran pokok); besaran skalar (nilai saja) vs besaran vektor (nilai & arah); dimensi sebagai lambang huruf besaran pokok, fungsi dimensi untuk mengetahui komponen besaran dalam rumus dan menguji kesetaraan/keabsahan suatu persamaan',
-       'B. Notasi Ilmiah, Awalan, dan Konversi Satuan: teknik penulisan bilangan sangat besar/kecil dalam bentuk a,bc × 10ⁿ (0<a<10); awalan satuan sebagai pengganti pangkat 10 (tera, giga, mega, kilo, ..., mili, mikro, nano, piko, femto); konversi antar satuan panjang, massa, dan arus menggunakan tangga awalan',
-       'C. Angka Penting: definisi (angka pasti + 1 angka taksiran dari hasil pengukuran); aturan penentuan jumlah angka penting (semua angka bukan nol adalah AP; nol di antara angka bukan nol adalah AP; nol di kiri angka bukan nol bukan AP; nol di kanan bilangan bulat perlu notasi ilmiah agar jelas); aturan pembulatan (>5 dibulatkan naik, <5 dihilangkan, tepat 5 dibulatkan ke angka genap terdekat); aturan operasi angka penting (penjumlahan/pengurangan mengikuti angka taksiran/desimal paling sedikit; perkalian/pembagian mengikuti jumlah AP paling sedikit)',
-       'D. Akurasi dan Presisi dalam Pengukuran: pengukuran = membandingkan suatu besaran dengan besaran sejenis yang dijadikan standar/acuan; akurasi = kedekatan nilai rata-rata hasil pengukuran dengan nilai sebenarnya; presisi = kedekatan antar data hasil pengukuran (konsistensi); empat kombinasi akurasi-presisi; ketidakpastian pengukuran dipengaruhi ketelitian alat ukur (nst) dan kecermatan pengukur',
-       'E. Alat Ukur Panjang dan Pelaporan Hasil Pengukuran: mistar (nst 0,1 cm); jangka sorong (hasil = skala utama + skala nonius × nst, nst umum 0,1/0,05/0,01 mm); mikrometer sekrup (hasil = skala utama + skala putar × nst 0,01 mm); ketidakpastian pengukuran tunggal ΔX = ½ × nst; pelaporan pengukuran tunggal X=(Xo±ΔX) dan pengukuran berulang menggunakan nilai rata-rata dan simpangan data'
-     ],
-     rumus:'A. Besaran & Dimensi:\n7 Besaran Pokok: Panjang [L], Massa [M], Waktu [T], Kuat arus [I], Suhu [θ], Jumlah zat [N], Intensitas cahaya [J]\nBesaran turunan = kombinasi besaran pokok\nContoh: kecepatan=[L][T]⁻¹, gaya=[M][L][T]⁻²\n\nB. Notasi Ilmiah:\na,bc × 10ⁿ  (0<a<10, n bilangan bulat)\nAwalan: T=10¹²  G=10⁹  M=10⁶  k=10³  |  m=10⁻³  µ=10⁻⁶  n=10⁻⁹  p=10⁻¹²\n\nC. Angka Penting:\nSemua angka bukan nol = AP\nNol di antara angka bukan nol = AP\nNol di kiri angka bukan nol (desimal) = bukan AP\nPenjumlahan/pengurangan → ikuti angka taksiran (desimal) paling sedikit\nPerkalian/pembagian → ikuti jumlah AP paling sedikit\n\nD-E. Pengukuran:\nΔX (mistar) = ½ × nst\nLo (jangka sorong/mikrometer) = SU + (SN × nst)\nΔX = ½ × nst\nPelaporan: X = (Xo ± ΔX) satuan',
-     desc:'Bab 1 Fisika Kelas X (Fase E), sesuai materi presentasi "Besaran, Satuan, Dimensi dan Pengukuran". Lima subbab: (A) Besaran, Satuan & Dimensi — besaran pokok/turunan, skalar/vektor, dan fungsi dimensi untuk menguji homogenitas rumus; (B) Notasi Ilmiah & Awalan Satuan untuk bilangan sangat besar/kecil; (C) Angka Penting — aturan penentuan, pembulatan, dan operasi hitung; (D) Akurasi & Presisi dalam pengukuran; (E) Alat ukur panjang (mistar, jangka sorong, mikrometer sekrup) serta pelaporan hasil pengukuran tunggal dan berulang.',
-     subLatihan:[
-       {id:'xf1-besaran-dimensi', label:'📐 Besaran & Dimensi'},
-       {id:'xf1-notasi-ilmiah',   label:'🔟 Notasi Ilmiah & Awalan'},
-       {id:'xf1-angka-penting',   label:'✏️ Angka Penting'},
-       {id:'xf1-alat-ukur',       label:'📏 Alat Ukur & Pelaporan'},
-     ]},
+'x-fis': {
+  id: 'x-fis',
+  kelas: 'X',
+  tipe: 'u',
+  fase: 'Fase E',
+  name: 'Fisika',
+  ns: 'FIS',
+  pills: ['Besaran & Satuan', 'Dimensi', 'Notasi Ilmiah', 'Angka Penting', 'Pengukuran', 'Alat Ukur'],
+  topics: [
+    {
+      id: 'xf1-besaran-dimensi',
+      bab: 'Bab 1',
+      icon: '📐',
+      name: 'Besaran, Satuan, dan Dimensi',
+      sub: [
+        'A. Pengertian besaran (dapat diukur, dinyatakan angka + satuan) dan satuan (acuan standar skala).',
+        'B. Satuan baku/SI (global, tetap) vs satuan tidak baku (lokal, mis. jengkal, hasta).',
+        'C. Besaran pokok (panjang, massa, waktu, dll) vs besaran turunan (luas, kecepatan, dll).',
+        'D. Besaran skalar (hanya nilai) vs besaran vektor (nilai & arah).',
+        'E. Dimensi sebagai lambang huruf besaran pokok dan fungsinya untuk menguji keabsahan sebuah rumus.'
+      ],
+      rumus: '7 Besaran Pokok:\nPanjang [L], Massa [M], Waktu [T], Kuat arus [I], Suhu [θ], Jumlah zat [N], Intensitas cahaya [J]\n\nBesaran turunan = kombinasi besaran pokok\nContoh: kecepatan = [L][T]⁻¹, gaya = [M][L][T]⁻²',
+      desc: 'Materi pengantar Fisika Fase E yang membahas perbedaan besaran pokok dan turunan, sistem satuan baku, jenis besaran (skalar & vektor), serta analisis dimensi.'
+    },
+    {
+      id: 'xf1-notasi-ilmiah',
+      bab: 'Bab 2',
+      icon: '🔟',
+      name: 'Notasi Ilmiah dan Awalan Satuan',
+      sub: [
+        'A. Teknik penulisan bilangan yang sangat besar atau kecil dalam bentuk a,bc × 10ⁿ (0 < a < 10).',
+        'B. Awalan satuan sebagai pengganti pangkat 10 (tera, giga, mega, kilo, mili, mikro, nano, piko, femto).',
+        'C. Konversi antar satuan besaran (misalnya panjang, massa, dan arus) menggunakan tangga awalan.'
+      ],
+      rumus: 'Notasi Ilmiah:\na,bc × 10ⁿ  (0 < a < 10, n bilangan bulat)\n\nAwalan Satuan:\nT=10¹²  G=10⁹  M=10⁶  k=10³\nm=10⁻³  µ=10⁻⁶  n=10⁻⁹  p=10⁻¹²',
+      desc: 'Mempelajari cara menyingkat penulisan angka yang ekstrim besar atau kecil menggunakan notasi ilmiah dan penggunaan awalan metrik standar internasional.'
+    },
+    {
+      id: 'xf1-angka-penting',
+      bab: 'Bab 3',
+      icon: '✏️',
+      name: 'Angka Penting',
+      sub: [
+        'A. Definisi Angka Penting: gabungan angka pasti dan satu angka taksiran dari hasil suatu pengukuran.',
+        'B. Aturan penentuan jumlah angka penting pada bilangan desimal maupun bulat.',
+        'C. Aturan pembulatan angka (dibulatkan naik, dihilangkan, atau dibulatkan ke angka genap terdekat).',
+        'D. Aturan operasi hitung (penjumlahan, pengurangan, perkalian, pembagian) sesuai kaidah angka penting.'
+      ],
+      rumus: 'Aturan Dasar:\n1. Semua angka bukan nol = AP\n2. Nol di antara angka bukan nol = AP\n3. Nol di kiri angka bukan nol = bukan AP\n\nOperasi Hitung:\n(+) / (-) → ikuti desimal/angka taksiran paling sedikit\n(×) / (÷) → ikuti jumlah AP paling sedikit',
+      desc: 'Fokus pada tata cara membaca, menulis, dan melakukan operasi hitung hasil pengukuran agar tingkat ketelitiannya tetap terjaga.'
+    },
+    {
+      id: 'xf1-alat-ukur',
+      bab: 'Bab 4',
+      icon: '📏',
+      name: 'Pengukuran dan Alat Ukur',
+      sub: [
+        'A. Konsep pengukuran, penentuan akurasi (kedekatan dengan nilai asli), dan presisi (konsistensi hasil pengukuran).',
+        'B. Membaca alat ukur panjang: Mistar (nst 0,1 cm), Jangka Sorong (nst 0,1/0,05/0,01 mm), dan Mikrometer Sekrup (nst 0,01 mm).',
+        'C. Menentukan tingkat ketidakpastian pengukuran tunggal (½ × nilai skala terkecil).',
+        'D. Tata cara pelaporan hasil pengukuran tunggal maupun berulang secara saintifik.'
+      ],
+      rumus: 'Ketidakpastian (Mistar) = ½ × 0,1 cm\n\nAlat Ukur Presisi (Jangka Sorong & Mikrometer):\nHasil = Skala Utama + (Skala Nonius × nst)\nΔX = ½ × nst\n\nPelaporan Hasil Pengukuran:\nX = (Xo ± ΔX) satuan',
+      desc: 'Penerapan konsep pengukuran secara langsung menggunakan berbagai alat ukur panjang, mengevaluasi akurasi dan presisi, serta melaporkan data hasil ukurnya.'
+    }
   ]
 },
 
