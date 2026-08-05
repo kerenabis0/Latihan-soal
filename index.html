@@ -1360,6 +1360,56 @@ const DB = {
 },
 
 /* ══════════════════════════════════════════
+   KELAS X — KIMIA
+   ══════════════════════════════════════════ */
+'x-kim': {
+  id: 'x-kim',
+  kelas: 'X',
+  tipe: 'u',
+  fase: 'Fase E',
+  name: 'Kimia',
+  ns: 'KIM',
+  pills: ['Struktur Atom', 'Proton & Neutron', 'Konfigurasi Bohr', 'Elektron Valensi'],
+  topics: [
+    {
+      id: 'x-kim-1',
+      bab: 'Bab 1',
+      icon: '⚛️',
+      name: 'Struktur Atom: Partikel Penyusun Atom',
+      videos: [
+        { id: 'xkim1v1', title: 'Cara Mudah Menentukan Jumlah Proton, Neutron, dan Elektron', yt: '5pasMF3LQX0' }
+      ],
+      sub: [
+        'A. Lambang atom, nomor atom (Z), dan nomor massa (A).',
+        'B. Cara menentukan jumlah proton, elektron, dan neutron pada atom netral.',
+        'C. Cara menentukan jumlah elektron pada ion positif (kation) yang melepas elektron.',
+        'D. Cara menentukan jumlah elektron pada ion negatif (anion) yang menangkap elektron.'
+      ],
+      rumus: 'Nomor Massa (A) = Proton + Neutron\nNomor Atom (Z) = Proton\nNeutron = A - Z\n\nPada Atom Netral:\nElektron = Proton = Z\n\nPada Ion Positif (Kation):\nElektron = Proton - Muatan\n\nPada Ion Negatif (Anion):\nElektron = Proton - (-Muatan) / Proton + Muatan',
+      desc: 'Mempelajari dasar struktur atom, membaca lambang unsur, serta cara menentukan jumlah proton, neutron, dan elektron pada atom netral maupun ion bermuatan.'
+    },
+    {
+      id: 'x-kim-2',
+      bab: 'Bab 2',
+      icon: '🪐',
+      name: 'Konfigurasi Elektron dan Elektron Valensi',
+      videos: [
+        { id: 'xkim2v1', title: 'Konfigurasi Elektron dalam Kulit Atom & Elektron Valensi', yt: 'H_DJ2IWpDJE' }
+      ],
+      sub: [
+        'A. Teori atom Bohr: elektron mengelilingi inti pada lintasan tertentu (kulit atom).',
+        'B. Penamaan kulit atom: Kulit K (n=1), L (n=2), M (n=3), N (n=4), dst.',
+        'C. Aturan pengisian elektron maksimum pada setiap kulit menggunakan rumus 2n².',
+        'D. Tata cara pengisian sisa elektron pada kulit agar stabil.',
+        'E. Cara menentukan elektron valensi (jumlah elektron pada kulit terluar).'
+      ],
+      rumus: 'Kapasitas Maksimum Kulit = 2n²\n\nKulit K (n=1) = 2 elektron\nKulit L (n=2) = 8 elektron\nKulit M (n=3) = 18 elektron\nKulit N (n=4) = 32 elektron\n\n*Jika sisa elektron < 18, isi 8.\n*Jika sisa elektron < 8, isi sesuai sisanya.\n\nElektron Valensi = Elektron pada kulit terakhir yang terisi.',
+      desc: 'Mempelajari aturan penyebaran elektron dalam kulit-kulit atom menurut teori atom Bohr dan cara menentukan elektron valensi dari suatu unsur.'
+    }
+  ]
+},
+  
+/* ══════════════════════════════════════════
    KELAS XI — MATEMATIKA UMUM (3 Bab)
    Sem 1: Bab 1-2  |  Sem 2: Bab 3
    ══════════════════════════════════════════ */
