@@ -279,19 +279,31 @@ nav {
 
 /* Rumus box */
 .rbox {
-  border-radius:10px; padding:14px 18px; margin-bottom:14px;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--blue);
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow);
 }
-.rbox.u { background:var(--blue-light); border:1px solid var(--blue-border); }
-.rbox.l { background:var(--indigo-light); border:1px solid #C7D2FE; }
+.rbox.l {
+  border-left-color: var(--indigo);
+}
 .rlbl {
-  font-size:9px; font-weight:700; letter-spacing:.1em;
-  text-transform:uppercase; margin-bottom:8px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--txt);
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
 }
-.rbox.u .rlbl { color:var(--blue); }
-.rbox.l .rlbl { color:var(--indigo); }
-.rcnt {font-family:'Inter',sans-serif; font-size: 13px; line-height: 1.6; }
-.rbox.u .rcnt { color:#1e40af; }
-.rbox.l .rcnt { color:#3730a3; }
+.rcnt {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: var(--txt2);
+  line-height: 1.6;
+}
 
 .lat-btn {
   width:100%; font-weight:700; font-size:13px; padding:12px;
