@@ -1317,7 +1317,6 @@ const DB = {
       bab: 'Bab 1',
       icon: '📐',
       name: 'Besaran, Satuan, dan Dimensi',
-      videos:[{id:'xf1v1',title:'Notasi Ilmiiah',yt:'rvDg6QaI2JE'}],
       sub: [
         'A. Pengertian besaran (dapat diukur, dinyatakan angka + satuan) dan satuan (acuan standar skala).',
         'B. Satuan baku/SI (global, tetap) vs satuan tidak baku (lokal, mis. jengkal, hasta).',
@@ -1333,6 +1332,7 @@ const DB = {
       bab: 'Bab 2',
       icon: '🔟',
       name: 'Notasi Ilmiah dan Awalan Satuan',
+      videos:[{id:'xf1-notasi-ilmiah-v1',title:'Notasi Ilmiiah',yt:'rvDg6QaI2JE'}],
       sub: [
         'A. Teknik penulisan bilangan yang sangat besar atau kecil dalam bentuk a,bc × 10ⁿ (0 < a < 10).',
         'B. Awalan satuan sebagai pengganti pangkat 10 (tera, giga, mega, kilo, mili, mikro, nano, piko, femto).',
@@ -1880,6 +1880,31 @@ const SOAL={
 'xi-u1':[
   {q:'f(x)=2x+1 dan g(x)=x². (f∘g)(3) = ...',f:'(f∘g)(x)=f(g(x))=f(9)=2(9)+1',p:['A. 13','B. 19','C. 49','D. 7'],j:1},
   {q:'Invers dari f(x)=3x−6 adalah ...',f:'y=3x−6 → x=(y+6)/3',p:['A. f⁻¹(x)=(x+6)/3','B. f⁻¹(x)=(x−6)/3','C. f⁻¹(x)=3x+6','D. f⁻¹(x)=3(x+6)'],j:0},
+],
+  'xf1-notasi-ilmiah-v1': [
+  // ── MUDAH: Penulisan Notasi Ilmiah Dasar ──
+  {q:'Penulisan bilangan 45.000 dalam notasi ilmiah yang tepat adalah ...',f:'Notasi ilmiah memiliki format a × 10ⁿ dengan 1 ≤ a < 10. Angka 45.000 digeser komanya ke kiri sebanyak 4 langkah menjadi 4,5, sehingga pangkatnya positif 4.',p:['A. 45 × 10³','B. 4,5 × 10⁴','C. 0,45 × 10⁵','D. 4,5 × 10³'],j:1},
+  {q:'Bilangan 0,000056 jika dituliskan dalam notasi ilmiah menjadi ...',f:'Geser koma ke kanan sebanyak 5 langkah agar angka di depan koma menjadi antara 1 dan 9 (yaitu 5,6). Karena bergeser ke kanan, pangkatnya negatif (-5).',p:['A. 5,6 × 10⁻⁴','B. 5,6 × 10⁻⁵','C. 56 × 10⁻⁶','D. 0,56 × 10⁻⁴'],j:1},
+  {q:'Massa planet Bumi diperkirakan sekitar 5.972.000.000.000.000.000.000.000 kg. Penulisan massa Bumi dalam notasi ilmiah adalah ...',f:'Koma digeser ke kiri sejauh 24 angka dari ujung kanan (angka nol terakhir) hingga berada di antara angka 5 dan 9.',p:['A. 5,972 × 10²¹ kg','B. 5,972 × 10²² kg','C. 5,972 × 10²³ kg','D. 5,972 × 10²⁴ kg'],j:3},
+  {q:'Sebuah partikel debu memiliki panjang 2,5 × 10⁻³ meter. Jika diubah ke dalam bentuk desimal biasa, bilangannya adalah ...',f:'Pangkat negatif 3 berarti koma digeser ke kiri sebanyak 3 langkah dari posisi awal (2,5), menjadi 0,0025.',p:['A. 0,0025 m','B. 0,025 m','C. 0,2500 m','D. 0,00025 m'],j:0},
+  {q:'Bentuk desimal dari 1,04 × 10⁵ adalah ...',f:'Pangkat 5 berarti koma digeser ke kanan sebanyak 5 langkah. Dari 1,04 ditambahkan tiga buah nol di belakangnya menjadi 104.000.',p:['A. 1.040.000','B. 104.000','C. 10.400','D. 1.040'],j:1},
+  {q:'Notasi ilmiah yang benar untuk bilangan 123,45 adalah ...',f:'Angka di depan pangkat 10 harus di antara 1 hingga 9. Menggeser koma dua langkah ke kiri menjadikannya 1,2345 × 10².',p:['A. 1,2345 × 10²','B. 12,345 × 10¹','C. 123,45 × 10⁰','D. 0,12345 × 10³'],j:0},
+  // ── SEDANG: Operasi Hitung dan Aturan Angka Penting ──
+  {q:'Terdapat angka hasil pengukuran 0,05020 meter. Berapakah jumlah angka penting pada hasil pengukuran tersebut?',f:'Angka nol di depan koma dan di depan angka 5 BUKAN angka penting. Angka nol diapit (antara 5 dan 2) ADALAH penting. Angka nol di akhir desimal ADALAH penting. Jadi ada 4 angka penting (5, 0, 2, 0).',p:['A. 2 angka penting','B. 3 angka penting','C. 4 angka penting','D. 5 angka penting'],j:2},
+  {q:'Hasil pengukuran panjang dan lebar suatu pelat tembaga adalah 2,5 cm dan 4,0 cm. Luas pelat tersebut menurut aturan angka penting adalah ...',f:'Aturan perkalian: ikuti jumlah angka penting (AP) paling sedikit. 2,5 (2 AP) dikali 4,0 (2 AP) hasilnya harus 2 AP. 2,5 × 4,0 = 10. Angka 10 hanya 1 AP, agar menjadi 2 AP harus ditulis 10,0.',p:['A. 10 cm²','B. 10,0 cm²','C. 10,00 cm²','D. 1 × 10¹ cm²'],j:1},
+  {q:'Hasil penjumlahan dari 25,17 m + 10,2 m sesuai aturan angka penting adalah ...',f:'Aturan penjumlahan: ikuti desimal (angka di belakang koma) paling sedikit. 25,17 (2 desimal) + 10,2 (1 desimal) = 35,37. Harus dibulatkan jadi 1 desimal, yaitu 35,4.',p:['A. 35,37 m','B. 35,4 m','C. 35,3 m','D. 35 m'],j:1},
+  {q:'Hitunglah hasil kali antara bilangan 3,0 × 10⁴ dan 2,0 × 10⁻²!',f:'Kalikan angka depannya: 3,0 × 2,0 = 6,0. Lalu jumlahkan pangkatnya: 10⁴ × 10⁻² = 10².',p:['A. 6,0 × 10²','B. 6,0 × 10⁻⁸','C. 5,0 × 10²','D. 1,5 × 10⁶'],j:0},
+  {q:'Keliling sebuah lingkaran dihitung menggunakan diameter d = 5,0 cm. Berapa kelilingnya jika π dihitung 3,14? (Gunakan aturan angka penting)',f:'K = π × d = 3,14 × 5,0 = 15,7. 3,14 (3 AP), 5,0 (2 AP). Hasil harus 2 AP. 15,7 dibulatkan menjadi 16.',p:['A. 15,7 cm','B. 16 cm','C. 15,70 cm','D. 15 cm'],j:1},
+  {q:'Hasil pembagian antara 8,4 × 10⁵ dengan 2,1 × 10² adalah ...',f:'Bagikan angka depannya: 8,4 / 2,1 = 4,0. Kurangi pangkatnya: 10⁵ / 10² = 10³.',p:['A. 4,0 × 10³','B. 4,0 × 10⁷','C. 6,3 × 10³','D. 17,64 × 10⁷'],j:0},
+  {q:'Tebal sebuah buku fisik fisika adalah 2,45 cm. Jika terdapat 3 buku yang sama persis ditumpuk, maka ketebalan total menurut aturan angka penting adalah ...',f:'Angka "3" adalah bilangan eksak (pasti), bukan hasil pengukuran. Hasil akhir hanya mengikuti AP hasil ukur (2,45 = 3 AP). 2,45 × 3 = 7,35 (tetap 3 AP).',p:['A. 7,35 cm','B. 7,4 cm','C. 7,3 cm','D. 7 cm'],j:0},
+  // ── SULIT (HOTS): Kombinasi & Analisis Metrik Internasional ──
+  {q:'Kecepatan cahaya adalah 300.000 km/detik. Berapa jarak (dalam meter) yang ditempuh cahaya dalam waktu 1 nanodetik?',f:'v = 300.000 km/s = 3 × 10⁸ m/s. Waktu (t) = 1 nanodetik = 1 × 10⁻⁹ s. Jarak = v × t = (3 × 10⁸) × (1 × 10⁻⁹) = 3 × 10⁻¹ = 0,3 meter.',p:['A. 0,3 meter','B. 3,0 meter','C. 30 meter','D. 300 meter'],j:0},
+  {q:'Massa 1 elektron kira-kira 9,11 × 10⁻³¹ kg. Jika sebuah atom memiliki massa yang setara dengan persis sejuta (10⁶) elektron, maka massa atom tersebut adalah ...',f:'Kalikan massa dengan 1 juta: (9,11 × 10⁻³¹) × 10⁶ = 9,11 × 10⁻²⁵ kg.',p:['A. 9,11 × 10⁻²⁵ kg','B. 9,11 × 10⁻³⁷ kg','C. 9,11 × 10²⁵ kg','D. 9,11 × 10⁻²⁴ kg'],j:0},
+  {q:'Sebuah lahan berbentuk persegi panjang diukur luasnya dengan panjang 12,50 m dan lebar 8,0 m. Keliling dari lahan tersebut sesuai aturan angka penting adalah ...',f:'K = 2 × (p + l). Pertama, 12,50 (2 des) + 8,0 (1 des) = 20,5 (dibulatkan 1 des). Lalu dikali 2 (bilangan eksak) = 41,0 (tetap dipertahankan 1 angka di belakang koma untuk akurasi penjumlahan).',p:['A. 41 m','B. 41,0 m','C. 41,00 m','D. 40 m'],j:1},
+  {q:'Hitunglah: (2,5 × 10³) + (1,2 × 10⁴)!',f:'Samakan pangkat ke yang lebih besar: 2,5 × 10³ = 0,25 × 10⁴. Lalu jumlahkan: (0,25 + 1,2) × 10⁴ = 1,45 × 10⁴.',p:['A. 3,7 × 10⁴','B. 1,45 × 10⁴','C. 3,7 × 10⁷','D. 1,45 × 10³'],j:1},
+  {q:'Kapasitansi sebuah kapasitor terbaca 47 pF. Jika ingin diubah penulisannya ke dalam satuan mikroFarad (µF), nilainya adalah ...',f:'Piko (p) = 10⁻¹², Mikro (µ) = 10⁻⁶. 47 pF = 47 × 10⁻¹² F. Ubah ke mikro: (47 × 10⁻¹²) / 10⁻⁶ = 47 × 10⁻⁶ µF = 4,7 × 10⁻⁵ µF.',p:['A. 4,7 × 10⁻⁵ µF','B. 4,7 × 10⁻⁴ µF','C. 47 × 10⁶ µF','D. 4,7 × 10⁻⁸ µF'],j:0},
+  {q:'Pengitungan dari persamaan X = A²/B menghasilkan angka 12,38902. Di mana A diukur sebagai 5,0 (2 AP) dan B diukur sebagai 2,018 (4 AP). Bagaimanakah cara melaporkan nilai X yang tepat?',f:'Operasi perkalian/pembagian mengikuti AP paling sedikit. A punya 2 AP, B punya 4 AP. Hasil akhir harus 2 AP. Angka 12,38902 dibulatkan menjadi 12.',p:['A. 12','B. 12,4','C. 12,39','D. 1 × 10¹'],j:0},
+  {q:'Dalam perhitungan percepatan a = (vt - v0) / t. Sebuah mobil bergerak dari diam (eksak) menjadi 15,6 m/s dalam waktu 3,2 detik. Percepatan mobil adalah ...',f:'a = 15,6 / 3,2 = 4,875. Pembagian antara 15,6 (3 AP) dan 3,2 (2 AP) mengharuskan hasil 2 AP. Angka 4,875 dibulatkan menjadi 4,9 m/s².',p:['A. 4,875 m/s²','B. 4,88 m/s²','C. 4,9 m/s²','D. 5 m/s²'],j:2},
 ],
 'x-kim-1': [
   // ── MUDAH: Konsep Dasar & Atom Netral (1-7) ──
