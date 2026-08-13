@@ -1344,7 +1344,8 @@ const DB = {
       rumus: 'Notasi Ilmiah:\na,bc × 10ⁿ  (0 < a < 10, n bilangan bulat)\n\nAwalan Satuan:\nT=10¹²  G=10⁹  M=10⁶  k=10³\nm=10⁻³  µ=10⁻⁶  n=10⁻⁹  p=10⁻¹²',
       desc: 'Mempelajari cara menyingkat penulisan angka yang ekstrim besar atau kecil menggunakan notasi ilmiah dan penggunaan awalan metrik standar internasional.',
       subLatihan: [
-      {id: 'xf1-notasi-ilmiah-v1', label: 'Latihan: Notasi Ilmiah →' },
+      {id: 'xf1-notasi-ilmiah-v1', label: 'Notasi Ilmiah' },
+      {id: 'xf1-awalan-satuan', label: 'Awalan Satuan' },
       ]
     },
     {
@@ -1911,6 +1912,30 @@ const SOAL={
   {q:'Kapasitansi sebuah kapasitor terbaca 47 pF. Jika ingin diubah penulisannya ke dalam satuan mikroFarad (µF), nilainya adalah ...',f:'Piko (p) = 10⁻¹², Mikro (µ) = 10⁻⁶. 47 pF = 47 × 10⁻¹² F. Ubah ke mikro: (47 × 10⁻¹²) / 10⁻⁶ = 47 × 10⁻⁶ µF = 4,7 × 10⁻⁵ µF.',p:['A. 4,7 × 10⁻⁵ µF','B. 4,7 × 10⁻⁴ µF','C. 47 × 10⁶ µF','D. 4,7 × 10⁻⁸ µF'],j:0},
   {q:'Pengitungan dari persamaan X = A²/B menghasilkan angka 12,38902. Di mana A diukur sebagai 5,0 (2 AP) dan B diukur sebagai 2,018 (4 AP). Bagaimanakah cara melaporkan nilai X yang tepat?',f:'Operasi perkalian/pembagian mengikuti AP paling sedikit. A punya 2 AP, B punya 4 AP. Hasil akhir harus 2 AP. Angka 12,38902 dibulatkan menjadi 12.',p:['A. 12','B. 12,4','C. 12,39','D. 1 × 10¹'],j:0},
   {q:'Dalam perhitungan percepatan a = (vt - v0) / t. Sebuah mobil bergerak dari diam (eksak) menjadi 15,6 m/s dalam waktu 3,2 detik. Percepatan mobil adalah ...',f:'a = 15,6 / 3,2 = 4,875. Pembagian antara 15,6 (3 AP) dan 3,2 (2 AP) mengharuskan hasil 2 AP. Angka 4,875 dibulatkan menjadi 4,9 m/s².',p:['A. 4,875 m/s²','B. 4,88 m/s²','C. 4,9 m/s²','D. 5 m/s²'],j:2},
+],
+  'xf1-awalan-satuan': [
+  // ── 5 Soal Pertama: Persis dari Contoh di Video ──
+  {q:'400 nanometer (nm) sama dengan berapa meter (m)?',f:'Nano (n) = 10⁻⁹. Maka 400 nm = 400 × 10⁻⁹ m = 4 × 10² × 10⁻⁹ m = 4 × 10⁻⁷ m.',p:['A. 4 × 10⁻⁵ m','B. 4 × 10⁻⁶ m','C. 4 × 10⁻⁷ m','D. 4 × 10⁻⁸ m'],j:2},
+  {q:'500 mikrometer (µm) setara dengan berapa nanometer (nm)?',f:'500 µm = 500 × 10⁻⁶ m. Kalikan (10⁹ × 10⁻⁹) agar jadi nano (10⁻⁹). 500 × 10⁻⁶ × 10⁹ × 10⁻⁹ = 500 × 10³ nm = 5 × 10⁵ nm.',p:['A. 5 × 10⁴ nm','B. 5 × 10⁵ nm','C. 5 × 10⁶ nm','D. 5 × 10⁷ nm'],j:1},
+  {q:'100 mikroampere (µA) sama dengan berapa pikoampere (pA)?',f:'100 µA = 100 × 10⁻⁶ A. Kalikan (10¹² × 10⁻¹²) agar jadi piko (10⁻¹²). 100 × 10⁻⁶ × 10¹² × 10⁻¹² = 100 × 10⁶ pA = 1 × 10⁸ pA.',p:['A. 1 × 10⁶ pA','B. 1 × 10⁷ pA','C. 1 × 10⁸ pA','D. 1 × 10⁹ pA'],j:2},
+  {q:'30 miligram (mg) setara dengan berapa kilogram (kg)?',f:'30 mg = 30 × 10⁻³ g. Kalikan (10⁻³ × 10³) agar jadi kilo (10³). 30 × 10⁻³ × 10⁻³ × 10³ = 30 × 10⁻⁶ kg = 3 × 10⁻⁵ kg.',p:['A. 3 × 10⁻⁴ kg','B. 3 × 10⁻⁵ kg','C. 3 × 10⁻⁶ kg','D. 3 × 10⁻⁷ kg'],j:1},
+  {q:'80 Gigawatt (GW) sama dengan berapa kilowatt (kW)?',f:'80 GW = 80 × 10⁹ W. Kalikan (10⁻³ × 10³) agar jadi kilo (10³). 80 × 10⁹ × 10⁻³ × 10³ = 80 × 10⁶ kW = 8 × 10⁷ kW.',p:['A. 8 × 10⁵ kW','B. 8 × 10⁶ kW','C. 8 × 10⁷ kW','D. 8 × 10⁸ kW'],j:2},
+  // ── 15 Soal Lanjutan (Pengembangan Trik Konversi Video) ──
+  {q:'2,5 Terabyte (TB) setara dengan berapa Megabyte (MB)?',f:'2,5 TB = 2,5 × 10¹² B. Kalikan (10⁻⁶ × 10⁶) agar jadi Mega (10⁶). 2,5 × 10¹² × 10⁻⁶ × 10⁶ = 2,5 × 10⁶ MB.',p:['A. 2,5 × 10⁴ MB','B. 2,5 × 10⁵ MB','C. 2,5 × 10⁶ MB','D. 2,5 × 10⁷ MB'],j:2},
+  {q:'750 nanometer (nm) diubah menjadi pikometer (pm) menjadi sebesar ...',f:'750 nm = 750 × 10⁻⁹ m. Kalikan (10¹² × 10⁻¹²) agar jadi piko (10⁻¹²). 750 × 10⁻⁹ × 10¹² × 10⁻¹² = 750 × 10³ pm = 7,5 × 10⁵ pm.',p:['A. 7,5 × 10⁴ pm','B. 7,5 × 10⁵ pm','C. 7,5 × 10⁶ pm','D. 7,5 × 10⁷ pm'],j:1},
+  {q:'600 Megawatt (MW) sama dengan berapa Gigawatt (GW)?',f:'600 MW = 600 × 10⁶ W. Kalikan (10⁻⁹ × 10⁹) untuk Giga (10⁹). 600 × 10⁶ × 10⁻⁹ × 10⁹ = 600 × 10⁻³ GW = 6 × 10² × 10⁻³ GW = 6 × 10⁻¹ GW.',p:['A. 6 × 10⁻¹ GW','B. 6 × 10⁻² GW','C. 6 × 10¹ GW','D. 6 × 10² GW'],j:0},
+  {q:'150 pikofarad (pF) setara dengan berapa nanofarad (nF)?',f:'150 pF = 150 × 10⁻¹² F. Kalikan (10⁹ × 10⁻⁹) untuk nano (10⁻⁹). 150 × 10⁻¹² × 10⁹ × 10⁻⁹ = 150 × 10⁻³ nF = 1,5 × 10⁻¹ nF.',p:['A. 1,5 × 10⁻³ nF','B. 1,5 × 10⁻² nF','C. 1,5 × 10⁻¹ nF','D. 1,5 × 10⁰ nF'],j:2},
+  {q:'45 miliampere (mA) setara dengan berapa mikroampere (µA)?',f:'45 mA = 45 × 10⁻³ A. Kalikan (10⁶ × 10⁻⁶) untuk mikro (10⁻⁶). 45 × 10⁻³ × 10⁶ × 10⁻⁶ = 45 × 10³ µA = 4,5 × 10⁴ µA.',p:['A. 4,5 × 10² µA','B. 4,5 × 10³ µA','C. 4,5 × 10⁴ µA','D. 4,5 × 10⁵ µA'],j:2},
+  {q:'1.200 mikrogram (µg) diubah ke kilogram (kg) menjadi sebesar ...',f:'1.200 µg = 1200 × 10⁻⁶ g. Kalikan (10⁻³ × 10³) untuk kilo (10³). 1200 × 10⁻⁶ × 10⁻³ × 10³ = 1200 × 10⁻⁹ kg = 1,2 × 10⁻⁶ kg.',p:['A. 1,2 × 10⁻⁴ kg','B. 1,2 × 10⁻⁵ kg','C. 1,2 × 10⁻⁶ kg','D. 1,2 × 10⁻⁷ kg'],j:2},
+  {q:'50 pikoampere (pA) sama dengan berapa mikroampere (µA)?',f:'50 pA = 50 × 10⁻¹² A. Kalikan (10⁶ × 10⁻⁶) untuk mikro (10⁻⁶). 50 × 10⁻¹² × 10⁶ × 10⁻⁶ = 50 × 10⁻⁶ µA = 5 × 10⁻⁵ µA.',p:['A. 5 × 10⁻⁴ µA','B. 5 × 10⁻⁵ µA','C. 5 × 10⁻⁶ µA','D. 5 × 10⁻⁷ µA'],j:1},
+  {q:'250 kilowatt (kW) setara dengan berapa Megawatt (MW)?',f:'250 kW = 250 × 10³ W. Kalikan (10⁻⁶ × 10⁶) untuk Mega (10⁶). 250 × 10³ × 10⁻⁶ × 10⁶ = 250 × 10⁻³ MW = 2,5 × 10⁻¹ MW.',p:['A. 2,5 × 10⁻¹ MW','B. 2,5 × 10⁻² MW','C. 2,5 × 10¹ MW','D. 2,5 × 10² MW'],j:0},
+  {q:'90 nanometer (nm) setara dengan berapa mikrometer (µm)?',f:'90 nm = 90 × 10⁻⁹ m. Kalikan (10⁶ × 10⁻⁶) untuk mikro (10⁻⁶). 90 × 10⁻⁹ × 10⁶ × 10⁻⁶ = 90 × 10⁻³ µm = 9 × 10⁻² µm.',p:['A. 9 × 10⁻¹ µm','B. 9 × 10⁻² µm','C. 9 × 10⁻³ µm','D. 9 × 10⁻⁴ µm'],j:1},
+  {q:'3.500 Gigawatt (GW) sama dengan berapa Terawatt (TW)?',f:'3.500 GW = 3500 × 10⁹ W. Kalikan (10⁻¹² × 10¹²) untuk Tera (10¹²). 3500 × 10⁹ × 10⁻¹² × 10¹² = 3500 × 10⁻³ TW = 3,5 × 10⁰ TW = 3,5 TW.',p:['A. 3,5 × 10⁻¹ TW','B. 3,5 × 10⁰ TW','C. 3,5 × 10¹ TW','D. 3,5 × 10² TW'],j:1},
+  {q:'15 kilogram (kg) diubah menjadi miligram (mg) setara dengan ...',f:'15 kg = 15 × 10³ g. Kalikan (10³ × 10⁻³) untuk mili (10⁻³). 15 × 10³ × 10³ × 10⁻³ = 15 × 10⁶ mg = 1,5 × 10⁷ mg.',p:['A. 1,5 × 10⁵ mg','B. 1,5 × 10⁶ mg','C. 1,5 × 10⁷ mg','D. 1,5 × 10⁸ mg'],j:2},
+  {q:'0,4 Terawatt (TW) sama dengan berapa Megawatt (MW)?',f:'0,4 TW = 0,4 × 10¹² W. Kalikan (10⁻⁶ × 10⁶) untuk Mega (10⁶). 0,4 × 10¹² × 10⁻⁶ × 10⁶ = 0,4 × 10⁶ MW = 4 × 10⁵ MW.',p:['A. 4 × 10³ MW','B. 4 × 10⁴ MW','C. 4 × 10⁵ MW','D. 4 × 10⁶ MW'],j:2},
+  {q:'12.000 pikofarad (pF) setara dengan berapa mikrofarad (µF)?',f:'12.000 pF = 12000 × 10⁻¹² F. Kalikan (10⁶ × 10⁻⁶) untuk mikro (10⁻⁶). 12000 × 10⁻¹² × 10⁶ × 10⁻⁶ = 12000 × 10⁻⁶ µF = 1,2 × 10⁻² µF.',p:['A. 1,2 × 10⁻¹ µF','B. 1,2 × 10⁻² µF','C. 1,2 × 10⁻³ µF','D. 1,2 × 10⁻⁴ µF'],j:1},
+  {q:'8 Megameter (Mm) diubah ke kilometer (km) menjadi sebesar ...',f:'8 Mm = 8 × 10⁶ m. Kalikan (10⁻³ × 10³) untuk kilo (10³). 8 × 10⁶ × 10⁻³ × 10³ = 8 × 10³ km.',p:['A. 8 × 10¹ km','B. 8 × 10² km','C. 8 × 10³ km','D. 8 × 10⁴ km'],j:2},
+  {q:'0,02 meter (m) sama dengan berapa mikrometer (µm)?',f:'0,02 m = 2 × 10⁻² m. Kalikan (10⁶ × 10⁻⁶) untuk mikro (10⁻⁶). 2 × 10⁻² × 10⁶ × 10⁻⁶ = 2 × 10⁴ µm.',p:['A. 2 × 10³ µm','B. 2 × 10⁴ µm','C. 2 × 10⁵ µm','D. 2 × 10⁶ µm'],j:1}
 ],
 'x-kim-1': [
   // ── MUDAH: Konsep Dasar & Atom Netral (1-7) ──
