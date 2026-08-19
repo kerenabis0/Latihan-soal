@@ -1685,6 +1685,133 @@ const SOAL={
   {q:'Grafik y=3·2ˣ dan y=2ˣ⁺¹ tidak berpotongan karena ...',f:'3·2ˣ=2·2ˣ berarti 3=2 (kontradiksi), cek x=1: y₁=6 vs y₂=4, x=2: y₁=12 vs y₂=8',p:['A. Kedua grafik sejajar','B. y=3·2ˣ selalu di atas y=2ˣ⁺¹','C. Basis berbeda','D. Kedua grafik sama'],j:1},
   {q:'Bakteri berlipat ganda setiap 2 jam. Awal 500 bakteri. Jumlah setelah 8 jam = ...',f:'8 jam = 4 kali lipat ganda. N=500·2⁴=500·16=8000',p:['A. 2000','B. 4000','C. 8000','D. 16000'],j:2},
 ],
+  'x1-sifatakar': [
+  // ── Sifat Perkalian, Pembagian, dan Akar Berlapis ──
+  {
+    q: 'Bentuk paling sederhana dari ∛(2√2) adalah ...',
+    f: 'Masukkan angka 2 di luar ke dalam akar: 2 masuk ke akar kuadrat menjadi 4, sehingga 2√2 = √(4×2) = √8. Persamaannya menjadi ∛(√8). Kalikan derajat akarnya: 3×2=6. Hasilnya ⁶√8 = ⁶√(2³) = 2^(3/6) = 2^(1/2) = √2.',
+    p: ['A. √2', 'B. ∛2', 'C. ⁶√2', 'D. 1'],
+    j: 0
+  },
+  {
+    q: 'Nilai dari √(∛729) adalah ...',
+    f: 'Kalikan derajat akarnya: 2 × 3 = 6. Persamaannya menjadi ⁶√729. Karena 3⁶ = 729, maka ⁶√(3⁶) = 3.',
+    p: ['A. 3', 'B. 6', 'C. 9', 'D. 27'],
+    j: 0
+  },
+  {
+    q: 'Hasil dari √3(√27 - √12) adalah ...',
+    f: 'Gunakan sifat distributif (perkalian akar dengan akar dalamnya dikali): (√3 × √27) - (√3 × √12) = √81 - √36 = 9 - 6 = 3.',
+    p: ['A. √3', 'B. 3', 'C. 9', 'D. 2√3'],
+    j: 1
+  },
+  {
+    q: 'Bentuk sederhana dari (√150 - √54) / √24 adalah ...',
+    f: 'Sederhanakan masing-masing akar: √150 = 5√6, √54 = 3√6, dan √24 = 2√6. Pembilang = 5√6 - 3√6 = 2√6. Maka (2√6) / (2√6) = 1.',
+    p: ['A. √6', 'B. 2√6', 'C. 1', 'D. 2'],
+    j: 2
+  },
+  {
+    q: 'Hasil dari (3√2 - 2√3)² adalah ...',
+    f: 'Gunakan (a-b)² = a² - 2ab + b². (3√2)² - 2(3√2)(2√3) + (2√3)² = (9×2) - 12√6 + (4×3) = 18 - 12√6 + 12 = 30 - 12√6.',
+    p: ['A. 6 - 12√6', 'B. 30 - 12√6', 'C. 30 - 5√6', 'D. 6'],
+    j: 1
+  },
+  {
+    q: 'Berdasarkan sifat perkalian akar, nilai dari √(8 - √60) × √(8 + √60) adalah ...',
+    f: 'Gunakan sifat √A × √B = √(A×B). Didapat √((8 - √60)(8 + √60)). Gunakan sifat (a-b)(a+b) = a²-b². Hasilnya √(64 - 60) = √4 = 2.',
+    p: ['A. 2', 'B. 4', 'C. √2', 'D. 16'],
+    j: 0
+  },
+  // ── Menarik Akar Kuadrat Ganda (Modifikasi Konstanta 2 dari Dalam Akar) ──
+  {
+    q: 'Bentuk sederhana dari √(11 + √72) adalah ...',
+    f: 'Syaratnya harus ada angka 2. Pecah 72 menjadi 4×18, keluarkan 4 dari akar menjadi 2. Persamaannya: √(11 + 2√18). Cari 2 angka dijumlah 11 dikali 18 (9 dan 2). Hasil: √9 + √2 = 3 + √2.',
+    p: ['A. 3 + √2', 'B. 2 + √3', 'C. 9 + √2', 'D. 6 + √2'],
+    j: 0
+  },
+  {
+    q: 'Bentuk sederhana dari √(13 - √160) adalah ...',
+    f: 'Pecah 160 menjadi 4×40, keluarkan √4 menjadi 2. Menjadi √(13 - 2√40). Cari angka dijumlah 13 dikali 40 (8 dan 5). Hasil: √8 - √5 = 2√2 - √5.',
+    p: ['A. √10 - √3', 'B. √8 - √5', 'C. 2√2 - √5', 'D. 4 - √5'],
+    j: 2
+  },
+  // ── Menarik Akar Kuadrat Ganda (Modifikasi Konstanta 2 dari Luar Akar) ──
+  {
+    q: 'Bentuk sederhana dari √(21 - 8√5) adalah ...',
+    f: 'Ubah koefisien 8 menjadi 2. 8 = 2×4. Masukkan angka 4 ke dalam akar menjadi 16. Jadi 2√(16×5) = 2√80. Persamaan: √(21 - 2√80). Angka jumlah 21 kali 80 adalah 16 dan 5. Hasil: √16 - √5 = 4 - √5.',
+    p: ['A. 4 - √5', 'B. 8 - √5', 'C. 16 - √5', 'D. 2 - √5'],
+    j: 0
+  },
+  {
+    q: 'Bentuk sederhana dari √(32 + 10√7) adalah ...',
+    f: 'Ubah 10 menjadi 2×5. Masukkan 5 ke akar menjadi 25. 2√(25×7) = 2√175. Persamaan: √(32 + 2√175). Angka jumlah 32 kali 175 adalah 25 dan 7. Hasil: √25 + √7 = 5 + √7.',
+    p: ['A. 5 + √7', 'B. 7 + √5', 'C. 25 + √7', 'D. 10 + √7'],
+    j: 0
+  },
+  {
+    q: 'Bentuk sederhana dari √(11 - 6√2) adalah ...',
+    f: 'Ubah 6 menjadi 2×3. Masukkan 3 ke akar menjadi 9. 2√(9×2) = 2√18. Persamaan: √(11 - 2√18). Angka jumlah 11 kali 18 adalah 9 dan 2. Hasil: √9 - √2 = 3 - √2.',
+    p: ['A. 9 - √2', 'B. 3 - √2', 'C. √3 - 2', 'D. 3 - 2√2'],
+    j: 1
+  },
+  {
+    q: 'Bentuk sederhana dari √(28 - 10√3) - √12 adalah ...',
+    f: 'Ubah √(28 - 2√(25×3)) = √(28 - 2√75) = √25 - √3 = 5 - √3. Kemudian kurangkan dengan √12 (yaitu 2√3). (5 - √3) - 2√3 = 5 - 3√3.',
+    p: ['A. 5 - √3', 'B. 5 - 2√3', 'C. 5 - 3√3', 'D. 25 - 3√3'],
+    j: 2
+  },
+  // ── Menarik Akar Kuadrat Ganda (Menggunakan Bantuan Pecahan 2/2) ──
+  {
+    q: 'Bentuk rasional dan sederhana dari √(4 + √15) adalah ...',
+    f: 'Gunakan trik dikali 2/2. √((8 + 2√15)/2) = (√5 + √3)/√2. Rasionalkan pecahan dengan mengalikan √2/√2, sehingga didapat (√10 + √6)/2.',
+    p: ['A. (√5 + √3) / 2', 'B. (√10 + √6) / 2', 'C. √10 + √6', 'D. (√8 + √15) / 2'],
+    j: 1
+  },
+  {
+    q: 'Bentuk rasional dan sederhana dari √(6 - √35) adalah ...',
+    f: 'Gunakan trik dikali 2/2. √((12 - 2√35)/2) = (√7 - √5)/√2. Rasionalkan (kalikan √2/√2), hasilnya (√14 - √10)/2.',
+    p: ['A. (√14 - √10) / 2', 'B. (√7 - √5) / 2', 'C. √14 - √10', 'D. (√12 - √35) / 2'],
+    j: 0
+  },
+  {
+    q: 'Bentuk sederhana dari √( 5/4 + (1/2)√6 ) adalah ...',
+    f: 'Ubah koefisien 1/2 menjadi 2/4. Persamaan: √( (5 + 2√6)/4 ). Karena bagian penyebut (√4) = 2, bentuk atasnya √(5+2√6) = √3 + √2. Hasilnya: (√3 + √2) / 2.',
+    p: ['A. (√3 + √2) / 4', 'B. (√3 + √2) / 2', 'C. √3 + √2', 'D. (√6 + 1) / 2'],
+    j: 1
+  },
+  {
+    q: 'Bentuk sederhana dari √( 7/4 - √3 ) adalah ...',
+    f: 'Samakan penyebut, ubah -√3 menjadi -(4√3)/4. Persamaan: √( (7 - 4√3)/4 ). Akar dari penyebut adalah 2. Akar pembilang √(7 - 2√12) = √4 - √3 = 2 - √3. Hasil: (2 - √3) / 2.',
+    p: ['A. (2 - √3) / 4', 'B. (2 - √3) / 2', 'C. 2 - √3', 'D. (4 - √3) / 2'],
+    j: 1
+  },
+  // ── Kombinasi Lanjut (Akar Ganda dan Aljabar) ──
+  {
+    q: 'Nilai dari √(7 + √48) + √(7 - √48) adalah ...',
+    f: '√48 = 2√12. Bagian kiri: √(7 + 2√12) = √4 + √3 = 2 + √3. Bagian kanan: √(7 - 2√12) = 2 - √3. Jumlahkan keduanya: (2 + √3) + (2 - √3) = 4.',
+    p: ['A. 2', 'B. 4', 'C. 2√3', 'D. 4 + 2√3'],
+    j: 1
+  },
+  {
+    q: 'Bentuk sederhana dari (√(5 + 2√6)) / (√3 + √2) adalah ...',
+    f: 'Bentuk akar pada pembilang √(5 + 2√6) dapat disederhanakan menjadi √3 + √2. Maka persamaannya (√3 + √2) / (√3 + √2) = 1.',
+    p: ['A. √3 + √2', 'B. √6', 'C. 1', 'D. 2'],
+    j: 2
+  },
+  {
+    q: 'Nilai dari √(17 - 12√2) - √(17 + 12√2) adalah ...',
+    f: '12√2 = 2√72. √(17 - 2√72) = 3 - 2√2. √(17 + 2√72) = 3 + 2√2. Pengurangan: (3 - 2√2) - (3 + 2√2) = -4√2.',
+    p: ['A. 6', 'B. -6', 'C. 4√2', 'D. -4√2'],
+    j: 3
+  },
+  {
+    q: 'Bentuk paling sederhana dari ⁴√(17 + 12√2) adalah ...',
+    f: 'Kerjakan akarnya berlapis. √(√(17 + 12√2)) = √(√(17 + 2√72)) = √(√9 + √8) = √(3 + 2√2). Sederhanakan lagi: √(3 + 2√2) = √2 + √1 = √2 + 1.',
+    p: ['A. √3 + √2', 'B. √2 + 1', 'C. 3 + 2√2', 'D. 2 + √2'],
+    j: 1
+  }
+],
 'x1-akar':[
   // ── MUDAH: Menyederhanakan bentuk akar (1-7) ──
   {q:'Sederhanakan √50 = ...',f:'√50 = √(25×2) = 5√2',p:['A. 5√2','B. 10√2','C. 2√5','D. 25√2'],j:0},
