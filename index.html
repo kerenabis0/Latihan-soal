@@ -690,7 +690,7 @@ nav {
 }
 .reset-grade-btn:hover { border-color:var(--red); color:var(--red); }
   /* ------------------------------------------------ */
-  /* KODE TEMA KAYU & KERTAS (Versi Selaras)          */
+  /* KODE TEMA KAYU & KERTAS (Versi Selaras Akhir)    */
   /* ------------------------------------------------ */
   /* 1. MENGUBAH WARNA TEMA GLOBAL */
   :root {
@@ -717,7 +717,7 @@ nav {
     transform: translateY(2px);
     box-shadow: 1px 2px 0px #4e342e !important;
   }
-  /* 3. KOTAK STATISTIK (Warna Kertas Krem) */
+  /* 3. KOTAK STATISTIK */
   .stat-item {
     background-color: #fffde7 !important; 
     border: 1px solid #d7ccc8 !important;
@@ -726,10 +726,11 @@ nav {
   }
   .stat-n { color: #c62828 !important; }
   .hero h1 { color: #4e342e !important; }
-  /* 4. SEMUA KARTU & SIDEBAR (Dibuat sama persis dengan Kotak Statistik) */
+  /* 4. SEMUA KARTU (Menghilangkan Garis Kiri Biru/Hitam) */
   .subject-card, .content-card, .question-card, .auth-box, .sidebar {
-    background-color: #fffde7 !important; /* Kodenya sudah disamakan dengan stat-item */
+    background-color: #fffde7 !important; 
     border: 1px solid #d7ccc8 !important; 
+    border-left: 1px solid #d7ccc8 !important; /* INI KUNCI PENGHILANG GARISNYA */
     box-shadow: 2px 4px 0px #d7ccc8 !important;
     border-radius: 8px !important;
   }
