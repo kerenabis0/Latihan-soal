@@ -689,15 +689,22 @@ nav {
   transition:all .12s; margin-top:4px;
 }
 .reset-grade-btn:hover { border-color:var(--red); color:var(--red); }
-    /* ------------------------------------------------ */
-  /* KODE TEMA KAYU & KERTAS (Versi Warna Solid)      */
   /* ------------------------------------------------ */
-  /* 1. Latar Belakang Kertas Perkamen (Krem) */
-  body {
-    background-color: #f4ecd8 !important; 
-    color: #3e2723 !important;
+  /* KODE TEMA KAYU & KERTAS (Versi Lengkap & Rapi)   */
+  /* ------------------------------------------------ */
+  /* 1. MENGUBAH WARNA TEMA GLOBAL (Rahasia menyatukan warna) */
+  :root {
+    /* Mengubah Biru Terang menjadi "Tinta Klasik / Navy Tua" */
+    --blue: #2c3e50 !important;       
+    --blue2: #1a252f !important;      
+    --blue-light: #e8ecef !important; 
+    --blue-border: #95a5a6 !important;
+    /* Mengubah Latar Putih menjadi Kertas Krem */
+    --bg: #f4ecd8 !important;         
+    --bg2: #eae0c8 !important;        
+    --border: #d7ccc8 !important;     
   }
-  /* 2. Tombol Utama Cokelat Kulit/Kayu */
+  /* 2. TOMBOL MULAI BELAJAR (Tetap Cokelat Kayu) */
   .btn-cta {
     background-color: #6d4c41 !important; 
     border: 2px solid #4e342e !important;
@@ -712,20 +719,26 @@ nav {
     transform: translateY(2px);
     box-shadow: 1px 2px 0px #4e342e !important;
   }
-  /* 3. Kotak Statistik Kertas Tua */
+  /* 3. KOTAK STATISTIK (Angka 5, 24, Lengkap) */
   .stat-item {
-    background-color: #fffde7 !important; 
+    background-color: #fffdf7 !important; 
     border: 1px solid #d7ccc8 !important;
     box-shadow: 2px 3px 0px #d7ccc8 !important;
     border-radius: 8px !important;
   }
-  /* Warna angka di dalam kotak statistik */
-  .stat-n {
-    color: #c62828 !important; 
+  .stat-n { color: #c62828 !important; }
+  .hero h1 { color: #4e342e !important; }
+  /* 4. KARTU SOAL, RUMUS, DAN MATERI (Putih Gading, BUKAN Cokelat) */
+  .subject-card, .content-card, .question-card, .auth-box {
+    background-color: #fcfbf7 !important; /* Putih gading bersih */
+    border: 1px solid #bdc3c7 !important; /* Batas abu-abu tinta */
+    box-shadow: 2px 4px 0px #bdc3c7 !important;
+    border-radius: 8px !important;
   }
-  /* 4. Tipografi Judul */
-  .hero h1 {
-    color: #4e342e !important;
+  /* Sidebar Menu */
+  .sidebar {
+    background-color: #fcfbf7 !important;
+    border-right: 2px solid #d7ccc8 !important;
   }
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
