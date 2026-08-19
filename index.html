@@ -2950,7 +2950,6 @@ function loadMapel(mid){
   const bd=document.getElementById('mh-badge');
   bd.textContent=m.tipe==='u'?'📗 Pelajaran':'🔬 Tingkat Lanjut';
   document.getElementById('mh-title').textContent=`${m.name} — Kelas ${m.kelas}`;
-  document.getElementById('mh-sub').textContent=`${m.fase} · ${m.topics.length} bab sesuai buku Kemendikdasmen`;
   buildSbar(m);
   document.getElementById('carea').innerHTML=`<div class="empty"><div class="ei">📖</div><div class="et">Pilih topik di atas</div><div>Tap bab yang ingin dipelajari</div></div>`;
   // Restore last topic
