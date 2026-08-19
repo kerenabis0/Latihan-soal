@@ -739,37 +739,6 @@ nav {
   .subject-card *, div[class*="subject"] {
     border-left-color: transparent;
   }
-  /* ------------------------------------------------ */
-  /* KODE PEMBERSIHAN ELEMEN & WARNA                  */
-  /* ------------------------------------------------ */
-  /* 5. BERSIHKAN SISA BIRU DI "TINGKAT LANJUT" */
-  [class*="text-blue"], 
-  [class*="bg-blue"], 
-  span[class*="badge"] {
-    background-color: #eae0c8 !important; 
-    color: #4e342e !important; 
-    border-color: #d7ccc8 !important;
-  }
-  /* 6. HILANGKAN TEKS DESKRIPSI & KOTAK STATISTIK */
-  .hero p, /* Menyembunyikan teks "Video pembelajaran..." */
-  .stat-item, /* Menyembunyikan 3 kotak angka */
-  .hero > div:first-of-type /* Menyembunyikan badge Kurikulum Merdeka paling atas */ {
-    display: none !important;
-  }
-  /* 7. UBAH JUDUL UTAMA JADI "MATERI" (Tanpa sentuh HTML) */
-  .hero h1 {
-    font-size: 0 !important; /* Menyusutkan ukuran teks lama sampai hilang */
-    letter-spacing: 0 !important;
-    margin: 0 !important;
-  }
-  .hero h1::after {
-    content: "Materi"; /* Menuntikkan teks baru */
-    font-size: 40px !important; /* Ukuran huruf baru */
-    color: #4e342e !important;
-    display: block;
-    margin-bottom: 10px;
-    margin-top: 10px;
-  }
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
@@ -782,7 +751,7 @@ nav {
   <div class="auth-box">
     <div class="auth-logo">
       <div class="logo-icon">∑</div>
-      <span>MatematikaSMA</span>
+      <span>MateriSMA</span>
     </div>
     <div class="auth-tabs">
       <button class="auth-tab on" onclick="switchAuthTab('login')">Masuk</button>
@@ -869,7 +838,7 @@ nav {
 <nav>
   <div class="logo" onclick="goPage('home');onTab(0)">
     <div class="logo-icon">∑</div>
-    MatematikaSMA
+    MateriSMA
   </div>
   <div class="nav-tabs">
     <button class="ntab on" onclick="goPage('home');onTab(0)">Beranda</button>
@@ -889,20 +858,13 @@ nav {
 <div id="page-home" class="page on">
   <div class="hero">
     <div class="hero-tag">📐 Kurikulum Merdeka Kemendikdasmen</div>
-    <h1>Belajar Matematika SMA<br><span>Lengkap & Terstruktur</span></h1>
-    <p>Video pembelajaran dan latihan soal dengan penjelasan. Materi sesuai bab & subbab buku resmi Kemendikdasmen.</p>
+    <h1>Belajar Materi SMA<br><span>Disusun bedasarkan materi dari guru</span></h1>
+    <p>Video pembelajaran dan latihan soal dengan penjelasan.</p>
     <button class="btn-cta" onclick="goPage('materi');onTab(1)">Mulai Belajar →</button>
-  </div>
-
-  <div class="statsbar">
-    <div class="stat-item"><div class="stat-n">5</div><div class="stat-l">Kelompok Mapel</div></div>
-    <div class="stat-item"><div class="stat-n">24</div><div class="stat-l">Bab Resmi</div></div>
-    <div class="stat-item"><div class="stat-n">Lengkap</div><div class="stat-l">Penjelasan Soal</div></div>
   </div>
 
   <div class="sec-hdr">
     <h2>Pilih Mapel & Kelas</h2>
-    <p>Sesuai buku teks Kemendikdasmen Kurikulum Merdeka 2024</p>
   </div>
   <div class="home-grid" id="home-grid"></div>
 </div>
