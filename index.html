@@ -690,6 +690,9 @@ nav {
 }
 .reset-grade-btn:hover { border-color:var(--red); color:var(--red); }
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
 </head>
 <body>
 
@@ -882,6 +885,16 @@ nav {
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
 
 <script>
+  function renderMathIn(el){
+  if(!el || typeof renderMathInElement !== 'function') return;
+  renderMathInElement(el, {
+    delimiters: [
+      {left: '\\(', right: '\\)', display: false},
+      {left: '\\[', right: '\\]', display: true}
+    ],
+    throwOnError: false
+  });
+  }
 // ============================================================
 // FIREBASE INIT (compat mode — fungsi bisa dipanggil dari onclick)
 // ============================================================
@@ -1943,6 +1956,163 @@ const SOAL={
     j: 1
   }
 ],
+'x1-akartakhingga': [
+  // ── BAGIAN 1: OPERASI PENJUMLAHAN (+) ──
+  {
+    q: 'Nilai dari \\(\\sqrt{20+\\sqrt{20+\\sqrt{20+\\cdots}}}\\) adalah ...',
+    f: 'Trik cepat: Faktorkan 20 menjadi dua bilangan berurutan, yaitu 4 × 5. Karena tandanya tambah (+), ambil angka yang lebih BESAR, yaitu 5.',
+    p: ['A. 4', 'B. 5', 'C. 10', 'D. 20'],
+    j: 1
+  },
+  {
+    q: 'Nilai dari \\(\\sqrt{72+\\sqrt{72+\\sqrt{72+\\cdots}}}\\) adalah ...',
+    f: 'Faktor berurutan dari 72 adalah 8 × 9. Karena tandanya (+), jawabannya adalah angka terbesar, yaitu 9.',
+    p: ['A. 8', 'B. 9', 'C. 12', 'D. 36'],
+    j: 1
+  },
+  {
+    q: 'Jika \\(\\sqrt{2x+\\sqrt{2x+\\sqrt{2x+\\cdots}}}=4\\), maka nilai x adalah...',
+    f: 'Ganti bentuk tak hingga dengan 4, menjadi \\(\\sqrt{2x+4}=4\\). Kuadratkan kedua ruas: 2x + 4 = 16 → 2x = 12 → x = 6.',
+    p: ['A. 2', 'B. 4', 'C. 6', 'D. 8'],
+    j: 2
+  },
+  {
+    q: 'Jika \\(\\sqrt{5x+\\sqrt{5x+\\sqrt{5x+\\cdots}}}=6\\), maka nilai x adalah...',
+    f: 'Persamaan menjadi \\(\\sqrt{5x+6}=6\\). Kuadratkan kedua ruas: 5x + 6 = 36 → 5x = 30 → x = 6.',
+    p: ['A. 5', 'B. 6', 'C. 11', 'D. 30'],
+    j: 1
+  },
+  {
+    q: 'Jika \\(\\sqrt{3x+\\sqrt{3x+\\sqrt{3x+\\cdots}}}=7\\), maka nilai x adalah...',
+    f: 'Persamaan menjadi \\(\\sqrt{3x+7}=7\\). Kuadratkan kedua ruas: 3x + 7 = 49 → 3x = 42 → x = 14.',
+    p: ['A. 12', 'B. 14', 'C. 21', 'D. 42'],
+    j: 1
+  },
+  // ── BAGIAN 2: OPERASI PENGURANGAN (-) ──
+  {
+    q: 'Berapakah hasil dari \\(\\sqrt{30-\\sqrt{30-\\sqrt{30-\\cdots}}}\\) ?',
+    f: 'Faktorkan 30 menjadi bilangan berurutan: 5 × 6. Karena tandanya kurang (-), ambil angka yang lebih KECIL, yaitu 5.',
+    p: ['A. 3', 'B. 5', 'C. 6', 'D. 15'],
+    j: 1
+  },
+  {
+    q: 'Hasil dari \\(\\sqrt{90-\\sqrt{90-\\sqrt{90-\\cdots}}}\\) adalah ...',
+    f: 'Faktor berurutan dari 90 adalah 9 × 10. Karena tandanya (-), ambil nilai yang paling kecil, yaitu 9.',
+    p: ['A. 8', 'B. 9', 'C. 10', 'D. 45'],
+    j: 1
+  },
+  {
+    q: 'Jika \\(\\sqrt{3x-\\sqrt{3x-\\sqrt{3x-\\cdots}}}=6\\), maka nilai x adalah...',
+    f: 'Ganti bentuk tak hingga dengan 6, menjadi \\(\\sqrt{3x-6}=6\\). Kuadratkan kedua ruas: 3x - 6 = 36 → 3x = 42 → x = 14.',
+    p: ['A. 10', 'B. 12', 'C. 14', 'D. 15'],
+    j: 2
+  },
+  {
+    q: 'Jika \\(\\sqrt{4x-\\sqrt{4x-\\sqrt{4x-\\cdots}}}=7\\), maka nilai x adalah...',
+    f: 'Persamaan menjadi \\(\\sqrt{4x-7}=7\\). Kuadratkan kedua ruas: 4x - 7 = 49 → 4x = 56 → x = 14.',
+    p: ['A. 7', 'B. 12', 'C. 14', 'D. 28'],
+    j: 2
+  },
+  {
+    q: 'Jika \\(\\sqrt{2x-\\sqrt{2x-\\sqrt{2x-\\cdots}}}=8\\), maka nilai x adalah...',
+    f: 'Persamaan menjadi \\(\\sqrt{2x-8}=8\\). Kuadratkan kedua ruas: 2x - 8 = 64 → 2x = 72 → x = 36.',
+    p: ['A. 16', 'B. 32', 'C. 36', 'D. 72'],
+    j: 2
+  },
+  // ── BAGIAN 3: OPERASI PERKALIAN (×) ──
+  {
+    q: 'Nilai dari \\(\\sqrt{8\\sqrt{8\\sqrt{8\\cdots}}}\\) adalah ...',
+    f: 'Sifat khusus akar tak hingga perkalian: Hasilnya adalah angka di dalam akar itu sendiri. Jawabannya 8.',
+    p: ['A. 2', 'B. 4', 'C. 8', 'D. 64'],
+    j: 2
+  },
+  {
+    q: 'Berapakah hasil dari \\(\\sqrt{15\\sqrt{15\\sqrt{15\\cdots}}}\\) ?',
+    f: 'Sesuai dengan sifat dasar akar tak hingga perkalian, hasilnya mutlak bilangan itu sendiri, yaitu 15.',
+    p: ['A. 3', 'B. 5', 'C. 15', 'D. 225'],
+    j: 2
+  },
+  {
+    q: 'Jika \\(\\sqrt{4x\\sqrt{4x\\sqrt{4x\\cdots}}}=20\\), maka nilai x adalah ...',
+    f: 'Bentuk tak hingga perkalian bernilai sama dengan ekspresi di dalamnya. Maka 4x = 20 → x = 5.',
+    p: ['A. 4', 'B. 5', 'C. 16', 'D. 20'],
+    j: 1
+  },
+  {
+    q: 'Jika \\(\\sqrt{7x\\sqrt{7x\\sqrt{7x\\cdots}}}=42\\), maka nilai x adalah ...',
+    f: 'Sifat perkalian akar tak hingga: ekspresi di dalam akar sama dengan hasilnya. Maka 7x = 42 → x = 6.',
+    p: ['A. 6', 'B. 7', 'C. 35', 'D. 49'],
+    j: 0
+  },
+  {
+    q: 'Jika \\(\\sqrt{2x\\sqrt{2x\\sqrt{2x\\cdots}}}=18\\), maka nilai x adalah ...',
+    f: 'Sesuai dengan trik, nilainya adalah bentuk di dalamnya. 2x = 18 → x = 9.',
+    p: ['A. 2', 'B. 9', 'C. 16', 'D. 36'],
+    j: 1
+  },
+  // ── BAGIAN 4: OPERASI PEMBAGIAN (÷) ──
+  {
+    q: 'Nilai dari \\(\\sqrt{64\\div\\sqrt{64\\div\\sqrt{64\\div\\cdots}}}\\) adalah ...',
+    f: 'Trik cepat untuk pembagian akar tak hingga: Tarik akar pangkat 3 dari bilangannya. ∛64 = 4.',
+    p: ['A. 2', 'B. 4', 'C. 8', 'D. 32'],
+    j: 1
+  },
+  {
+    q: 'Hasil dari \\(\\sqrt{125\\div\\sqrt{125\\div\\sqrt{125\\div\\cdots}}}\\) adalah ...',
+    f: 'Tarik akar pangkat tiga dari bilangan tersebut. ∛125 = 5 (karena 5 × 5 × 5 = 125).',
+    p: ['A. 5', 'B. 15', 'C. 25', 'D. 125'],
+    j: 0
+  },
+  {
+    q: 'Jika \\(\\sqrt{2x\\div\\sqrt{2x\\div\\sqrt{2x\\div\\cdots}}}=4\\), maka nilai x adalah ...',
+    f: 'Bentuk akar tak hingga pembagian senilai dengan akar pangkat tiganya: ∛(2x) = 4. Pangkatkan 3 kedua ruas → 2x = 64 → x = 32.',
+    p: ['A. 4', 'B. 8', 'C. 16', 'D. 32'],
+    j: 3
+  },
+  {
+    q: 'Jika \\(\\sqrt{3x\\div\\sqrt{3x\\div\\sqrt{3x\\div\\cdots}}}=3\\), maka nilai x adalah ...',
+    f: 'Sesuai sifat pembagian tak hingga: ∛(3x) = 3. Pangkatkan 3 kedua ruas → 3x = 27 → x = 9.',
+    p: ['A. 3', 'B. 6', 'C. 9', 'D. 27'],
+    j: 2
+  },
+  {
+    q: 'Jika \\(\\sqrt{5x\\div\\sqrt{5x\\div\\sqrt{5x\\div\\cdots}}}=5\\), maka nilai x adalah ...',
+    f: 'Sesuai sifat pembagian tak hingga: ∛(5x) = 5. Pangkatkan 3 kedua ruas → 5x = 125 → x = 25.',
+    p: ['A. 5', 'B. 10', 'C. 25', 'D. 125'],
+    j: 2
+  },
+  // ── BAGIAN 5: AKAR BERTUMPUK BERHINGGA ──
+  {
+    q: 'Berapakah nilai akhir dari \\(\\frac{1}{2}\\sqrt{5\\sqrt{8\\sqrt{25\\sqrt{10.000}}}}\\) ?',
+    f: 'Mulai dari akar paling dalam: \\(\\sqrt{10.000}=100\\).<br>Lanjut: \\(\\sqrt{25\\times100}=\\sqrt{2500}=50\\).<br>Lanjut: \\(\\sqrt{8\\times50}=\\sqrt{400}=20\\).<br>Akar terluar: \\(\\sqrt{5\\times20}=\\sqrt{100}=10\\).<br>Terakhir kalikan: \\(\\frac{1}{2}\\times10=5\\).',
+    p: ['A. 2', 'B. 5', 'C. 10', 'D. 20'],
+    j: 1
+  },
+  {
+    q: 'Hitunglah nilai dari \\(\\frac{1}{3}\\sqrt{6\\sqrt{3\\sqrt{9\\sqrt{256}}}}\\) !',
+    f: 'Mulai dari dalam: \\(\\sqrt{256}=16\\).<br>Lanjut: \\(\\sqrt{9\\times16}=\\sqrt{144}=12\\).<br>Lanjut: \\(\\sqrt{3\\times12}=\\sqrt{36}=6\\).<br>Akar terluar: \\(\\sqrt{6\\times6}=\\sqrt{36}=6\\).<br>Terakhir kalikan: \\(\\frac{1}{3}\\times6=2\\).',
+    p: ['A. 2', 'B. 3', 'C. 4', 'D. 6'],
+    j: 0
+  },
+  {
+    q: 'Hasil akhir dari \\(\\frac{1}{5}\\sqrt{5\\sqrt{40\\sqrt{4\\sqrt{625}}}}\\) adalah ...',
+    f: 'Dari dalam: \\(\\sqrt{625}=25\\).<br>Lanjut: \\(\\sqrt{4\\times25}=\\sqrt{100}=10\\).<br>Lanjut: \\(\\sqrt{40\\times10}=\\sqrt{400}=20\\).<br>Lanjut terluar: \\(\\sqrt{5\\times20}=\\sqrt{100}=10\\).<br>Terakhir: \\(\\frac{1}{5}\\times10=2\\).',
+    p: ['A. 2', 'B. 5', 'C. 10', 'D. 25'],
+    j: 0
+  },
+  {
+    q: 'Berapakah nilai dari persamaan \\(\\frac{1}{3}\\sqrt{30\\sqrt{10\\sqrt{81\\sqrt{10.000}}}}\\) ?',
+    f: 'Dari akar terdalam: \\(\\sqrt{10.000}=100\\).<br>Lalu \\(\\sqrt{81\\times100}=\\sqrt{8100}=90\\).<br>Lalu \\(\\sqrt{10\\times90}=\\sqrt{900}=30\\).<br>Akar terluar \\(\\sqrt{30\\times30}=\\sqrt{900}=30\\).<br>Terakhir: \\(\\frac{1}{3}\\times30=10\\).',
+    p: ['A. 3', 'B. 9', 'C. 10', 'D. 30'],
+    j: 2
+  },
+  {
+    q: 'Selesaikan bentuk akar berikut: \\(\\frac{1}{4}\\sqrt{16\\sqrt{36\\sqrt{81\\sqrt{256}}}}\\) !',
+    f: 'Selesaikan dari akar terdalam: \\(\\sqrt{256}=16\\).<br>Lanjut: \\(\\sqrt{81\\times16}=\\sqrt{1296}=36\\).<br>Lanjut: \\(\\sqrt{36\\times36}=\\sqrt{1296}=36\\).<br>Akar terluar: \\(\\sqrt{16\\times36}=\\sqrt{576}=24\\).<br>Terakhir kalikan: \\(\\frac{1}{4}\\times24=6\\).',
+    p: ['A. 4', 'B. 6', 'C. 9', 'D. 12'],
+    j: 1
+  }
+],
   'x1-akartakhingga': [
   // ── BAGIAN 1: OPERASI PENJUMLAHAN (+) ──
   {
@@ -2056,46 +2226,34 @@ const SOAL={
     p: ['A. 4', 'B. 8', 'C. 16', 'D. 32'],
     j: 3
   },
+  // ── BAGIAN 5: AKAR BERTUMPUK BERHINGGA ──
   {
-    q: 'Jika &radic;<span style="text-decoration: overline;">3x &divide; &radic;<span style="text-decoration: overline;">3x &divide; &radic;<span style="text-decoration: overline;">3x &divide; ...</span></span></span> = 3, maka nilai x adalah ...',
-    f: 'Sesuai sifat pembagian tak hingga: &#8731;(3x) = 3. Pangkatkan 3 kedua ruas &#10132; 3x = 27 &#10132; x = 9.',
-    p: ['A. 3', 'B. 6', 'C. 9', 'D. 27'],
-    j: 2
-  },
-  {
-    q: 'Jika &radic;<span style="text-decoration: overline;">5x &divide; &radic;<span style="text-decoration: overline;">5x &divide; &radic;<span style="text-decoration: overline;">5x &divide; ...</span></span></span> = 5, maka nilai x adalah ...',
-    f: 'Sesuai sifat pembagian tak hingga: &#8731;(5x) = 5. Pangkatkan 3 kedua ruas &#10132; 5x = 125 &#10132; x = 25.',
-    p: ['A. 5', 'B. 10', 'C. 25', 'D. 125'],
-    j: 2
-  },
-  // ── BAGIAN 5: AKAR BERTUMPUK BERHINGGA (VARIAN ANGKA BARU) ──
-  {
-    q: 'Berapakah nilai akhir dari <sup>1</sup>/<sub>2</sub> &radic;<span style="text-decoration: overline;">5 &radic;<span style="text-decoration: overline;">8 &radic;<span style="text-decoration: overline;">25 &radic;<span style="text-decoration: overline;">10.000</span></span></span></span> ?',
-    f: 'Mulai dari akar paling dalam: &radic;10.000 = 100.<br>Lanjut: &radic;<span style="text-decoration: overline;">25 &times; 100</span> = &radic;2500 = 50.<br>Lanjut: &radic;<span style="text-decoration: overline;">8 &times; 50</span> = &radic;400 = 20.<br>Akar terluar: &radic;<span style="text-decoration: overline;">5 &times; 20</span> = &radic;100 = 10.<br>Terakhir kalikan: <sup>1</sup>/<sub>2</sub> &times; 10 = 5.',
+    q: 'Berapakah nilai akhir dari \\(\\frac{1}{2}\\sqrt{5\\sqrt{8\\sqrt{25\\sqrt{10.000}}}}\\) ?',
+    f: 'Mulai dari akar paling dalam: \\(\\sqrt{10.000}=100\\).<br>Lanjut: \\(\\sqrt{25\\times100}=\\sqrt{2500}=50\\).<br>Lanjut: \\(\\sqrt{8\\times50}=\\sqrt{400}=20\\).<br>Akar terluar: \\(\\sqrt{5\\times20}=\\sqrt{100}=10\\).<br>Terakhir kalikan: \\(\\frac{1}{2}\\times10=5\\).',
     p: ['A. 2', 'B. 5', 'C. 10', 'D. 20'],
     j: 1
   },
   {
-    q: 'Hitunglah nilai dari <sup>1</sup>/<sub>3</sub> &radic;<span style="text-decoration: overline;">6 &radic;<span style="text-decoration: overline;">3 &radic;<span style="text-decoration: overline;">9 &radic;<span style="text-decoration: overline;">256</span></span></span></span> !',
-    f: 'Mulai dari dalam: &radic;256 = 16.<br>Lanjut: &radic;<span style="text-decoration: overline;">9 &times; 16</span> = &radic;144 = 12.<br>Lanjut: &radic;<span style="text-decoration: overline;">3 &times; 12</span> = &radic;36 = 6.<br>Akar terluar: &radic;<span style="text-decoration: overline;">6 &times; 6</span> = &radic;36 = 6.<br>Terakhir kalikan: <sup>1</sup>/<sub>3</sub> &times; 6 = 2.',
+    q: 'Hitunglah nilai dari \\(\\frac{1}{3}\\sqrt{6\\sqrt{3\\sqrt{9\\sqrt{256}}}}\\) !',
+    f: 'Mulai dari dalam: \\(\\sqrt{256}=16\\).<br>Lanjut: \\(\\sqrt{9\\times16}=\\sqrt{144}=12\\).<br>Lanjut: \\(\\sqrt{3\\times12}=\\sqrt{36}=6\\).<br>Akar terluar: \\(\\sqrt{6\\times6}=\\sqrt{36}=6\\).<br>Terakhir kalikan: \\(\\frac{1}{3}\\times6=2\\).',
     p: ['A. 2', 'B. 3', 'C. 4', 'D. 6'],
     j: 0
   },
   {
-    q: 'Hasil akhir dari <sup>1</sup>/<sub>5</sub> &radic;<span style="text-decoration: overline;">5 &radic;<span style="text-decoration: overline;">40 &radic;<span style="text-decoration: overline;">4 &radic;<span style="text-decoration: overline;">625</span></span></span></span> adalah ...',
-    f: 'Dari dalam: &radic;625 = 25.<br>Lanjut: &radic;<span style="text-decoration: overline;">4 &times; 25</span> = &radic;100 = 10.<br>Lanjut: &radic;<span style="text-decoration: overline;">40 &times; 10</span> = &radic;400 = 20.<br>Lanjut terluar: &radic;<span style="text-decoration: overline;">5 &times; 20</span> = &radic;100 = 10.<br>Terakhir: <sup>1</sup>/<sub>5</sub> &times; 10 = 2.',
+    q: 'Hasil akhir dari \\(\\frac{1}{5}\\sqrt{5\\sqrt{40\\sqrt{4\\sqrt{625}}}}\\) adalah ...',
+    f: 'Dari dalam: \\(\\sqrt{625}=25\\).<br>Lanjut: \\(\\sqrt{4\\times25}=\\sqrt{100}=10\\).<br>Lanjut: \\(\\sqrt{40\\times10}=\\sqrt{400}=20\\).<br>Lanjut terluar: \\(\\sqrt{5\\times20}=\\sqrt{100}=10\\).<br>Terakhir: \\(\\frac{1}{5}\\times10=2\\).',
     p: ['A. 2', 'B. 5', 'C. 10', 'D. 25'],
     j: 0
   },
   {
-    q: 'Berapakah nilai dari persamaan <sup>1</sup>/<sub>3</sub> &radic;<span style="text-decoration: overline;">30 &radic;<span style="text-decoration: overline;">10 &radic;<span style="text-decoration: overline;">81 &radic;<span style="text-decoration: overline;">10.000</span></span></span></span> ?',
-    f: 'Dari akar terdalam: &radic;10.000 = 100.<br>Lalu &radic;<span style="text-decoration: overline;">81 &times; 100</span> = &radic;8100 = 90.<br>Lalu &radic;<span style="text-decoration: overline;">10 &times; 90</span> = &radic;900 = 30.<br>Akar terluar &radic;<span style="text-decoration: overline;">30 &times; 30</span> = &radic;900 = 30.<br>Terakhir: <sup>1</sup>/<sub>3</sub> &times; 30 = 10.',
+    q: 'Berapakah nilai dari persamaan \\(\\frac{1}{3}\\sqrt{30\\sqrt{10\\sqrt{81\\sqrt{10.000}}}}\\) ?',
+    f: 'Dari akar terdalam: \\(\\sqrt{10.000}=100\\).<br>Lalu \\(\\sqrt{81\\times100}=\\sqrt{8100}=90\\).<br>Lalu \\(\\sqrt{10\\times90}=\\sqrt{900}=30\\).<br>Akar terluar \\(\\sqrt{30\\times30}=\\sqrt{900}=30\\).<br>Terakhir: \\(\\frac{1}{3}\\times30=10\\).',
     p: ['A. 3', 'B. 9', 'C. 10', 'D. 30'],
     j: 2
   },
   {
-    q: 'Selesaikan bentuk akar berikut: <sup>1</sup>/<sub>4</sub> &radic;<span style="text-decoration: overline;">16 &radic;<span style="text-decoration: overline;">36 &radic;<span style="text-decoration: overline;">81 &radic;<span style="text-decoration: overline;">256</span></span></span></span> !',
-    f: 'Selesaikan dari akar terdalam: &radic;256 = 16.<br>Lanjut: &radic;<span style="text-decoration: overline;">81 &times; 16</span> = &radic;1296 = 36.<br>Lanjut: &radic;<span style="text-decoration: overline;">36 &times; 36</span> = &radic;1296 = 36.<br>Akar terluar: &radic;<span style="text-decoration: overline;">16 &times; 36</span> = &radic;576 = 24.<br>Terakhir kalikan: <sup>1</sup>/<sub>4</sub> &times; 24 = 6.',
+    q: 'Selesaikan bentuk akar berikut: \\(\\frac{1}{4}\\sqrt{16\\sqrt{36\\sqrt{81\\sqrt{256}}}}\\) !',
+    f: 'Selesaikan dari akar terdalam: \\(\\sqrt{256}=16\\).<br>Lanjut: \\(\\sqrt{81\\times16}=\\sqrt{1296}=36\\).<br>Lanjut: \\(\\sqrt{36\\times36}=\\sqrt{1296}=36\\).<br>Akar terluar: \\(\\sqrt{16\\times36}=\\sqrt{576}=24\\).<br>Terakhir kalikan: \\(\\frac{1}{4}\\times24=6\\).',
     p: ['A. 4', 'B. 6', 'C. 9', 'D. 12'],
     j: 1
   }
@@ -3241,6 +3399,7 @@ function renderSoal(){
       <div class="fb" id="fb"></div>
     </div>
     <button class="nxtbtn ${tp}" id="nxtbtn" onclick="nextSoal()">${soalIdx+1<soalList.length?'Soal Berikutnya →':'Lihat Hasil 🎉'}</button>`;
+     renderMathIn(document.getElementById('soal-area'));
 }
 
 async function jawab(idx, correct) {
@@ -3260,6 +3419,7 @@ async function jawab(idx, correct) {
        <div style="margin-top:8px; font-size:12px; color:#555;">
        <strong>Penjelasan:</strong> ${soalSekarang.f}
        </div>`;
+  renderMathIn(fb);
   document.getElementById('nxtbtn').classList.add('on');
   // Simpan progres latihan
   saveLatihanProgress();
