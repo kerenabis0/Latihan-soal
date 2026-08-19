@@ -726,13 +726,18 @@ nav {
   }
   .stat-n { color: #c62828 !important; }
   .hero h1 { color: #4e342e !important; }
-  /* 4. SEMUA KARTU (Menghilangkan Garis Kiri Biru/Hitam) */
-  .subject-card, .content-card, .question-card, .auth-box, .sidebar {
+    /* 4. MENENGGELAMKAN GARIS KIRI & MERATAKAN KARTU */
+  .subject-card, .content-card, .question-card, .auth-box, .sidebar, 
+  div[class*="card"], article, section {
     background-color: #fffde7 !important; 
     border: 1px solid #d7ccc8 !important; 
-    border-left: 1px solid #d7ccc8 !important; /* INI KUNCI PENGHILANG GARISNYA */
+    border-left: 1px solid #d7ccc8 !important;
     box-shadow: 2px 4px 0px #d7ccc8 !important;
     border-radius: 8px !important;
+  }
+  /* Target khusus untuk menghilangkan garis pinggir bawaan elemen */
+  .subject-card *, div[class*="subject"] {
+    border-left-color: transparent;
   }
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
