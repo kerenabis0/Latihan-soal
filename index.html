@@ -1944,35 +1944,160 @@ const SOAL={
   }
 ],
   'x1-akartakhingga': [
+  // ── BAGIAN 1: OPERASI PENJUMLAHAN (+) ──
   {
-    q: 'Berdasarkan pola pada gambar, berapakah nilai dari <sup>1</sup>/<sub>3</sub> &radic;<span style="text-decoration: overline;">12 &radic;<span style="text-decoration: overline;">16 &radic;<span style="text-decoration: overline;">9 &radic;<span style="text-decoration: overline;">81</span></span></span></span> ?',
-    f: 'Selesaikan dari akar paling dalam terlebih dahulu: &radic;81 = 9.<br>Lanjut ke luar: &radic;<span style="text-decoration: overline;">9 &times; 9</span> = &radic;81 = 9.<br>Lanjut ke luarnya lagi: &radic;<span style="text-decoration: overline;">16 &times; 9</span> = &radic;144 = 12.<br>Akar terluar: &radic;<span style="text-decoration: overline;">12 &times; 12</span> = &radic;144 = 12.<br>Terakhir kalikan pecahannya: <sup>1</sup>/<sub>3</sub> &times; 12 = 4.',
-    p: ['A. 3', 'B. 4', 'C. 6', 'D. 12'],
-    j: 1
-  },
-  {
-    q: 'Hitunglah nilai dari <sup>1</sup>/<sub>2</sub> &radic;<span style="text-decoration: overline;">3 &radic;<span style="text-decoration: overline;">24 &radic;<span style="text-decoration: overline;">9 &radic;<span style="text-decoration: overline;">16</span></span></span></span> !',
-    f: 'Mulai dari dalam: &radic;16 = 4.<br>Lanjut: &radic;<span style="text-decoration: overline;">9 &times; 4</span> = &radic;36 = 6.<br>Lanjut: &radic;<span style="text-decoration: overline;">24 &times; 6</span> = &radic;144 = 12.<br>Lanjut terluar: &radic;<span style="text-decoration: overline;">3 &times; 12</span> = &radic;36 = 6.<br>Terakhir: <sup>1</sup>/<sub>2</sub> &times; 6 = 3.',
-    p: ['A. 2', 'B. 3', 'C. 4', 'D. 6'],
-    j: 1
-  },
-  {
-    q: 'Berapakah hasil akhir dari operasi <sup>1</sup>/<sub>4</sub> &radic;<span style="text-decoration: overline;">40 &radic;<span style="text-decoration: overline;">10 &radic;<span style="text-decoration: overline;">4 &radic;<span style="text-decoration: overline;">625</span></span></span></span> ?',
-    f: 'Dari dalam: &radic;625 = 25.<br>Lanjut: &radic;<span style="text-decoration: overline;">4 &times; 25</span> = &radic;100 = 10.<br>Lanjut: &radic;<span style="text-decoration: overline;">10 &times; 10</span> = &radic;100 = 10.<br>Lanjut terluar: &radic;<span style="text-decoration: overline;">40 &times; 10</span> = &radic;400 = 20.<br>Terakhir: <sup>1</sup>/<sub>4</sub> &times; 20 = 5.',
+    q: 'Nilai dari &radic;<span style="text-decoration: overline;">20 + &radic;<span style="text-decoration: overline;">20 + &radic;<span style="text-decoration: overline;">20 + ...</span></span></span> adalah ...',
+    f: 'Trik cepat: Faktorkan 20 menjadi dua bilangan berurutan, yaitu 4 &times; 5. Karena tandanya tambah (+), ambil angka yang lebih BESAR, yaitu 5.',
     p: ['A. 4', 'B. 5', 'C. 10', 'D. 20'],
     j: 1
   },
   {
-    q: 'Nilai dari persamaan <sup>1</sup>/<sub>5</sub> &radic;<span style="text-decoration: overline;">25 &radic;<span style="text-decoration: overline;">2 &radic;<span style="text-decoration: overline;">4 &radic;<span style="text-decoration: overline;">256</span></span></span></span> adalah ...',
-    f: 'Penyelesaian dari dalam: &radic;256 = 16.<br>Lalu &radic;<span style="text-decoration: overline;">4 &times; 16</span> = &radic;64 = 8.<br>Lalu &radic;<span style="text-decoration: overline;">2 &times; 8</span> = &radic;16 = 4.<br>Akar terluar &radic;<span style="text-decoration: overline;">25 &times; 4</span> = &radic;100 = 10.<br>Terakhir kalikan pecahan: <sup>1</sup>/<sub>5</sub> &times; 10 = 2.',
-    p: ['A. 2', 'B. 4', 'C. 5', 'D. 10'],
+    q: 'Nilai dari &radic;<span style="text-decoration: overline;">72 + &radic;<span style="text-decoration: overline;">72 + &radic;<span style="text-decoration: overline;">72 + ...</span></span></span> adalah ...',
+    f: 'Faktor berurutan dari 72 adalah 8 &times; 9. Karena tandanya (+), jawabannya adalah angka terbesar, yaitu 9.',
+    p: ['A. 8', 'B. 9', 'C. 12', 'D. 36'],
+    j: 1
+  },
+  {
+    q: 'Jika &radic;<span style="text-decoration: overline;">2x + &radic;<span style="text-decoration: overline;">2x + &radic;<span style="text-decoration: overline;">2x + ...</span></span></span> = 4, maka nilai x adalah...',
+    f: 'Ganti bentuk tak hingga dengan 4, menjadi &radic;(2x + 4) = 4. Kuadratkan kedua ruas: 2x + 4 = 16 &#10132; 2x = 12 &#10132; x = 6.',
+    p: ['A. 2', 'B. 4', 'C. 6', 'D. 8'],
+    j: 2
+  },
+  {
+    q: 'Jika &radic;<span style="text-decoration: overline;">5x + &radic;<span style="text-decoration: overline;">5x + &radic;<span style="text-decoration: overline;">5x + ...</span></span></span> = 6, maka nilai x adalah...',
+    f: 'Persamaan menjadi &radic;(5x + 6) = 6. Kuadratkan kedua ruas: 5x + 6 = 36 &#10132; 5x = 30 &#10132; x = 6.',
+    p: ['A. 5', 'B. 6', 'C. 11', 'D. 30'],
+    j: 1
+  },
+  {
+    q: 'Jika &radic;<span style="text-decoration: overline;">3x + &radic;<span style="text-decoration: overline;">3x + &radic;<span style="text-decoration: overline;">3x + ...</span></span></span> = 7, maka nilai x adalah...',
+    f: 'Persamaan menjadi &radic;(3x + 7) = 7. Kuadratkan kedua ruas: 3x + 7 = 49 &#10132; 3x = 42 &#10132; x = 14.',
+    p: ['A. 12', 'B. 14', 'C. 21', 'D. 42'],
+    j: 1
+  },
+  // ── BAGIAN 2: OPERASI PENGURANGAN (-) ──
+  {
+    q: 'Berapakah hasil dari &radic;<span style="text-decoration: overline;">30 - &radic;<span style="text-decoration: overline;">30 - &radic;<span style="text-decoration: overline;">30 - ...</span></span></span> ?',
+    f: 'Faktorkan 30 menjadi bilangan berurutan: 5 &times; 6. Karena tandanya kurang (-), ambil angka yang lebih KECIL, yaitu 5.',
+    p: ['A. 3', 'B. 5', 'C. 6', 'D. 15'],
+    j: 1
+  },
+  {
+    q: 'Hasil dari &radic;<span style="text-decoration: overline;">90 - &radic;<span style="text-decoration: overline;">90 - &radic;<span style="text-decoration: overline;">90 - ...</span></span></span> adalah ...',
+    f: 'Faktor berurutan dari 90 adalah 9 &times; 10. Karena tandanya (-), ambil nilai yang paling kecil, yaitu 9.',
+    p: ['A. 8', 'B. 9', 'C. 10', 'D. 45'],
+    j: 1
+  },
+  {
+    q: 'Jika &radic;<span style="text-decoration: overline;">3x - &radic;<span style="text-decoration: overline;">3x - &radic;<span style="text-decoration: overline;">3x - ...</span></span></span> = 6, maka nilai x adalah...',
+    f: 'Ganti bentuk tak hingga dengan 6, menjadi &radic;(3x - 6) = 6. Kuadratkan kedua ruas: 3x - 6 = 36 &#10132; 3x = 42 &#10132; x = 14.',
+    p: ['A. 10', 'B. 12', 'C. 14', 'D. 15'],
+    j: 2
+  },
+  {
+    q: 'Jika &radic;<span style="text-decoration: overline;">4x - &radic;<span style="text-decoration: overline;">4x - &radic;<span style="text-decoration: overline;">4x - ...</span></span></span> = 7, maka nilai x adalah...',
+    f: 'Persamaan menjadi &radic;(4x - 7) = 7. Kuadratkan kedua ruas: 4x - 7 = 49 &#10132; 4x = 56 &#10132; x = 14.',
+    p: ['A. 7', 'B. 12', 'C. 14', 'D. 28'],
+    j: 2
+  },
+  {
+    q: 'Jika &radic;<span style="text-decoration: overline;">2x - &radic;<span style="text-decoration: overline;">2x - &radic;<span style="text-decoration: overline;">2x - ...</span></span></span> = 8, maka nilai x adalah...',
+    f: 'Persamaan menjadi &radic;(2x - 8) = 8. Kuadratkan kedua ruas: 2x - 8 = 64 &#10132; 2x = 72 &#10132; x = 36.',
+    p: ['A. 16', 'B. 32', 'C. 36', 'D. 72'],
+    j: 2
+  },
+  // ── BAGIAN 3: OPERASI PERKALIAN (&times;) ──
+  {
+    q: 'Nilai dari &radic;<span style="text-decoration: overline;">8 &radic;<span style="text-decoration: overline;">8 &radic;<span style="text-decoration: overline;">8 ...</span></span></span> adalah ...',
+    f: 'Sifat khusus akar tak hingga perkalian: Hasilnya adalah angka di dalam akar itu sendiri. Jawabannya 8.',
+    p: ['A. 2', 'B. 4', 'C. 8', 'D. 64'],
+    j: 2
+  },
+  {
+    q: 'Berapakah hasil dari &radic;<span style="text-decoration: overline;">15 &radic;<span style="text-decoration: overline;">15 &radic;<span style="text-decoration: overline;">15 ...</span></span></span> ?',
+    f: 'Sesuai dengan sifat dasar akar tak hingga perkalian, hasilnya mutlak bilangan itu sendiri, yaitu 15.',
+    p: ['A. 3', 'B. 5', 'C. 15', 'D. 225'],
+    j: 2
+  },
+  {
+    q: 'Jika &radic;<span style="text-decoration: overline;">4x &radic;<span style="text-decoration: overline;">4x &radic;<span style="text-decoration: overline;">4x ...</span></span></span> = 20, maka nilai x adalah ...',
+    f: 'Bentuk tak hingga perkalian bernilai sama dengan ekspresi di dalamnya. Maka 4x = 20 &#10132; x = 5.',
+    p: ['A. 4', 'B. 5', 'C. 16', 'D. 20'],
+    j: 1
+  },
+  {
+    q: 'Jika &radic;<span style="text-decoration: overline;">7x &radic;<span style="text-decoration: overline;">7x &radic;<span style="text-decoration: overline;">7x ...</span></span></span> = 42, maka nilai x adalah ...',
+    f: 'Sifat perkalian akar tak hingga: ekspresi di dalam akar sama dengan hasilnya. Maka 7x = 42 &#10132; x = 6.',
+    p: ['A. 6', 'B. 7', 'C. 35', 'D. 49'],
     j: 0
   },
   {
-    q: 'Selesaikan bentuk akar bertumpuk berikut: <sup>1</sup>/<sub>12</sub> &radic;<span style="text-decoration: overline;">120 &radic;<span style="text-decoration: overline;">90 &radic;<span style="text-decoration: overline;">1 &radic;<span style="text-decoration: overline;">10.000</span></span></span></span> !',
-    f: 'Selesaikan dari akar terdalam: &radic;10.000 = 100.<br>Lanjut: &radic;<span style="text-decoration: overline;">1 &times; 100</span> = &radic;100 = 10.<br>Lanjut: &radic;<span style="text-decoration: overline;">90 &times; 10</span> = &radic;900 = 30.<br>Akar terluar: &radic;<span style="text-decoration: overline;">120 &times; 30</span> = &radic;3.600 = 60.<br>Terakhir kalikan pecahan di depan: <sup>1</sup>/<sub>12</sub> &times; 60 = 5.',
-    p: ['A. 5', 'B. 6', 'C. 10', 'D. 12'],
+    q: 'Jika &radic;<span style="text-decoration: overline;">2x &radic;<span style="text-decoration: overline;">2x &radic;<span style="text-decoration: overline;">2x ...</span></span></span> = 18, maka nilai x adalah ...',
+    f: 'Sesuai dengan trik, nilainya adalah bentuk di dalamnya. 2x = 18 &#10132; x = 9.',
+    p: ['A. 2', 'B. 9', 'C. 16', 'D. 36'],
+    j: 1
+  },
+  // ── BAGIAN 4: OPERASI PEMBAGIAN (&divide;) ──
+  {
+    q: 'Nilai dari &radic;<span style="text-decoration: overline;">64 &divide; &radic;<span style="text-decoration: overline;">64 &divide; &radic;<span style="text-decoration: overline;">64 &divide; ...</span></span></span> adalah ...',
+    f: 'Trik cepat untuk pembagian akar tak hingga: Tarik akar pangkat 3 dari bilangannya. &#8731;64 = 4.',
+    p: ['A. 2', 'B. 4', 'C. 8', 'D. 32'],
+    j: 1
+  },
+  {
+    q: 'Hasil dari &radic;<span style="text-decoration: overline;">125 &divide; &radic;<span style="text-decoration: overline;">125 &divide; &radic;<span style="text-decoration: overline;">125 &divide; ...</span></span></span> adalah ...',
+    f: 'Tarik akar pangkat tiga dari bilangan tersebut. &#8731;125 = 5 (karena 5 &times; 5 &times; 5 = 125).',
+    p: ['A. 5', 'B. 15', 'C. 25', 'D. 125'],
     j: 0
+  },
+  {
+    q: 'Jika &radic;<span style="text-decoration: overline;">2x &divide; &radic;<span style="text-decoration: overline;">2x &divide; &radic;<span style="text-decoration: overline;">2x &divide; ...</span></span></span> = 4, maka nilai x adalah ...',
+    f: 'Bentuk akar tak hingga pembagian senilai dengan akar pangkat tiganya: &#8731;(2x) = 4. Pangkatkan 3 kedua ruas &#10132; 2x = 64 &#10132; x = 32.',
+    p: ['A. 4', 'B. 8', 'C. 16', 'D. 32'],
+    j: 3
+  },
+  {
+    q: 'Jika &radic;<span style="text-decoration: overline;">3x &divide; &radic;<span style="text-decoration: overline;">3x &divide; &radic;<span style="text-decoration: overline;">3x &divide; ...</span></span></span> = 3, maka nilai x adalah ...',
+    f: 'Sesuai sifat pembagian tak hingga: &#8731;(3x) = 3. Pangkatkan 3 kedua ruas &#10132; 3x = 27 &#10132; x = 9.',
+    p: ['A. 3', 'B. 6', 'C. 9', 'D. 27'],
+    j: 2
+  },
+  {
+    q: 'Jika &radic;<span style="text-decoration: overline;">5x &divide; &radic;<span style="text-decoration: overline;">5x &divide; &radic;<span style="text-decoration: overline;">5x &divide; ...</span></span></span> = 5, maka nilai x adalah ...',
+    f: 'Sesuai sifat pembagian tak hingga: &#8731;(5x) = 5. Pangkatkan 3 kedua ruas &#10132; 5x = 125 &#10132; x = 25.',
+    p: ['A. 5', 'B. 10', 'C. 25', 'D. 125'],
+    j: 2
+  },
+  // ── BAGIAN 5: AKAR BERTUMPUK BERHINGGA (VARIAN ANGKA BARU) ──
+  {
+    q: 'Berapakah nilai akhir dari <sup>1</sup>/<sub>2</sub> &radic;<span style="text-decoration: overline;">5 &radic;<span style="text-decoration: overline;">8 &radic;<span style="text-decoration: overline;">25 &radic;<span style="text-decoration: overline;">10.000</span></span></span></span> ?',
+    f: 'Mulai dari akar paling dalam: &radic;10.000 = 100.<br>Lanjut: &radic;<span style="text-decoration: overline;">25 &times; 100</span> = &radic;2500 = 50.<br>Lanjut: &radic;<span style="text-decoration: overline;">8 &times; 50</span> = &radic;400 = 20.<br>Akar terluar: &radic;<span style="text-decoration: overline;">5 &times; 20</span> = &radic;100 = 10.<br>Terakhir kalikan: <sup>1</sup>/<sub>2</sub> &times; 10 = 5.',
+    p: ['A. 2', 'B. 5', 'C. 10', 'D. 20'],
+    j: 1
+  },
+  {
+    q: 'Hitunglah nilai dari <sup>1</sup>/<sub>3</sub> &radic;<span style="text-decoration: overline;">6 &radic;<span style="text-decoration: overline;">3 &radic;<span style="text-decoration: overline;">9 &radic;<span style="text-decoration: overline;">256</span></span></span></span> !',
+    f: 'Mulai dari dalam: &radic;256 = 16.<br>Lanjut: &radic;<span style="text-decoration: overline;">9 &times; 16</span> = &radic;144 = 12.<br>Lanjut: &radic;<span style="text-decoration: overline;">3 &times; 12</span> = &radic;36 = 6.<br>Akar terluar: &radic;<span style="text-decoration: overline;">6 &times; 6</span> = &radic;36 = 6.<br>Terakhir kalikan: <sup>1</sup>/<sub>3</sub> &times; 6 = 2.',
+    p: ['A. 2', 'B. 3', 'C. 4', 'D. 6'],
+    j: 0
+  },
+  {
+    q: 'Hasil akhir dari <sup>1</sup>/<sub>5</sub> &radic;<span style="text-decoration: overline;">5 &radic;<span style="text-decoration: overline;">40 &radic;<span style="text-decoration: overline;">4 &radic;<span style="text-decoration: overline;">625</span></span></span></span> adalah ...',
+    f: 'Dari dalam: &radic;625 = 25.<br>Lanjut: &radic;<span style="text-decoration: overline;">4 &times; 25</span> = &radic;100 = 10.<br>Lanjut: &radic;<span style="text-decoration: overline;">40 &times; 10</span> = &radic;400 = 20.<br>Lanjut terluar: &radic;<span style="text-decoration: overline;">5 &times; 20</span> = &radic;100 = 10.<br>Terakhir: <sup>1</sup>/<sub>5</sub> &times; 10 = 2.',
+    p: ['A. 2', 'B. 5', 'C. 10', 'D. 25'],
+    j: 0
+  },
+  {
+    q: 'Berapakah nilai dari persamaan <sup>1</sup>/<sub>3</sub> &radic;<span style="text-decoration: overline;">30 &radic;<span style="text-decoration: overline;">10 &radic;<span style="text-decoration: overline;">81 &radic;<span style="text-decoration: overline;">10.000</span></span></span></span> ?',
+    f: 'Dari akar terdalam: &radic;10.000 = 100.<br>Lalu &radic;<span style="text-decoration: overline;">81 &times; 100</span> = &radic;8100 = 90.<br>Lalu &radic;<span style="text-decoration: overline;">10 &times; 90</span> = &radic;900 = 30.<br>Akar terluar &radic;<span style="text-decoration: overline;">30 &times; 30</span> = &radic;900 = 30.<br>Terakhir: <sup>1</sup>/<sub>3</sub> &times; 30 = 10.',
+    p: ['A. 3', 'B. 9', 'C. 10', 'D. 30'],
+    j: 2
+  },
+  {
+    q: 'Selesaikan bentuk akar berikut: <sup>1</sup>/<sub>4</sub> &radic;<span style="text-decoration: overline;">16 &radic;<span style="text-decoration: overline;">36 &radic;<span style="text-decoration: overline;">81 &radic;<span style="text-decoration: overline;">256</span></span></span></span> !',
+    f: 'Selesaikan dari akar terdalam: &radic;256 = 16.<br>Lanjut: &radic;<span style="text-decoration: overline;">81 &times; 16</span> = &radic;1296 = 36.<br>Lanjut: &radic;<span style="text-decoration: overline;">36 &times; 36</span> = &radic;1296 = 36.<br>Akar terluar: &radic;<span style="text-decoration: overline;">16 &times; 36</span> = &radic;576 = 24.<br>Terakhir kalikan: <sup>1</sup>/<sub>4</sub> &times; 24 = 6.',
+    p: ['A. 4', 'B. 6', 'C. 9', 'D. 12'],
+    j: 1
   }
 ],
 'x1-akar':[
