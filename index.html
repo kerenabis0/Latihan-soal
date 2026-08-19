@@ -2928,7 +2928,7 @@ function buildHome(){
     ms.forEach(m=>{
       const c=document.createElement('div'); c.className=`mcard ${m.tipe}`;
       c.innerHTML=`<div class="mcard-accent"></div><div class="mc-inner">
-        <div class="mc-badge ${m.tipe}">${m.tipe==='u'?'📗 WAJIB':'🔬 TINGKAT LANJUT'}</div>
+        <div class="mc-badge u">${m.tipe==='u'?'📗 WAJIB':'🔬 TINGKAT LANJUT'}</div>
         <div class="mc-kelas">${m.kelas}</div>
         <div class="mc-name">${m.name}</div>
         <div class="mc-sub">${m.fase} · ${m.topics.length} bab resmi</div>
