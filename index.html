@@ -689,6 +689,59 @@ nav {
   transition:all .12s; margin-top:4px;
 }
 .reset-grade-btn:hover { border-color:var(--red); color:var(--red); }
+  /* ------------------------------------------------ */
+/* KODE TEMA KAYU & KERTAS (Tambahan Baru)          */
+/* ------------------------------------------------ */
+/* 1. Transformasi Latar Belakang */
+body {
+  background-image: url('images/wooden_desk_texture.jpg') !important;
+  background-size: cover !important;
+  background-attachment: fixed !important;
+  color: #3e2723 !important;
+}
+/* 2. Transformasi Tombol Utama (Berubah dari .btn-primary ke .btn-cta) */
+.btn-cta {
+  background-color: transparent !important;
+  border: none !important;
+  background-image: url('images/leather_button.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.4) !important;
+  font-family: 'Organic-Text', serif;
+  color: #fff !important;
+  font-weight: bold;
+}
+/* 3. Transformasi Kotak Statistik (Berubah dari .stat-box ke .stat-item) */
+.stat-item {
+  background-color: #fffde7 !important; 
+  border: 1px solid #e0e0e0 !important;
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2) !important;
+}
+/* Mengubah warna angka di dalam kotak statistik */
+.stat-n {
+  color: #d32f2f !important; 
+  font-family: 'Crayon-Text', serif;
+}
+/* 4. Transformasi Tipografi Judul */
+.hero h1 {
+  font-family: 'Stenciled-Text', serif; 
+  color: #5d4037 !important;
+}
+/* 5. Elemen Dekoratif Tambahan (Klip Kertas) */
+body::before {
+  content: '';
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  width: 50px;
+  height: 50px;
+  background-image: url('images/paper_clip.png'); 
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.5;
+  pointer-events: none; /* Tambahan agar klip tidak menghalangi klik mouse */
+  z-index: 9999;
+}
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
