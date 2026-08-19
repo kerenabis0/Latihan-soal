@@ -2936,8 +2936,7 @@ function loadMapel(mid){
   lastMapel=mid; saveSession();
   const m=DB[mid];
   const bd=document.getElementById('mh-badge');
-  bd.textContent=m.tipe==='u'?'📗 Matematika Umum':'🔬 Tingkat Lanjut';
-  bd.style.cssText=m.tipe==='u'?'background:rgba(26,86,219,.1);color:var(--blue)':'background:rgba(67,56,202,.1);color:var(--indigo)';
+  bd.textContent=m.tipe==='u'?'📗 Pelajaran':'🔬 Tingkat Lanjut';
   document.getElementById('mh-title').textContent=`${m.name} — Kelas ${m.kelas}`;
   document.getElementById('mh-sub').textContent=`${m.fase} · ${m.topics.length} bab sesuai buku Kemendikdasmen`;
   buildSbar(m);
@@ -3044,7 +3043,7 @@ function renderTopic(t,tp){
   a.innerHTML=`
     ${vidHtml}
     <div class="subbab-box">
-      <div class="subbab-title">📋 Subbab (sesuai buku Kemendikdasmen)</div>
+      <div class="subbab-title">📋 Subbab (materi yang diberikan oleh guru)</div>
       <ul class="subbab-list ${tp==='l'?'l':''}">${subHtml}</ul>
     </div>
     <div class="rbox ${tp}">
