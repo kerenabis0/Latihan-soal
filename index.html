@@ -1290,6 +1290,7 @@ const DB = {
        {id:'x1-fungsieks', label:'📉 Latihan Fungsi Eksponen'},
        {id:'x1-sifatakar1',label:'Sifat Bentuk Akar Part 1'},
        {id:'x1-sifatakar', label:'Sifat-Sifat Bentuk Akar Bagian 2'},
+       {id:'x-u-akar-aljabar-sekawan', label:'Aljabar Bentuk Akar'},
        {id:'x1-akartakhingga',label:'Akar Tak Hingga'},
        {id:'x1-akar', label:'√ Latihan Bentuk Akar'},
        {id:'x1-logaritma', label:'🔣 Latihan Logaritma'},
@@ -2013,6 +2014,68 @@ const SOAL={
     q: 'Bentuk paling sederhana dari \\(\\sqrt[4]{17+12\\sqrt{2}}\\) adalah ...',
     f: 'Kerjakan akarnya berlapis. \\(\\sqrt{\\sqrt{17+12\\sqrt{2}}}=\\sqrt{\\sqrt{17+2\\sqrt{72}}}=\\sqrt{\\sqrt{9}+\\sqrt{8}}=\\sqrt{3+2\\sqrt{2}}\\). Sederhanakan lagi: \\(\\sqrt{3+2\\sqrt{2}}=\\sqrt{2}+\\sqrt{1}=\\sqrt{2}+1\\).',
     p: ['A. \\(\\sqrt{3}+\\sqrt{2}\\)', 'B. \\(\\sqrt{2}+1\\)', 'C. \\(3+2\\sqrt{2}\\)', 'D. \\(2+\\sqrt{2}\\)'],
+    j: 1
+  }
+],
+  'x-u-akar-aljabar-sekawan': [
+  {
+    q: 'Jika \\(x=4+\\sqrt{5}\\) dan \\(y=4-\\sqrt{5}\\), berapakah nilai dari \\((x+y)^2\\) ?',
+    f: 'Pertama, hitung hasil penjumlahan di dalam kurung: \\(x+y=(4+\\sqrt{5})+(4-\\sqrt{5})=8\\). Kemudian kuadratkan hasilnya: \\(8^2=64\\).',
+    p: ['A. 16', 'B. 32', 'C. 64', 'D. 80'],
+    j: 2
+  },
+  {
+    q: 'Diketahui \\(p=3+\\sqrt{7}\\) dan \\(q=3-\\sqrt{7}\\). Nilai dari \\((p-q)^2\\) adalah...',
+    f: 'Hitung selisihnya terlebih dahulu: \\(p-q=(3+\\sqrt{7})-(3-\\sqrt{7})=2\\sqrt{7}\\). Kuadratkan hasil tersebut: \\((2\\sqrt{7})^2=4\\times7=28\\).',
+    p: ['A. 14', 'B. 28', 'C. 36', 'D. 56'],
+    j: 1
+  },
+  {
+    q: 'Jika \\(m=5+\\sqrt{3}\\) dan \\(n=5-\\sqrt{3}\\), berapakah nilai dari \\(m^2+n^2\\) ?',
+    f: 'Kuadratkan masing-masing: \\(m^2=25+10\\sqrt{3}+3=28+10\\sqrt{3}\\). Lalu \\(n^2=25-10\\sqrt{3}+3=28-10\\sqrt{3}\\). Jumlahkan keduanya: \\((28+10\\sqrt{3})+(28-10\\sqrt{3})=56\\).',
+    p: ['A. 50', 'B. 56', 'C. 60', 'D. 100'],
+    j: 1
+  },
+  {
+    q: 'Diketahui \\(a=2+\\sqrt{6}\\) dan \\(b=2-\\sqrt{6}\\). Nilai dari \\(a^2-b^2\\) adalah...',
+    f: 'Gunakan rumus cepat selisih kuadrat: \\(a^2-b^2=(a+b)(a-b)\\). Penjumlahan \\((a+b)=4\\). Pengurangan \\((a-b)=2\\sqrt{6}\\). Kalikan keduanya: \\(4\\times2\\sqrt{6}=8\\sqrt{6}\\).',
+    p: ['A. \\(4\\sqrt{6}\\)', 'B. \\(8\\sqrt{6}\\)', 'C. 16', 'D. \\(-8\\sqrt{6}\\)'],
+    j: 1
+  },
+  {
+    q: 'Jika \\(x=\\sqrt{10}+\\sqrt{2}\\) dan \\(y=\\sqrt{10}-\\sqrt{2}\\), berapakah nilai dari \\(x^2+2xy+y^2\\) ?',
+    f: 'Bentuk \\(x^2+2xy+y^2\\) sama dengan bentuk pemfaktoran \\((x+y)^2\\). Hitung \\(x+y=(\\sqrt{10}+\\sqrt{2})+(\\sqrt{10}-\\sqrt{2})=2\\sqrt{10}\\). Kuadratkan: \\((2\\sqrt{10})^2=4\\times10=40\\).',
+    p: ['A. 20', 'B. 24', 'C. 40', 'D. 80'],
+    j: 2
+  },
+  {
+    q: 'Diketahui \\(p=\\sqrt{5}+2\\) dan \\(q=\\sqrt{5}-2\\). Nilai dari \\(p^2-2pq+q^2\\) adalah...',
+    f: 'Bentuk \\(p^2-2pq+q^2\\) adalah ekspansi dari \\((p-q)^2\\). Hitung \\(p-q=(\\sqrt{5}+2)-(\\sqrt{5}-2)=4\\). Kuadratkan hasilnya: \\(4^2=16\\).',
+    p: ['A. 4', 'B. 8', 'C. 16', 'D. 20'],
+    j: 2
+  },
+  {
+    q: 'Jika \\(a=4+\\sqrt{2}\\) dan \\(b=4-\\sqrt{2}\\), berapakah nilai dari \\(2(a^2+b^2)\\) ?',
+    f: 'Hitung \\(a^2+b^2=(16+8\\sqrt{2}+2)+(16-8\\sqrt{2}+2)=18+18=36\\). Kalikan dengan 2: \\(2\\times36=72\\).',
+    p: ['A. 36', 'B. 72', 'C. 144', 'D. 288'],
+    j: 1
+  },
+  {
+    q: 'Diketahui \\(x=3+\\sqrt{2}\\) dan \\(y=3-\\sqrt{2}\\). Nilai dari \\((x+y)^2-(x-y)^2\\) adalah...',
+    f: 'Bentuk \\((x+y)^2-(x-y)^2\\) jika dijabarkan akan menghasilkan \\(4xy\\). Hitung nilai \\(xy=(3+\\sqrt{2})(3-\\sqrt{2})=9-2=7\\). Maka hasilnya adalah \\(4\\times7=28\\).',
+    p: ['A. 14', 'B. 21', 'C. 28', 'D. 56'],
+    j: 2
+  },
+  {
+    q: 'Jika \\(m=5+\\sqrt{7}\\) dan \\(n=5-\\sqrt{7}\\), berapakah nilai dari \\(\\frac{1}{2}(m^2+n^2)\\) ?',
+    f: 'Hitung \\(m^2+n^2=(25+10\\sqrt{7}+7)+(25-10\\sqrt{7}+7)=32+32=64\\). Bagikan dengan 2 atau kalikan setengah: \\(\\frac{1}{2}\\times64=32\\).',
+    p: ['A. 16', 'B. 32', 'C. 64', 'D. 128'],
+    j: 1
+  },
+  {
+    q: 'Diketahui \\(x=6+\\sqrt{5}\\) dan \\(y=6-\\sqrt{5}\\). Nilai dari \\(\\frac{x^2-y^2}{4}\\) adalah...',
+    f: 'Hitung nilai \\(x^2-y^2\\) dengan rumus \\((x+y)(x-y)=(12)(2\\sqrt{5})=24\\sqrt{5}\\). Kemudian bagikan hasilnya dengan 4: \\(\\frac{24\\sqrt{5}}{4}=6\\sqrt{5}\\).',
+    p: ['A. \\(3\\sqrt{5}\\)', 'B. \\(6\\sqrt{5}\\)', 'C. \\(12\\sqrt{5}\\)', 'D. \\(24\\sqrt{5}\\)'],
     j: 1
   }
 ],
