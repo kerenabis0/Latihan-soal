@@ -1450,6 +1450,7 @@ const DB = {
       desc: 'Fokus pada tata cara membaca, menulis, dan melakukan operasi hitung hasil pengukuran agar tingkat ketelitiannya tetap terjaga.',
       subLatihan: [
         {id: 'xf1angkapenting', label: 'Angka Penting'},
+        {id: 'xf1notasiangkapenting', label: 'Notasi Ilmiah menggunakan Aturan AP'},
       ]
     },
     {
@@ -2928,6 +2929,128 @@ const SOAL={
     q: 'Hasil dari √(81) menurut aturan angka penting adalah...',
     f: '81 memiliki 2 angka penting. Maka hasil akarnya harus memiliki 2 angka penting juga. Angka 9 saja hanya 1 AP, sehingga harus ditulis 9,0 (2 AP).',
     p: ['A. 9', 'B. 9,0', 'C. 9,00', 'D. 0,9'],
+    j: 1
+  }
+],
+  'xf1notasiangkapenting': [
+  {
+    q: 'Hasil dari (2,50 × 10³) + (3,1 × 10³) berdasarkan aturan angka penting adalah...',
+    f: '2,50 + 3,1 = 5,60. Aturan penjumlahan mengikuti jumlah tempat desimal paling sedikit (1 desimal dari 3,1). 5,60 dibulatkan menjadi 5,6. Hasil: 5,6 × 10³.',
+    p: ['A. 5,60 × 10³', 'B. 5,6 × 10³', 'C. 5,600 × 10³', 'D. 6,0 × 10³'],
+    j: 1
+  },
+  {
+    q: 'Pada operasi (4,15 × 10⁴) + (1,2 × 10⁴), berapakah jumlah angka penting pada hasil akhirnya?',
+    f: '4,15 (2 desimal) + 1,2 (1 desimal). Hasil harus 1 desimal. 4,15 + 1,2 = 5,35 ➔ 5,4. Bilangan 5,4 memiliki 2 angka penting.',
+    p: ['A. 1 angka penting', 'B. 2 angka penting', 'C. 3 angka penting', 'D. 4 angka penting'],
+    j: 1
+  },
+  {
+    q: 'Selesaikan (1,25 × 10⁵) + (5,0 × 10⁴) dengan notasi ilmiah dan angka penting yang tepat!',
+    f: 'Samakan pangkat ke 10⁵: (1,25 × 10⁵) + (0,50 × 10⁵). 1,25 + 0,50 = 1,75. Keduanya memiliki 2 desimal, hasil tetap 2 desimal. Hasil: 1,75 × 10⁵.',
+    p: ['A. 6,25 × 10⁵', 'B. 1,75 × 10⁵', 'C. 1,8 × 10⁵', 'D. 1,7 × 10⁵'],
+    j: 1
+  },
+  {
+    q: 'Berapakah jumlah angka penting dari hasil penjumlahan (7,5 × 10⁶) + (2,25 × 10⁵) ?',
+    f: 'Samakan ke 10⁶: 7,5 + 0,225 = 7,725. Batas desimal paling sedikit adalah 1 desimal (dari 7,5). 7,725 dibulatkan menjadi 7,7. Bilangan 7,7 memiliki 2 angka penting.',
+    p: ['A. 1 angka penting', 'B. 2 angka penting', 'C. 3 angka penting', 'D. 4 angka penting'],
+    j: 1
+  },
+  {
+    q: 'Hasil dari (8,46 × 10⁻²) - (3,2 × 10⁻²) adalah...',
+    f: '8,46 - 3,2 = 5,26. Batas desimal paling sedikit adalah 1 desimal. 5,26 dibulatkan ke atas menjadi 5,3. Hasil: 5,3 × 10⁻².',
+    p: ['A. 5,26 × 10⁻²', 'B. 5,2 × 10⁻²', 'C. 5,3 × 10⁻²', 'D. 5,30 × 10⁻²'],
+    j: 2
+  },
+  {
+    q: 'Berapakah jumlah angka penting pada hasil operasi (5,87 × 10³) - (1,2 × 10³) ?',
+    f: '5,87 (2 desimal) - 1,2 (1 desimal) = 4,67. Dibulatkan ke 1 desimal menjadi 4,7. Bilangan 4,7 memuat 2 angka penting.',
+    p: ['A. 1 angka penting', 'B. 2 angka penting', 'C. 3 angka penting', 'D. 4 angka penting'],
+    j: 1
+  },
+  {
+    q: 'Hasil dari (6,5 × 10⁴) - (2,10 × 10³) adalah...',
+    f: 'Samakan pangkat ke 10⁴: (6,5 × 10⁴) - (0,210 × 10⁴). 6,5 - 0,210 = 6,290. Batas 1 desimal (dari 6,5). 6,290 dibulatkan menjadi 6,3. Hasil: 6,3 × 10⁴.',
+    p: ['A. 6,29 × 10⁴', 'B. 6,3 × 10⁴', 'C. 6,290 × 10⁴', 'D. 6,2 × 10⁴'],
+    j: 1
+  },
+  {
+    q: 'Pada operasi (9,25 × 10⁻³) - (1,1 × 10⁻⁴), berapakah jumlah angka penting pada hasil akhirnya?',
+    f: 'Samakan ke 10⁻³: 9,25 - 0,11 = 9,14. Kedua bilangan setelah disamakan memiliki 2 desimal. Hasil dibiarkan 2 desimal, yaitu 9,14. Bilangan 9,14 memuat 3 angka penting.',
+    p: ['A. 1 angka penting', 'B. 2 angka penting', 'C. 3 angka penting', 'D. 4 angka penting'],
+    j: 2
+  },
+  {
+    q: 'Hasil kali (2,5 × 10²) × (3,00 × 10³) menurut aturan angka penting adalah...',
+    f: '2,5 (2 AP) × 3,00 (3 AP). Aturan perkalian mengikuti AP paling sedikit, yaitu 2 AP. 2,5 × 3,00 = 7,5. Pangkat 2 + 3 = 5. Hasil: 7,5 × 10⁵.',
+    p: ['A. 7,50 × 10⁵', 'B. 7,5 × 10⁵', 'C. 7,500 × 10⁵', 'D. 8 × 10⁵'],
+    j: 1
+  },
+  {
+    q: 'Berapakah jumlah angka penting dari hasil (4,15 × 10⁻²) × (2,0 × 10³) ?',
+    f: '4,15 memiliki 3 AP, sedangkan 2,0 memiliki 2 AP. Hasil perkalian harus dibulatkan menjadi 2 angka penting.',
+    p: ['A. 1 angka penting', 'B. 2 angka penting', 'C. 3 angka penting', 'D. 4 angka penting'],
+    j: 1
+  },
+  {
+    q: 'Hasil dari operasi (5,0 × 10⁴) × (4,0 × 10⁻²) adalah...',
+    f: '5,0 × 4,0 = 20. Pangkat: 4 + (-2) = 2. 20 × 10². Jadikan notasi ilmiah standar: 2,0 × 10³. (Masing-masing 2 AP, hasil wajib 2 AP).',
+    p: ['A. 2 × 10³', 'B. 2,0 × 10³', 'C. 20 × 10²', 'D. 2,00 × 10³'],
+    j: 1
+  },
+  {
+    q: 'Jika bilangan (1,250 × 10⁵) dikalikan dengan (3,00 × 10²), hasil akhirnya memiliki jumlah angka penting sebanyak...',
+    f: '1,250 memiliki 4 AP. 3,00 memiliki 3 AP. Aturan perkalian mengikuti angka penting paling sedikit, yaitu 3 AP.',
+    p: ['A. 2 angka penting', 'B. 3 angka penting', 'C. 4 angka penting', 'D. 7 angka penting'],
+    j: 1
+  },
+  {
+    q: 'Hasil dari (7,50 × 10³) × (2,0 × 10⁻¹) adalah...',
+    f: '7,50 × 2,0 = 15. Pangkat: 3 + (-1) = 2. 15 × 10². Notasi ilmiah standar: 1,5 × 10³. (Batas 2 AP dari 2,0).',
+    p: ['A. 15 × 10²', 'B. 1,50 × 10³', 'C. 1,5 × 10³', 'D. 1,5 × 10²'],
+    j: 2
+  },
+  {
+    q: 'Hasil dari pembagian (8,4 × 10⁵) ÷ (2,10 × 10²) adalah...',
+    f: '8,4 ÷ 2,10 = 4. Pangkat: 5 - 2 = 3. Batas AP paling sedikit adalah 2 AP (dari 8,4). Angka 4 ditulis menjadi 4,0. Hasil: 4,0 × 10³.',
+    p: ['A. 4,0 × 10³', 'B. 4 × 10³', 'C. 4,00 × 10³', 'D. 40 × 10²'],
+    j: 0
+  },
+  {
+    q: 'Berapakah jumlah angka penting pada hasil operasi (9,60 × 10⁶) ÷ (3,0 × 10²) ?',
+    f: '9,60 (3 AP) dan 3,0 (2 AP). Pembagian mengikuti angka penting yang paling sedikit, yaitu 2 angka penting.',
+    p: ['A. 1 angka penting', 'B. 2 angka penting', 'C. 3 angka penting', 'D. 5 angka penting'],
+    j: 1
+  },
+  {
+    q: 'Hasil dari (1,25 × 10⁴) ÷ (5,0 × 10²) adalah...',
+    f: '1,25 ÷ 5,0 = 0,25. Pangkat: 4 - 2 = 2. 0,25 × 10². Notasi ilmiah standar: 2,5 × 10¹. (Batas 2 AP dari 5,0).',
+    p: ['A. 0,25 × 10²', 'B. 2,50 × 10¹', 'C. 2,5 × 10¹', 'D. 25 × 10⁰'],
+    j: 2
+  },
+  {
+    q: 'Pada operasi (7,500 × 10⁻³) ÷ (2,50 × 10⁻²), hasil akhirnya akan memiliki jumlah angka penting sebanyak...',
+    f: '7,500 memiliki 4 AP. 2,50 memiliki 3 AP. Hasil pembagian harus mengikuti AP paling sedikit, yaitu 3 AP.',
+    p: ['A. 2 angka penting', 'B. 3 angka penting', 'C. 4 angka penting', 'D. 7 angka penting'],
+    j: 1
+  },
+  {
+    q: 'Hasil dari (6,4 × 10⁻²) ÷ (1,60 × 10³) adalah...',
+    f: '6,4 ÷ 1,60 = 4. Pangkat: (-2) - 3 = -5. Batas AP paling sedikit adalah 2 AP (dari 6,4). Angka 4 ditulis 4,0. Hasil: 4,0 × 10⁻⁵.',
+    p: ['A. 4 × 10⁻⁵', 'B. 4,0 × 10⁻⁵', 'C. 4,00 × 10⁻⁵', 'D. 4,0 × 10¹'],
+    j: 1
+  },
+  {
+    q: 'Tanpa menghitung nilai akhirnya, berapakah jumlah angka penting pada hasil (2,10 × 10²) + (3,2 × 10²) ?',
+    f: 'Penjumlahan mengikuti tempat desimal paling sedikit. 2,10 (2 desimal) dan 3,2 (1 desimal). Hasilnya 5,30 dibulatkan menjadi 5,3. Bilangan 5,3 memiliki 2 angka penting.',
+    p: ['A. 1 angka penting', 'B. 2 angka penting', 'C. 3 angka penting', 'D. 4 angka penting'],
+    j: 1
+  },
+  {
+    q: 'Berapakah jumlah angka penting dari hasil pembagian (1,44 × 10⁸) ÷ (1,2 × 10³) ?',
+    f: '1,44 memiliki 3 AP. 1,2 memiliki 2 AP. Aturan pembagian mengikuti angka penting yang paling sedikit, yaitu 2 angka penting.',
+    p: ['A. 1 angka penting', 'B. 2 angka penting', 'C. 3 angka penting', 'D. 5 angka penting'],
     j: 1
   }
 ],
