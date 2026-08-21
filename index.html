@@ -2775,6 +2775,162 @@ const SOAL={
   {q:'8 Megameter (Mm) diubah ke kilometer (km) menjadi sebesar ...',f:'8 Mm = 8 × 10⁶ m. Kalikan (10⁻³ × 10³) untuk kilo (10³). 8 × 10⁶ × 10⁻³ × 10³ = 8 × 10³ km.',p:['A. 8 × 10¹ km','B. 8 × 10² km','C. 8 × 10³ km','D. 8 × 10⁴ km'],j:2},
   {q:'0,02 meter (m) sama dengan berapa mikrometer (µm)?',f:'0,02 m = 2 × 10⁻² m. Kalikan (10⁶ × 10⁻⁶) untuk mikro (10⁻⁶). 2 × 10⁻² × 10⁶ × 10⁻⁶ = 2 × 10⁴ µm.',p:['A. 2 × 10³ µm','B. 2 × 10⁴ µm','C. 2 × 10⁵ µm','D. 2 × 10⁶ µm'],j:1}
 ],
+  'xf1angkapenting': [
+  {
+    q: 'Perhatikan bilangan \\(2054\\underline{0}0\\). Berapakah jumlah angka pentingnya?',
+    f: 'Angka 0 di antara 2 dan 5 otomatis adalah angka penting. Garis bawah pada angka 0 pertama di belakang 4 menandakan batas akhir angka penting. Maka angka yang dihitung adalah 2, 0, 5, 4, dan 0 (batas). Nol terakhir tidak dihitung. Total memuat 5 angka penting.',
+    p: ['A. 4', 'B. 5', 'C. 6', 'D. 7'],
+    j: 1
+  },
+  {
+    q: 'Perhatikan bilangan \\(8070\\overline{0}0\\). Berapakah jumlah angka pentingnya?',
+    f: 'Angka 8, 0 (tengah), dan 7 sudah pasti penting. Garis atas pada nol kedua menunjukkan bahwa nol pertama dan nol kedua dihitung penting, sedangkan nol ketiga (terakhir) tidak dihitung. Angka pentingnya: 8, 0, 7, 0, 0. Memuat 5 angka penting.',
+    p: ['A. 3', 'B. 4', 'C. 5', 'D. 6'],
+    j: 2
+  },
+  {
+    q: 'Perhatikan bilangan \\(102060.\\). Berapakah jumlah angka pentingnya?',
+    f: 'Angka 0 yang diapit angka bukan nol (di antara 1-2 dan 2-6) adalah angka penting. Tanda titik di akhir bilangan bulat menegaskan bahwa SEMUA angka nol hingga posisi titik tersebut adalah penting. Jadi 1, 0, 2, 0, 6, 0 semuanya dihitung. Memuat 6 angka penting.',
+    p: ['A. 4', 'B. 5', 'C. 6', 'D. 7'],
+    j: 2
+  },
+  {
+    q: 'Perhatikan bilangan \\(300900\\underline{0}\\). Berapakah jumlah angka pentingnya?',
+    f: 'Angka 0 di antara 3 dan 9 otomatis dihitung. Karena garis bawah berada di angka 0 yang paling akhir (paling kanan), maka semua trailing zeros (nol di akhir) ikut dihitung sebagai angka penting. Angka pentingnya: 3, 0, 0, 9, 0, 0, 0. Memuat 7 angka penting.',
+    p: ['A. 4', 'B. 5', 'C. 6', 'D. 7'],
+    j: 3
+  },
+  {
+    q: 'Perhatikan bilangan \\(50608\\overline{0}0\\). Berapakah jumlah angka pentingnya?',
+    f: 'Angka 0 di tengah-tengah (antara 5-6 dan 6-8) adalah angka penting. Tanda batas pada nol pertama di belakang 8 menandakan hanya nol tersebut yang dihitung penting, sedangkan nol terakhir tidak. Angka pentingnya: 5, 0, 6, 0, 8, 0. Memuat 6 angka penting.',
+    p: ['A. 4', 'B. 5', 'C. 6', 'D. 7'],
+    j: 2
+  },
+  // --- BAGIAN 1: Aturan Angka Penting ---
+  {
+    q: 'Berapakah jumlah angka penting dari 8790. (dengan tanda titik di akhir)?',
+    f: 'Angka 0 pada akhir bilangan bulat biasanya BUKAN angka penting. Namun, jika diberi tanda khusus seperti titik (.), garis bawah, atau garis atas, maka 0 tersebut menjadi angka penting. Jadi, 8790. memuat 4 angka penting.',
+    p: ['A. 2', 'B. 3', 'C. 4', 'D. 5'],
+    j: 2
+  },
+  {
+    q: 'Jumlah angka penting dari bilangan 0,0302 adalah...',
+    f: 'Angka 0 di sebelah kiri dan kanan koma secara langsung untuk bilangan kurang dari satu BUKAN angka penting. Jadi, yang dihitung hanya 3, 0 (di tengah), dan 2. Memuat 3 angka penting.',
+    p: ['A. 2', 'B. 3', 'C. 4', 'D. 5'],
+    j: 1
+  },
+  {
+    q: 'Jumlah angka penting pada penulisan notasi ilmiah 5,01 × 10⁻¹² adalah...',
+    f: 'Dalam notasi ilmiah, angka di depan orde adalah angka penting, sedangkan orde (10 pangkat) BUKAN angka penting. Bilangan 5,01 memuat 3 angka penting.',
+    p: ['A. 2', 'B. 3', 'C. 4', 'D. 15'],
+    j: 1
+  },
+  {
+    q: 'Berapakah jumlah angka penting pada bilangan 710,0 ?',
+    f: 'Angka 0 di sebelah kanan tanda desimal untuk bilangan lebih atau sama dengan 1 adalah angka penting. Sehingga angka 7, 1, 0, 0 semuanya penting (4 angka penting).',
+    p: ['A. 2', 'B. 3', 'C. 4', 'D. 5'],
+    j: 2
+  },
+  {
+    q: 'Bilangan "15 bola sepak", menurut aturan fisika, memiliki jumlah angka penting sebanyak...',
+    f: 'Angka yang didapat dari hasil MENCACAH (menghitung barang) atau angka dari sebuah rumus (seperti angka 2 pada 2πr) disebut angka/bilangan eksak. Bilangan ini BUKAN angka penting dan tidak membatasi hasil operasi.',
+    p: ['A. 1 angka penting', 'B. 2 angka penting', 'C. 3 angka penting', 'D. Bukan angka penting (Bilangan eksak)'],
+    j: 3
+  },
+  // --- BAGIAN 2: Aturan Pembulatan ---
+  {
+    q: 'Jika 124,3 dibulatkan menjadi DUA angka penting, hasilnya adalah...',
+    f: 'Batas 2 angka penting ada di angka 2. Angka setelahnya adalah 4 (kurang dari 5) sehingga dibulatkan ke bawah (langsung menjadi nol). Hasilnya adalah 120 (mengandung 2 angka penting: 1 dan 2).',
+    p: ['A. 12', 'B. 120', 'C. 124', 'D. 100'],
+    j: 1
+  },
+  {
+    q: 'Jika bilangan 465 dibulatkan menjadi DUA angka penting, maka hasilnya adalah...',
+    f: 'Aturan angka TEPAT 5: Jika angka di depannya genap (yaitu 6), maka dibulatkan ke Bawah (angka 5 dihilangkan menjadi 0). Hasilnya 460.',
+    p: ['A. 46', 'B. 460', 'C. 470', 'D. 500'],
+    j: 1
+  },
+  {
+    q: 'Jika bilangan 735 dibulatkan menjadi DUA angka penting, hasilnya adalah...',
+    f: 'Aturan angka TEPAT 5: Jika angka di depannya ganjil (yaitu 3), maka dibulatkan ke Atas (+1). Hasilnya 740.',
+    p: ['A. 730', 'B. 740', 'C. 73', 'D. 700'],
+    j: 1
+  },
+  {
+    q: 'Bilangan 8451 jika dibulatkan menjadi DUA angka penting, hasilnya adalah...',
+    f: 'HATI-HATI! Meskipun angka di depan adalah genap (4), namun angka yang dibuang adalah 51. Karena 51 LEBIH BESAR dari 50, maka wajib dibulatkan ke ATAS. Hasilnya 8500.',
+    p: ['A. 8400', 'B. 84', 'C. 8500', 'D. 85'],
+    j: 2
+  },
+  {
+    q: 'Bilangan 6857,45 jika dibulatkan menjadi LIMA angka penting menjadi...',
+    f: 'Batas 5 angka penting ada di angka 4. Angka setelahnya tepat 5. Karena di depan 5 adalah bilangan genap (4), maka dibulatkan ke BAWAH. Hasilnya 6857,4.',
+    p: ['A. 6857,4', 'B. 6857,5', 'C. 6857,40', 'D. 6857,0'],
+    j: 0
+  },
+  // --- BAGIAN 3: Penjumlahan & Pengurangan ---
+  {
+    q: 'Hasil dari 532,03 + 45,1 menurut aturan angka penting adalah...',
+    f: 'Susun ke bawah: 532,03 (taksiran di 3) + 45,1 (taksiran di 1) = 577,13. Hasil hanya boleh mengandung SATU angka taksiran (mengikuti posisi desimal paling kiri). 577,13 dibulatkan menjadi 577,1.',
+    p: ['A. 577', 'B. 577,1', 'C. 577,13', 'D. 577,2'],
+    j: 1
+  },
+  {
+    q: 'Hasil pengurangan 658,97 - 12,3 menurut aturan angka penting adalah...',
+    f: '658,97 - 12,3 = 646,67. Batas satu angka taksiran ada di satu angka di belakang koma. 646,67 dibulatkan ke atas (karena 7 > 5) menjadi 646,7.',
+    p: ['A. 646,6', 'B. 646,7', 'C. 646,67', 'D. 647'],
+    j: 1
+  },
+  {
+    q: 'Berapakah hasil dari 100 - 1 menurut aturan angka penting?',
+    f: '100 (taksiran di angka 1 ratusan) dikurangi 1 (taksiran di satuan) = 99. Batas taksiran ada di posisi ratusan. 99 jika dibulatkan ke ratusan terdekat hasilnya kembali menjadi 100.',
+    p: ['A. 99', 'B. 99,0', 'C. 100', 'D. 101'],
+    j: 2
+  },
+  {
+    q: 'Hasil penjumlahan dari 6400 + 5,13 berdasarkan aturan angka penting adalah...',
+    f: '6400 (angka pentingnya hanya 6 dan 4, taksiran di 4 posisi ratusan). Ditambah 5,13 hasilnya 6405,13. Dibulatkan ke batas taksiran ratusan (05,13 ke bawah) menjadi 6400.',
+    p: ['A. 6405', 'B. 6405,13', 'C. 6410', 'D. 6400'],
+    j: 3
+  },
+  {
+    q: 'Hasil pengurangan 500 - 2,5 berdasarkan aturan angka penting adalah...',
+    f: '500 (taksiran di angka 5 posisi ratusan) dikurangi 2,5 = 497,5. Karena taksiran ada di posisi ratusan, 497,5 dibulatkan ke ratusan terdekat (karena 97,5 > 50, ke atas) menjadi 500.',
+    p: ['A. 497,5', 'B. 498', 'C. 500', 'D. 490'],
+    j: 2
+  },
+  // --- BAGIAN 4: Perkalian, Pembagian, Pangkat, Akar ---
+  {
+    q: 'Hasil kali 5,67 × 8,5 menurut aturan angka penting adalah...',
+    f: '5,67 (3 AP) × 8,5 (2 AP). Hasil kali (48,195) harus dibulatkan ke jumlah AP yang paling sedikit, yaitu 2 AP. 48,195 dibulatkan menjadi 48.',
+    p: ['A. 48', 'B. 48,2', 'C. 48,19', 'D. 48,195'],
+    j: 0
+  },
+  {
+    q: 'Massa total 45,38 kg gula dibagikan rata kepada 15 orang. Massa yang diterima tiap orang menurut angka penting adalah...',
+    f: '45,38 kg (4 AP) dibagi 15 orang. Karena 15 adalah bilangan MENCACAH (bukan AP), maka hasil dibatasi oleh 4 AP. Hasil kalkulator 3,0253... dibulatkan menjadi 4 AP yaitu 3,025 kg.',
+    p: ['A. 3,0 kg', 'B. 3,02 kg', 'C. 3,025 kg', 'D. 3,0253 kg'],
+    j: 2
+  },
+  {
+    q: 'Hasil perkalian 500 × 750 berdasarkan aturan angka penting adalah...',
+    f: '500 (1 AP) dikali 750 (2 AP) = 375.000. Hasil harus mengikuti jumlah AP paling sedikit (yaitu 1 AP). 375.000 dibulatkan ke 1 AP (karena 7 di atas 5, ke atas) menjadi 400.000.',
+    p: ['A. 375', 'B. 375.000', 'C. 380.000', 'D. 400.000'],
+    j: 3
+  },
+  {
+    q: 'Hasil dari (1,2)² menurut aturan angka penting adalah...',
+    f: 'Hasil pangkat harus mengikuti jumlah AP bilangan yang dipangkatkan. 1,2 (2 AP). Hasilnya 1,44 dibulatkan menjadi 2 AP, yaitu 1,4.',
+    p: ['A. 1,44', 'B. 1,4', 'C. 1,5', 'D. 1,40'],
+    j: 1
+  },
+  {
+    q: 'Hasil dari √(81) menurut aturan angka penting adalah...',
+    f: '81 memiliki 2 angka penting. Maka hasil akarnya harus memiliki 2 angka penting juga. Angka 9 saja hanya 1 AP, sehingga harus ditulis 9,0 (2 AP).',
+    p: ['A. 9', 'B. 9,0', 'C. 9,00', 'D. 0,9'],
+    j: 1
+  }
+],
 'x-kim-1': [
   // ── MUDAH: Konsep Dasar & Atom Netral (1-7) ──
   {q:'Nomor atom (Z) pada suatu unsur menunjukkan identitas atom tersebut yang ditentukan oleh jumlah ...',f:'Nomor atom selalu sama dengan jumlah proton di dalam inti atom.',p:['A. Proton','B. Neutron','C. Elektron valensi','D. Massa inti'],j:0},
